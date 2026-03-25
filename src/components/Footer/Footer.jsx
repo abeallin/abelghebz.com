@@ -1,5 +1,13 @@
 import React from "react";
+import { FiGithub, FiLinkedin, FiMail, FiPhone } from "react-icons/fi";
 import { social } from "../../data/content";
+
+const iconMap = {
+  github: FiGithub,
+  linkedin: FiLinkedin,
+  email: FiMail,
+  phone: FiPhone,
+};
 
 export default function Footer() {
   return (
@@ -13,17 +21,21 @@ export default function Footer() {
           </p>
         </div>
         <div className="flex gap-8">
-          {social.map((s) => (
-            <a
-              key={s.label}
-              href={s.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="font-mono text-[11px] uppercase tracking-[0.15em] text-text-dim hover:text-accent transition-colors duration-300"
-            >
-              {s.label}
-            </a>
-          ))}
+          {social.map((s) => {
+            const Icon = iconMap[s.icon];
+            return (
+              <a
+                key={s.label}
+                href={s.url}
+                target={s.url.startsWith("tel:") ? undefined : "_blank"}
+                rel={s.url.startsWith("tel:") ? undefined : "noopener noreferrer"}
+                className="inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.15em] text-text-dim hover:text-accent transition-colors duration-300"
+              >
+                {Icon && <Icon size={13} />}
+                {s.label}
+              </a>
+            );
+          })}
         </div>
       </div>
     </footer>

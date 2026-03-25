@@ -1,6 +1,14 @@
 import React from "react";
 import { motion } from "framer-motion";
+import { FiGithub, FiLinkedin, FiMail, FiPhone } from "react-icons/fi";
 import { personal, social } from "../../data/content";
+
+const iconMap = {
+  github: FiGithub,
+  linkedin: FiLinkedin,
+  email: FiMail,
+  phone: FiPhone,
+};
 
 const reveal = {
   hidden: { opacity: 0, y: 60 },
@@ -116,17 +124,21 @@ export default function Hero() {
         animate="visible"
       >
         <div className="flex gap-8">
-          {social.map((s) => (
-            <a
-              key={s.label}
-              href={s.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="font-mono text-[11px] uppercase tracking-[0.15em] text-text-dim hover:text-accent transition-colors duration-300"
-            >
-              {s.label}
-            </a>
-          ))}
+          {social.map((s) => {
+            const Icon = iconMap[s.icon];
+            return (
+              <a
+                key={s.label}
+                href={s.url}
+                target={s.url.startsWith("tel:") ? undefined : "_blank"}
+                rel={s.url.startsWith("tel:") ? undefined : "noopener noreferrer"}
+                className="inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.15em] text-text-dim hover:text-accent transition-colors duration-300"
+              >
+                {Icon && <Icon size={13} />}
+                {s.label}
+              </a>
+            );
+          })}
         </div>
         <div className="hidden lg:flex items-center gap-3 font-mono text-[11px] uppercase tracking-[0.15em] text-text-dim">
           <span>Scroll</span>
