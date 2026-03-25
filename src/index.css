@@ -1,19 +1,18 @@
 @import "tailwindcss";
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Syne:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap');
 
 @theme {
-  --color-bg-primary: #06060b;
-  --color-gradient-start: #AE67FA;
-  --color-gradient-end: #F49867;
-  --color-text-primary: #ffffff;
-  --color-text-secondary: rgba(255, 255, 255, 0.45);
-  --color-text-muted: rgba(255, 255, 255, 0.25);
-  --color-border-subtle: rgba(255, 255, 255, 0.06);
-  --color-surface: rgba(255, 255, 255, 0.02);
-  --color-status-green: #34D399;
-  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-  --font-mono: 'JetBrains Mono', monospace;
+  --color-bg: #0a0a0a;
+  --color-bg-raised: #141414;
+  --color-accent: #e8491d;
+  --color-text: #f0efe9;
+  --color-text-dim: #6b6b6b;
+  --color-border: #1f1f1f;
+  --color-surface: #141414;
+  --font-display: 'Instrument Serif', Georgia, serif;
+  --font-body: 'Syne', sans-serif;
+  --font-mono: 'Space Mono', monospace;
 }
 
 html {
@@ -22,11 +21,17 @@ html {
 
 body {
   margin: 0;
-  font-family: var(--font-sans);
-  background-color: var(--color-bg-primary);
-  color: var(--color-text-primary);
+  font-family: var(--font-body);
+  background-color: var(--color-bg);
+  color: var(--color-text);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  cursor: none;
+}
+
+::selection {
+  background: var(--color-accent);
+  color: var(--color-bg);
 }
 
 /* Reduced motion preferences */
@@ -56,7 +61,6 @@ body {
   animation: marquee-reverse 35s linear infinite;
 }
 
-/* Marquee reduced-motion fallback: static wrapped grid */
 @media (prefers-reduced-motion: reduce) {
   .animate-marquee,
   .animate-marquee-reverse {

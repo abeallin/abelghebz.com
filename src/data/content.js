@@ -8,8 +8,7 @@ export const personal = {
   taglineHighlight: "products",
   taglineSuffix: "that\npeople love.",
   description:
-    "Senior Software Engineer crafting scalable, user-focused applications. From backend systems to polished frontends — I bring ideas to life.",
-  status: "Available for opportunities",
+    "Full-stack engineer with 7+ years building products across fintech, enterprise, and startups. From system architecture to pixel-perfect frontends.",
   cvPath: "/assets/abel_ghebrezadik_cv.pdf",
 };
 

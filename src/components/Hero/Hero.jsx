@@ -2,137 +2,135 @@ import React from "react";
 import { motion } from "framer-motion";
 import { personal, social } from "../../data/content";
 
-const lineVariants = {
-  hidden: { opacity: 0, y: 30 },
+const reveal = {
+  hidden: { opacity: 0, y: 60 },
   visible: (i) => ({
     opacity: 1,
     y: 0,
-    transition: { delay: 0.2 + i * 0.2, duration: 0.8, ease: "easeOut" },
+    transition: { delay: 0.3 + i * 0.15, duration: 1, ease: [0.25, 0.46, 0.45, 0.94] },
   }),
 };
 
-const fadeIn = (delay) => ({
+const fade = (delay) => ({
   hidden: { opacity: 0 },
   visible: { opacity: 1, transition: { delay, duration: 0.8 } },
 });
 
 export default function Hero() {
   return (
-    <section
-      id="hero"
-      className="relative z-[1] min-h-screen flex flex-col justify-center px-8 lg:px-16 max-w-[1400px] mx-auto"
-    >
-      {/* Ambient glows */}
-      <div className="fixed top-[-200px] right-[-100px] w-[600px] h-[600px] rounded-full bg-gradient-start opacity-[0.08] blur-[120px] pointer-events-none z-0" />
-      <div className="fixed bottom-[-300px] left-[-200px] w-[600px] h-[600px] rounded-full bg-gradient-end opacity-[0.08] blur-[120px] pointer-events-none z-0" />
+    <section id="hero" className="relative z-[1] min-h-screen flex flex-col justify-end px-6 lg:px-12 pb-12 pt-32 max-w-[1600px] mx-auto">
+      {/* Top rule */}
+      <motion.div
+        className="absolute top-28 left-6 right-6 lg:left-12 lg:right-12 h-[1px] bg-border"
+        initial={{ scaleX: 0 }}
+        animate={{ scaleX: 1 }}
+        transition={{ duration: 1.2, ease: [0.25, 0.46, 0.45, 0.94] }}
+        style={{ transformOrigin: "left" }}
+      />
 
-      {/* Label */}
-      <div className="flex items-center gap-3 mb-8 font-mono text-xs text-text-muted tracking-[3px] uppercase">
-        <span className="w-8 h-[1px] bg-gradient-to-r from-gradient-start to-gradient-end" />
-        {personal.title}
+      <div className="flex-1 flex flex-col justify-center">
+        {/* Label */}
+        <motion.div
+          className="flex items-center gap-4 mb-6"
+          variants={fade(0.2)}
+          initial="hidden"
+          animate="visible"
+        >
+          <span className="w-2 h-2 rounded-full bg-accent" />
+          <span className="font-mono text-[11px] uppercase tracking-[0.2em] text-text-dim">
+            {personal.title}
+          </span>
+        </motion.div>
+
+        {/* Title — oversized mixed typography */}
+        <h1 className="mb-8">
+          <motion.span
+            className="block font-body text-[clamp(48px,9vw,140px)] font-800 leading-[0.9] tracking-[-0.04em] text-text"
+            custom={0}
+            initial="hidden"
+            animate="visible"
+            variants={reveal}
+          >
+            {personal.tagline}
+          </motion.span>
+          <motion.span
+            className="block font-display italic text-[clamp(48px,9vw,140px)] leading-[0.95] tracking-[-0.02em] text-accent"
+            custom={1}
+            initial="hidden"
+            animate="visible"
+            variants={reveal}
+          >
+            {personal.taglineHighlight}
+          </motion.span>
+          <motion.span
+            className="block font-body text-[clamp(48px,9vw,140px)] font-800 leading-[0.9] tracking-[-0.04em] text-text"
+            custom={2}
+            initial="hidden"
+            animate="visible"
+            variants={reveal}
+          >
+            that matter.
+          </motion.span>
+        </h1>
+
+        {/* Description */}
+        <motion.p
+          className="text-[15px] text-text-dim leading-[1.8] max-w-[520px] mb-10 font-body font-normal"
+          variants={fade(1.0)}
+          initial="hidden"
+          animate="visible"
+        >
+          {personal.description}
+        </motion.p>
+
+        {/* CTAs */}
+        <motion.div
+          className="flex gap-6 items-center"
+          variants={fade(1.2)}
+          initial="hidden"
+          animate="visible"
+        >
+          <a
+            href="#projects"
+            className="group inline-flex items-center gap-3 px-8 py-4 bg-accent text-bg text-[13px] font-mono uppercase tracking-[0.1em] font-bold hover:bg-text hover:text-bg transition-all duration-300"
+          >
+            View Projects
+            <span className="group-hover:translate-x-1 transition-transform">→</span>
+          </a>
+          <a
+            href={personal.cvPath}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-[13px] font-mono uppercase tracking-[0.1em] text-text-dim hover:text-accent transition-colors border-b border-text-dim hover:border-accent pb-1"
+          >
+            Download CV
+          </a>
+        </motion.div>
       </div>
 
-      {/* Title */}
-      <h1 className="text-[clamp(56px,8vw,96px)] font-light leading-[1.05] tracking-[-3px] mb-10">
-        <motion.span
-          className="block"
-          custom={0}
-          initial="hidden"
-          animate="visible"
-          variants={lineVariants}
-        >
-          {personal.tagline}
-        </motion.span>
-        <motion.span
-          className="block"
-          custom={1}
-          initial="hidden"
-          animate="visible"
-          variants={lineVariants}
-        >
-          <strong className="font-extrabold bg-gradient-to-br from-gradient-start to-gradient-end bg-clip-text text-transparent">
-            {personal.taglineHighlight}
-          </strong>{" "}
-          that
-        </motion.span>
-        <motion.span
-          className="block"
-          custom={2}
-          initial="hidden"
-          animate="visible"
-          variants={lineVariants}
-        >
-          people love.
-        </motion.span>
-      </h1>
-
-      {/* Description */}
-      <motion.p
-        className="text-[17px] text-text-secondary leading-relaxed max-w-[480px] mb-12"
-        variants={fadeIn(0.9)}
-        initial="hidden"
-        animate="visible"
-      >
-        {personal.description}
-      </motion.p>
-
-      {/* CTAs */}
+      {/* Bottom bar */}
       <motion.div
-        className="flex gap-4 items-center mb-12"
-        variants={fadeIn(1.1)}
+        className="flex justify-between items-end pt-12 border-t border-border mt-12"
+        variants={fade(1.5)}
         initial="hidden"
         animate="visible"
       >
-        <a
-          href="#projects"
-          className="inline-flex items-center gap-2 px-8 py-3.5 bg-gradient-to-br from-gradient-start to-gradient-end text-white text-sm font-semibold rounded-xl hover:-translate-y-0.5 hover:shadow-[0_8px_32px_rgba(174,103,250,0.3)] transition-all duration-200"
-        >
-          View Projects <span>→</span>
-        </a>
-        <a
-          href={personal.cvPath}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-flex items-center gap-2 px-8 py-3.5 border border-border-subtle text-text-secondary text-sm font-medium rounded-xl bg-surface hover:border-white/25 hover:text-white hover:bg-white/5 transition-all duration-300"
-        >
-          Download CV
-        </a>
-      </motion.div>
-
-      {/* Status */}
-      <motion.div
-        className="flex items-center gap-2 text-xs text-text-muted"
-        variants={fadeIn(1.3)}
-        initial="hidden"
-        animate="visible"
-      >
-        <span className="w-1.5 h-1.5 rounded-full bg-status-green animate-pulse shadow-[0_0_0_0_rgba(52,211,153,0.4)]" />
-        {personal.status}
-      </motion.div>
-
-      {/* Hero footer */}
-      <motion.div
-        className="absolute bottom-10 left-8 right-8 lg:left-16 lg:right-16 flex justify-between items-center"
-        variants={fadeIn(1.4)}
-        initial="hidden"
-        animate="visible"
-      >
-        <div className="flex gap-7">
+        <div className="flex gap-8">
           {social.map((s) => (
             <a
               key={s.label}
               href={s.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-xs font-medium tracking-[1.5px] uppercase text-text-muted hover:text-white/70 transition-colors duration-300"
+              className="font-mono text-[11px] uppercase tracking-[0.15em] text-text-dim hover:text-accent transition-colors duration-300"
             >
               {s.label}
             </a>
           ))}
         </div>
-        <div className="flex items-center gap-2.5 text-[11px] tracking-[2px] uppercase text-white/20">
+        <div className="hidden lg:flex items-center gap-3 font-mono text-[11px] uppercase tracking-[0.15em] text-text-dim">
           <span>Scroll</span>
-          <div className="w-[1px] h-10 bg-gradient-to-b from-gradient-start/50 to-transparent animate-pulse" />
+          <span className="w-[1px] h-8 bg-accent/40 animate-pulse" />
         </div>
       </motion.div>
     </section>

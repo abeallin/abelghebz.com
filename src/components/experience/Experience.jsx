@@ -7,48 +7,42 @@ function ExperienceCard({ item, index }) {
   if (item.featured) {
     return (
       <motion.div
-        className="col-span-full grid grid-cols-1 lg:grid-cols-2 gap-10 p-9 bg-surface border border-border-subtle rounded-[20px] relative overflow-hidden hover:border-gradient-start/[0.15] hover:-translate-y-1 hover:shadow-[0_12px_40px_rgba(0,0,0,0.3)] transition-all duration-400 before:content-[''] before:absolute before:top-0 before:left-0 before:right-0 before:h-[2px] before:bg-gradient-to-r before:from-gradient-start before:to-gradient-end before:opacity-0 hover:before:opacity-100 before:transition-opacity before:duration-400"
+        className="col-span-full grid grid-cols-1 lg:grid-cols-2 gap-0 bg-bg-raised border border-border overflow-hidden group hover:border-accent/30 transition-all duration-500"
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-50px" }}
-        transition={{ duration: 0.5 }}
+        transition={{ duration: 0.6 }}
       >
-        <div>
-          <div className="flex justify-between items-start mb-5">
-            <div className="w-12 h-12 bg-white/5 rounded-xl flex items-center justify-center text-lg font-bold text-text-muted">
+        <div className="p-8 lg:p-10">
+          <div className="flex justify-between items-start mb-6">
+            <div className="w-12 h-12 bg-accent/10 border border-accent/20 flex items-center justify-center font-mono text-sm text-accent font-bold">
               {item.initials}
             </div>
-            <span className="font-mono text-[11px] text-gradient-start/60 px-3 py-1.5 bg-gradient-start/[0.06] rounded-full">
+            <span className="font-mono text-[11px] text-text-dim tracking-wider">
               {item.year}
             </span>
           </div>
-          <h3 className="text-xl font-semibold text-white/90 mb-1">
+          <h3 className="text-2xl font-body font-700 text-text mb-1 group-hover:text-accent transition-colors">
             {item.company}
           </h3>
-          <div className="text-[13px] text-text-muted mb-4">{item.role}</div>
-          <p className="text-sm leading-relaxed text-text-secondary mb-5">
-            {item.description}
-          </p>
-          <div className="flex flex-wrap gap-1.5 mb-5">
-            {item.tech.map((t) => (
-              <TechPill key={t} label={t} />
-            ))}
+          <div className="font-mono text-[11px] text-text-dim uppercase tracking-wider mb-5">{item.role}</div>
+          <p className="text-[14px] leading-[1.8] text-text-dim mb-6">{item.description}</p>
+          <div className="flex flex-wrap gap-2 mb-6">
+            {item.tech.map((t) => <TechPill key={t} label={t} />)}
           </div>
           {item.link && (
             <a
               href={item.link.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 text-[13px] text-gradient-start/60 hover:text-gradient-start transition-colors"
+              className="inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-wider text-accent hover:text-text transition-colors"
             >
-              Visit {item.link.label} →
+              Visit {item.link.label} ↗
             </a>
           )}
         </div>
-        <div className="flex items-center justify-center">
-          <div className="w-full h-[200px] bg-gradient-to-br from-gradient-start/[0.06] to-gradient-end/[0.06] rounded-2xl border border-border-subtle flex items-center justify-center">
-            <span className="text-[13px] text-white/15">Site preview</span>
-          </div>
+        <div className="flex items-center justify-center bg-bg border-l border-border min-h-[240px]">
+          <span className="font-mono text-[11px] text-text-dim/30 uppercase tracking-widest">Preview</span>
         </div>
       </motion.div>
     );
@@ -56,31 +50,25 @@ function ExperienceCard({ item, index }) {
 
   return (
     <motion.div
-      className="p-9 bg-surface border border-border-subtle rounded-[20px] relative overflow-hidden hover:border-gradient-start/[0.15] hover:-translate-y-1 hover:shadow-[0_12px_40px_rgba(0,0,0,0.3)] transition-all duration-400 before:content-[''] before:absolute before:top-0 before:left-0 before:right-0 before:h-[2px] before:bg-gradient-to-r before:from-gradient-start before:to-gradient-end before:opacity-0 hover:before:opacity-100 before:transition-opacity before:duration-400"
+      className="p-8 bg-bg-raised border border-border group hover:border-accent/30 transition-all duration-500"
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-50px" }}
-      transition={{ duration: 0.5, delay: index * 0.1 }}
+      transition={{ duration: 0.5, delay: index * 0.08 }}
     >
-      <div className="flex justify-between items-start mb-5">
-        <div className="w-12 h-12 bg-white/5 rounded-xl flex items-center justify-center text-lg font-bold text-text-muted">
+      <div className="flex justify-between items-start mb-6">
+        <div className="w-10 h-10 bg-surface border border-border flex items-center justify-center font-mono text-[11px] text-text-dim">
           {item.initials}
         </div>
-        <span className="font-mono text-[11px] text-gradient-start/60 px-3 py-1.5 bg-gradient-start/[0.06] rounded-full">
-          {item.year}
-        </span>
+        <span className="font-mono text-[11px] text-text-dim tracking-wider">{item.year}</span>
       </div>
-      <h3 className="text-xl font-semibold text-white/90 mb-1">
+      <h3 className="text-lg font-body font-600 text-text mb-1 group-hover:text-accent transition-colors">
         {item.company}
       </h3>
-      <div className="text-[13px] text-text-muted mb-4">{item.role}</div>
-      <p className="text-sm leading-relaxed text-text-secondary mb-5">
-        {item.description}
-      </p>
-      <div className="flex flex-wrap gap-1.5">
-        {item.tech.map((t) => (
-          <TechPill key={t} label={t} />
-        ))}
+      <div className="font-mono text-[11px] text-text-dim uppercase tracking-wider mb-4">{item.role}</div>
+      <p className="text-[13px] leading-[1.8] text-text-dim mb-5">{item.description}</p>
+      <div className="flex flex-wrap gap-2">
+        {item.tech.map((t) => <TechPill key={t} label={t} />)}
       </div>
     </motion.div>
   );
@@ -91,29 +79,23 @@ export default function Experience() {
   const rest = experience.filter((e) => !e.featured);
 
   return (
-    <section
-      id="experience"
-      className="max-w-[1200px] mx-auto px-8 lg:px-16 py-24"
-    >
-      <div className="flex items-center gap-3 mb-6 font-mono text-[11px] text-text-muted tracking-[3px] uppercase">
-        <span className="w-6 h-[1px] bg-gradient-to-r from-gradient-start to-gradient-end" />
-        Experience
-      </div>
-      <h2 className="text-[44px] font-light leading-[1.15] tracking-[-1.5px] mb-14">
-        Where I've{" "}
-        <strong className="font-bold bg-gradient-to-br from-gradient-start to-gradient-end bg-clip-text text-transparent">
-          built things
-        </strong>
-        .
-      </h2>
+    <section id="experience" className="max-w-[1600px] mx-auto px-6 lg:px-12 py-32">
+      <div className="border-t border-border pt-12">
+        <div className="flex items-center gap-4 mb-16">
+          <span className="font-mono text-[11px] text-accent tracking-[0.2em]">02</span>
+          <span className="font-mono text-[11px] uppercase tracking-[0.2em] text-text-dim">Experience</span>
+        </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">
-        {featured.map((item, i) => (
-          <ExperienceCard key={item.company} item={item} index={i} />
-        ))}
-        {rest.map((item, i) => (
-          <ExperienceCard key={item.company} item={item} index={i} />
-        ))}
+        <h2 className="text-[clamp(36px,5vw,64px)] leading-[1.05] tracking-[-0.03em] mb-14">
+          <span className="font-body font-800 text-text">Where I've </span>
+          <span className="font-display italic text-accent">built things</span>
+          <span className="font-body font-800 text-text">.</span>
+        </h2>
+
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
+          {featured.map((item, i) => <ExperienceCard key={item.company} item={item} index={i} />)}
+          {rest.map((item, i) => <ExperienceCard key={item.company} item={item} index={i} />)}
+        </div>
       </div>
     </section>
   );

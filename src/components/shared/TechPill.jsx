@@ -2,7 +2,7 @@ import React from "react";
 
 export default function TechPill({ label }) {
   return (
-    <span className="text-[11px] font-mono px-3.5 py-1 bg-gradient-start/[0.08] border border-gradient-start/[0.15] rounded-full text-gradient-start/70">
+    <span className="font-mono text-[10px] uppercase tracking-wider px-3 py-1.5 border border-border text-text-dim bg-bg hover:border-accent/30 hover:text-accent transition-all duration-300">
       {label}
     </span>
   );
