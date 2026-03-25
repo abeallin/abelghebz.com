@@ -85,6 +85,7 @@ export const experience = [
     description:
       "Crypto gambling platform. Refactoring TypeScript adhering to big O notation. 50% improvement in Snowflake and MySQL queries. Reduced API latency by up to 8s with Lambda warm-up pings and concurrency (94% hit rate). Enhanced Redis with batch pipelines. Rebuilt data tables with keyset/cursor pagination. Created automation app integrating Playwright, Bitbucket, GitHub, and Jira MCPs for automated UI testing. Building new full-stack app in React and .NET with DDD, CQRS via Kafka, and gRPC interservice comms.",
     tech: ["C# / .NET", "TypeScript", "React", "Snowflake", "Redis", "Kafka", "gRPC", "AWS Lambda"],
+    link: { label: "arenaentertainment.com", url: "https://arenaentertainment.com/" },
     featured: true,
   },
   {
@@ -95,6 +96,7 @@ export const experience = [
     description:
       "Built a multiplayer game for a leading sports betting company with a £500k jackpot, scaled to 300,000 users. Designed high-performance C# backend on AWS Lambda (serverless). Integrated CockroachDB with Dapper ORM. Built event-driven architecture using SNS and SQS. Implemented CI/CD pipelines with API Gateway, Lambda, and CloudFormation.",
     tech: ["C#", "AWS Lambda", "CockroachDB", "Dapper", "SNS/SQS", "CloudFormation"],
+    link: { label: "betmate.app", url: "https://www.betmate.app/" },
   },
   {
     company: "NHS England",
@@ -104,6 +106,7 @@ export const experience = [
     description:
       "Delivered a Python desktop application using Selenium to automate features in a 3rd-party healthcare application used nationwide by GPs. Automated bulk creation and deletion of templates, removing significant time and labour inefficiency.",
     tech: ["Python", "Selenium", "Tkinter", "CSV"],
+    link: { label: "england.nhs.uk", url: "https://www.england.nhs.uk/" },
   },
   {
     company: "Fvtvre",
@@ -122,6 +125,7 @@ export const experience = [
     description:
       "Technical lead on Project Tahiti — saved the company millions in fines. Resolved 500+ production issues in 6 months, 80% faster than other engineers. Built front-end and back-end features, mentored juniors, stepped into Lead Developer duties. Involved in debt sale implementation and presenting to external clients.",
     tech: ["C# / .NET 6", "React", "MSSQL", "Microservices"],
+    link: { label: "salaryfinance.com", url: "https://www.salaryfinance.com/uk/" },
   },
   {
     company: "Optal → Wex",
@@ -131,6 +135,7 @@ export const experience = [
     description:
       "Developed desktop applications for accounts management. Monitored millions of daily transactions from Expedia and Booking.com, reconciled with Ixaris and MasterCard data. Settled across 50+ bank accounts in multiple currencies across 10 international entities.",
     tech: ["C# / .NET", "WinForms", "WPF", "MSSQL"],
+    link: { label: "Wex acquires Optal", url: "https://ir.wexinc.com/news/news-details/2020/WEX-Completes-Acquisition-of-eNett-and-Optal/default.aspx" },
   },
   {
     company: "FDM Group → LME",
@@ -140,6 +145,7 @@ export const experience = [
     description:
       "Graduate scheme contracted to London Metal Exchange. Built functionality in C++, Java, and C#. Created a SOAP API for internal data retrieval. Developed MIFID II regulatory reporting APIs. Scripted in Perl, PowerShell, and Batch.",
     tech: ["C# / .NET", "C++", "Java", "Perl"],
+    link: { label: "fdmgroup.com", url: "https://www.fdmgroup.com/" },
   },
 ];
 

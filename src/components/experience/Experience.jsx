@@ -67,9 +67,19 @@ function ExperienceCard({ item, index }) {
       </h3>
       <div className="font-mono text-[11px] text-text-dim uppercase tracking-wider mb-4">{item.role}</div>
       <p className="text-[13px] leading-[1.8] text-text-dim mb-5">{item.description}</p>
-      <div className="flex flex-wrap gap-2">
+      <div className="flex flex-wrap gap-2 mb-5">
         {item.tech.map((t) => <TechPill key={t} label={t} />)}
       </div>
+      {item.link && (
+        <a
+          href={item.link.url}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-wider text-accent hover:text-text transition-colors"
+        >
+          Visit {item.link.label} ↗
+        </a>
+      )}
     </motion.div>
   );
 }
