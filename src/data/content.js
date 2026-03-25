@@ -69,10 +69,10 @@ export const timeline = [
   },
   {
     year: "May 2016 — May 2018",
-    company: "FDM Group → LME",
-    title: "IT Consultant",
+    company: "FDM Group",
+    title: "IT Consultant at London Metal Exchange",
     description:
-      "Graduate scheme at London Metal Exchange. MIFID II regulatory reporting APIs in C# .NET.",
+      "Graduate scheme, contracted to London Metal Exchange. MIFID II regulatory reporting APIs in C# .NET.",
   },
 ];
 
@@ -138,12 +138,12 @@ export const experience = [
     link: { label: "wexinc.com", url: "https://www.wexinc.com/en-gb/" },
   },
   {
-    company: "FDM Group → LME",
+    company: "FDM Group",
     initials: "FD",
-    role: "IT Consultant",
+    role: "IT Consultant at London Metal Exchange",
     year: "May 2016 — May 2018",
     description:
-      "Graduate scheme contracted to London Metal Exchange. Built functionality in C++, Java, and C#. Created a SOAP API for internal data retrieval. Developed MIFID II regulatory reporting APIs. Scripted in Perl, PowerShell, and Batch.",
+      "Graduate scheme, contracted to London Metal Exchange. Built functionality in C++, Java, and C#. Created a SOAP API for internal data retrieval. Developed MIFID II regulatory reporting APIs. Scripted in Perl, PowerShell, and Batch.",
     tech: ["C# / .NET", "C++", "Java", "Perl"],
     link: { label: "fdmgroup.com", url: "https://www.fdmgroup.com/" },
   },
