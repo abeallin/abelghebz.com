@@ -8,11 +8,33 @@ import {
   SiTerraform, SiDocker, SiKubernetes, SiGithubactions, SiArgo,
   SiRedis, SiApachekafka, SiGraphql,
   SiOpenai, SiGithubcopilot,
+  SiVercel, SiRailway, SiCloudflare, SiPerl, SiExpo,
+  SiGithub, SiBitbucket, SiJira, SiConfluence, SiNotion, SiClaude,
 } from "react-icons/si";
 import { DiJava, DiAws, DiMsqlServer, DiMysql, DiPostgresql, DiGo } from "react-icons/di";
 import { TbApi, TbBrandReactNative } from "react-icons/tb";
-import { VscWindow } from "react-icons/vsc";
-import { FiCpu, FiTool, FiZap, FiTerminal } from "react-icons/fi";
+import { VscWindow, VscAzure } from "react-icons/vsc";
+import { FiCpu, FiTool, FiTerminal } from "react-icons/fi";
+
+function CursorIcon({ className }) {
+  return (
+    <svg className={className} viewBox="0 0 545 545" fill="currentColor">
+      <path d="m466 137-206-119c-7-4-15-4-21 0L33 137c-6 3-9 9-9 16v240c0 6 3 12 9 16l206 119c7 4 15 4 21 0l207-119c5-3 9-9 9-16V153c0-6-4-12-9-16zm-13 25L254 507c-1 2-5 1-5-1V280c0-5-2-9-6-11L47 156c-2-1-1-5 1-5l199 115c4 2 9 2 13 0l199-115c3-1 4 2 2 5l-8 6z"/>
+    </svg>
+  );
+}
+
+function MondayIcon({ className }) {
+  return (
+    <svg className={className} viewBox="0 0 64 64" fill="none">
+      <ellipse cx="10.5" cy="50" rx="5" ry="5" fill="#ff3d57"/>
+      <rect x="6" y="14" width="9" height="36" rx="4.5" fill="#ff3d57" transform="rotate(-10 10.5 32)"/>
+      <ellipse cx="32" cy="50" rx="5" ry="5" fill="#ffcb00"/>
+      <rect x="27.5" y="22" width="9" height="28" rx="4.5" fill="#ffcb00" transform="rotate(-10 32 36)"/>
+      <ellipse cx="53.5" cy="50" rx="5" ry="5" fill="#00d647"/>
+    </svg>
+  );
+}
 
 const iconMap = {
   "C#": SiDotnet,
@@ -29,7 +51,8 @@ const iconMap = {
   "Next.js": SiNextdotjs,
   "React Native": TbBrandReactNative,
   "Go": DiGo,
-  "Expo": SiReact,
+  "Perl": SiPerl,
+  "Expo": SiExpo,
   "WinForms": VscWindow,
   "WPF": VscWindow,
   "MSSQL": DiMsqlServer,
@@ -48,10 +71,20 @@ const iconMap = {
   "Kafka": SiApachekafka,
   "gRPC": TbApi,
   "GraphQL": SiGraphql,
-  "Claude AI": FiTerminal,
+  "Vercel": SiVercel,
+  "Railway": SiRailway,
+  "Cloudflare": SiCloudflare,
+  "Azure": VscAzure,
+  "GitHub": SiGithub,
+  "Bitbucket": SiBitbucket,
+  "Jira": SiJira,
+  "Confluence": SiConfluence,
+  "Notion": SiNotion,
+  "Monday.com": MondayIcon,
+  "Claude AI": SiClaude,
   "ChatGPT": SiOpenai,
   "GitHub Copilot": SiGithubcopilot,
-  "Cursor": FiTerminal,
+  "Cursor": CursorIcon,
   "LLM": FiCpu,
   "Prompt Engineering": FiCpu,
   "Microservices": FiTool,

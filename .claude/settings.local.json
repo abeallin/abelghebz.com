@@ -26,7 +26,9 @@
       "Bash(rm -f craco.config.js src/index.js public/index.html public/manifest.json public/logo192.png public/logo512.png)",
       "Bash(rm -rf build)",
       "Bash(npx next:*)",
-      "Bash(npx kill-port:*)"
+      "Bash(npx kill-port:*)",
+      "Bash(node -e \"const si = require\\(''react-icons/si''\\); const names = Object.keys\\(si\\); [''Amazons3'', ''Amazonaws'', ''Awslambda'', ''Microsoftsql'', ''Microsoftazure''].forEach\\(q => { const matches = names.filter\\(n => n.toLowerCase\\(\\).includes\\(q.toLowerCase\\(\\)\\)\\); console.log\\(q + '': '' + matches.join\\('', ''\\)\\); }\\)\")",
+      "Bash(node -e \"const di = require\\(''react-icons/di''\\); console.log\\(Object.keys\\(di\\).filter\\(n => n.toLowerCase\\(\\).includes\\(''sql''\\) || n.toLowerCase\\(\\).includes\\(''dotnet''\\) || n.toLowerCase\\(\\).includes\\(''csharp''\\)\\).join\\(''\\\\n''\\)\\)\")"
     ]
   }
 }

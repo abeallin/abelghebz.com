@@ -208,6 +208,7 @@ export const skillRows = [
       { abbr: "JS", name: "JavaScript" },
       { abbr: "TS", name: "TypeScript" },
       { abbr: "GO", name: "Go" },
+      { abbr: "PL", name: "Perl" },
     ],
   },
   {
@@ -222,6 +223,7 @@ export const skillRows = [
       { abbr: "Nx", name: "Next.js" },
       { abbr: "RN", name: "React Native" },
       { abbr: "EX", name: "Expo" },
+      { abbr: "WF", name: "WinForms" },
     ],
   },
   {
@@ -237,15 +239,31 @@ export const skillRows = [
     ],
   },
   {
-    label: "Cloud, DevOps & Tools",
+    label: "Cloud & Hosting",
     direction: "right",
     items: [
       { abbr: "AW", name: "AWS" },
-      { abbr: "TF", name: "Terraform" },
+      { abbr: "Az", name: "Azure" },
+      { abbr: "Vc", name: "Vercel" },
+      { abbr: "Rw", name: "Railway" },
+      { abbr: "CF", name: "Cloudflare" },
+    ],
+  },
+  {
+    label: "DevOps & Infrastructure",
+    direction: "left",
+    items: [
       { abbr: "Do", name: "Docker" },
       { abbr: "K8", name: "Kubernetes" },
+      { abbr: "TF", name: "Terraform" },
       { abbr: "GH", name: "GitHub Actions" },
       { abbr: "Ar", name: "ArgoCD" },
+    ],
+  },
+  {
+    label: "Build Tools & Protocols",
+    direction: "right",
+    items: [
       { abbr: "Rd", name: "Redis" },
       { abbr: "Ka", name: "Kafka" },
       { abbr: "gR", name: "gRPC" },
@@ -253,17 +271,32 @@ export const skillRows = [
     ],
   },
   {
-    label: "AI & Practices",
+    label: "Project Management",
     direction: "left",
+    items: [
+      { abbr: "GH", name: "GitHub" },
+      { abbr: "BB", name: "Bitbucket" },
+      { abbr: "JR", name: "Jira" },
+      { abbr: "CF", name: "Confluence" },
+      { abbr: "NT", name: "Notion" },
+      { abbr: "MN", name: "Monday.com" },
+    ],
+  },
+  {
+    label: "AI",
+    direction: "right",
     items: [
       { abbr: "CL", name: "Claude AI" },
       { abbr: "GP", name: "ChatGPT" },
       { abbr: "CP", name: "GitHub Copilot" },
       { abbr: "CU", name: "Cursor" },
-      { abbr: "LM", name: "LLM" },
-      { abbr: "PE", name: "Prompt Engineering" },
+    ],
+  },
+  {
+    label: "Practices",
+    direction: "left",
+    items: [
       { abbr: "μS", name: "Microservices" },
-      { abbr: "Dp", name: "Dapper" },
       { abbr: "Ag", name: "Agile" },
     ],
   },
