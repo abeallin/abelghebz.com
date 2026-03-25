@@ -10,9 +10,9 @@ function CompanyName({ item, className }) {
         href={item.link.url}
         target="_blank"
         rel="noopener noreferrer"
-        className={`${className} hover:text-accent transition-colors inline-flex items-center gap-2`}
+        className={`${className} text-accent hover:font-800 transition-all`}
       >
-        {item.company} <span className="text-[11px] text-accent">↗</span>
+        {item.company}
       </a>
     );
   }

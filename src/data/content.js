@@ -152,7 +152,7 @@ export const experience = [
 export const projects = [
   {
     number: "01",
-    name: "I Think She Wifey",
+    name: "ithinkshewifey.com (ITSW)",
     type: "Wedding Website Platform",
     description:
       "A fully featured wedding website builder with RSVP management, gift registry, guest communication, and beautiful customisable templates.",
@@ -163,7 +163,7 @@ export const projects = [
   },
   {
     number: "02",
-    name: "CabEazy",
+    name: "cabeazy.com",
     type: "Ride-Hailing Platform",
     description:
       "The UK's first driver-owned ride-hailing platform. An alternative to Uber with a 10% commission capped at £149/month — after which rides are free. Operating in 35+ UK cities.",

@@ -25,7 +25,8 @@
       "Bash(npm uninstall:*)",
       "Bash(rm -f craco.config.js src/index.js public/index.html public/manifest.json public/logo192.png public/logo512.png)",
       "Bash(rm -rf build)",
-      "Bash(npx next:*)"
+      "Bash(npx next:*)",
+      "Bash(npx kill-port:*)"
     ]
   }
 }
