@@ -8,12 +8,13 @@ export default function CustomCursor() {
   const visibleRef = useRef(false);
   const [hovering, setHovering] = useState(false);
   const [visible, setVisible] = useState(false);
-  const [enabled] = useState(() => {
-    if (typeof window === "undefined") return false;
+  const [enabled, setEnabled] = useState(false);
+
+  useEffect(() => {
     const isTouch = window.matchMedia("(pointer: coarse)").matches;
     const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    return !isTouch && !reducedMotion;
-  });
+    setEnabled(!isTouch && !reducedMotion);
+  }, []);
 
   useEffect(() => {
     if (!enabled) return;
