@@ -7,7 +7,7 @@ export const personal = {
   tagline: "I build",
   taglineHighlight: "products",
   description:
-    "Full-stack engineer with 7+ years building products across fintech, enterprise, and startups. From system architecture to pixel-perfect frontends.",
+    "Senior Software Engineer with 9 years of commercial experience across FinTech, PropTech, and HealthTech. Self-taught developer and Mathematics graduate — analytical, methodical, and algorithmic by nature.",
   cvPath: "/assets/abel_ghebrezadik_cv.pdf",
 };
 
@@ -20,105 +20,94 @@ export const social = [
 
 export const about = {
   heading: "Building for",
-  headingHighlight: "7+ years",
-  bio: "Senior Software Engineer based in London. I build full-stack products across fintech, enterprise, and startups. I care about clean code, great UX, and shipping things that work.",
+  headingHighlight: "9+ years",
+  bio: "Senior Software Engineer based in London with 9 years of commercial experience across FinTech, PropTech, and HealthTech. Self-taught developer and Mathematics graduate — analytical, methodical, and algorithmic by nature.",
 };
 
 export const timeline = [
   {
     year: "2024 — Present",
-    company: "ITSW",
-    title: "Founder & Full-Stack Engineer",
+    company: "NHS England",
+    title: "Software Engineer (Contract)",
     description:
-      "Wedding website platform with RSVP, gift registry, and guest broadcasts. Next.js, TypeScript, and AWS.",
+      "Python healthcare automation tool for GP practices nationwide. Contracted outside IR35.",
   },
   {
-    year: "2023 — Present",
-    company: "CabEazy",
-    title: "Founder & Developer",
-    description:
-      "The UK's first driver-owned ride-hailing platform. Operating in 35+ cities with a fairer commission model.",
-  },
-  {
-    year: "2022 — 2024",
-    company: "Salary Finance",
+    year: "2024",
+    company: "Fvtvre",
     title: "Senior Software Engineer",
     description:
-      "Financial wellbeing platform. Led feature development across .NET backend and React frontend.",
+      ".NET 8 microservices and Vue.js for a KSA-based PropTech startup, deployed to EJAR.",
   },
   {
-    year: "2020 — 2022",
-    company: "WEX / Optal",
+    year: "2021 — 2024",
+    company: "SalaryFinance",
+    title: "Senior Software Engineer",
+    description:
+      ".NET 6 microservices platform. Technical lead on critical project. Resolved 500+ prod issues in 6 months.",
+  },
+  {
+    year: "2018 — 2021",
+    company: "Optal → Wex",
     title: "Software Engineer",
     description:
-      "Global payments and travel fintech. Built systems handling high-volume transaction processing.",
+      ".NET Framework monolith. B2B e-card payments processing millions of daily transactions for Expedia and Booking.com.",
   },
   {
-    year: "2018 — 2020",
-    company: "London Metal Exchange",
-    title: "Software Developer",
+    year: "2016 — 2018",
+    company: "FDM Group → LME",
+    title: "IT Consultant",
     description:
-      "Enterprise trading platform. Worked on core exchange systems used by global commodity traders.",
+      "Graduate scheme contracted to London Metal Exchange. Built MIFID II regulatory reporting APIs in C# .NET.",
   },
 ];
 
 export const experience = [
   {
-    company: "ITSW",
-    initials: "IT",
-    role: "Founder & Full-Stack Engineer",
-    year: "2024 — Present",
+    company: "NHS England",
+    initials: "NH",
+    role: "Software Engineer (Contract)",
+    year: "Dec 2024 — Feb 2025",
     description:
-      "Wedding website platform with RSVP management, gift registry, guest broadcasts, and customisable templates. One-time £50 pricing — no subscriptions.",
-    tech: ["TypeScript", "Next.js", "React", "PostgreSQL", "AWS"],
-    link: { label: "ithinkshewifey.com", url: "https://ithinkshewifey.com" },
+      "Delivered a Python desktop application using Selenium to automate features in a 3rd-party healthcare application used nationwide by GPs. Automated bulk creation and deletion of templates, removing a significant time and labour inefficiency.",
+    tech: ["Python", "Selenium", "Tkinter", "CSV"],
+  },
+  {
+    company: "Fvtvre",
+    initials: "FV",
+    role: "Senior Software Engineer",
+    year: "Apr 2024 — Jul 2024",
+    description:
+      "Developed a .NET 8 microservice API and Vue.js frontend for a KSA-based PropTech startup. Built a property management product rolled out to EJAR, the Saudi department of rent, to enhance their inventory assessment process.",
+    tech: [".NET 8", "Vue.js", "Microservices", "REST APIs"],
+  },
+  {
+    company: "SalaryFinance",
+    initials: "SF",
+    role: "Senior Software Engineer",
+    year: "Aug 2021 — Apr 2024",
+    description:
+      "Technical lead on a critical project that saved the company millions in fines. Resolved 500+ production issues in 6 months — 80% faster than other engineers. Built front-end and back-end features, mentored juniors, and stepped into Lead Developer duties.",
+    tech: ["C# / .NET 6", "React", "MSSQL", "Microservices"],
     featured: true,
   },
   {
-    company: "CabEazy",
-    initials: "CE",
-    role: "Founder & Developer",
-    year: "2023 — Present",
-    description:
-      "The UK's first driver-owned ride-hailing platform. 10% commission capped at £149/month — after which rides are free. Operating in 35+ UK cities.",
-    tech: ["React", "Node.js", "AWS", "PostgreSQL"],
-    link: { label: "cabeazy.com", url: "https://cabeazy.com" },
-  },
-  {
-    company: "Salary Finance",
-    initials: "SF",
-    role: "Senior Software Engineer",
-    year: "2022 — 2024",
-    description:
-      "Financial wellbeing platform serving hundreds of employers. Led feature development across .NET microservices and React frontends.",
-    tech: ["C# / .NET", "React", "MSSQL", "Azure"],
-  },
-  {
-    company: "WEX / Optal",
-    initials: "WX",
+    company: "Optal → Wex",
+    initials: "OP",
     role: "Software Engineer",
-    year: "2020 — 2022",
+    year: "May 2018 — Apr 2021",
     description:
-      "Global payments and travel fintech. High-volume transaction processing and virtual card management systems.",
-    tech: ["C# / .NET", "Python", "MSSQL", "Docker"],
+      "Developed WinForms/WPF desktop applications for an accounts management system. Monitored millions of daily transactions from Expedia and Booking.com, reconciled with Ixaris and MasterCard data, and settled across 50+ bank accounts in multiple currencies.",
+    tech: ["C# / .NET", "WinForms", "WPF", "MSSQL"],
   },
   {
-    company: "London Metal Exchange",
-    initials: "LM",
-    role: "Software Developer",
-    year: "2018 — 2020",
-    description:
-      "Enterprise trading platform. Core exchange systems and market data infrastructure for global commodity trading.",
-    tech: ["C# / .NET", "Java", "MSSQL"],
-  },
-  {
-    company: "FDM Group",
+    company: "FDM Group → LME",
     initials: "FD",
-    role: "Software Consultant",
-    year: "2017 — 2018",
+    role: "IT Consultant",
+    year: "May 2016 — May 2018",
     description:
-      "IT consultancy programme. Enterprise software development training and client deployment.",
-    tech: ["Java", "SQL", "C#"],
+      "Graduate scheme contracted to London Metal Exchange. Built new functionality in C++, Java, and C#. Created a SOAP API for internal data retrieval. Developed MIFID II regulatory reporting APIs ensuring compliance with financial standards.",
+    tech: ["C# / .NET", "C++", "Java", "Perl"],
   },
 ];
 
@@ -174,16 +163,20 @@ export const skillRows = [
     label: "Languages & Frameworks",
     direction: "left",
     items: [
-      { abbr: "C#", name: "C# / .NET" },
+      { abbr: "C#", name: "C# .NET" },
       { abbr: "PY", name: "Python" },
+      { abbr: "C+", name: "C++" },
+      { abbr: "JV", name: "Java" },
       { abbr: "JS", name: "JavaScript" },
       { abbr: "TS", name: "TypeScript" },
       { abbr: "Re", name: "React" },
       { abbr: "Nx", name: "Next.js" },
       { abbr: "Vu", name: "Vue.js" },
       { abbr: "No", name: "Node.js" },
-      { abbr: "JV", name: "Java" },
       { abbr: "GO", name: "Go" },
+      { abbr: "Fl", name: "Flutter" },
+      { abbr: "WF", name: "WinForms" },
+      { abbr: "WP", name: "WPF" },
     ],
   },
   {
@@ -191,13 +184,15 @@ export const skillRows = [
     direction: "right",
     items: [
       { abbr: "AW", name: "AWS" },
-      { abbr: "Do", name: "Docker" },
-      { abbr: "PG", name: "PostgreSQL" },
       { abbr: "MS", name: "MSSQL" },
       { abbr: "My", name: "MySQL" },
-      { abbr: "Mg", name: "MongoDB" },
-      { abbr: "Az", name: "Azure" },
-      { abbr: "El", name: "Electron" },
+      { abbr: "PG", name: "PostgreSQL" },
+      { abbr: "NQ", name: "NoSQL" },
+      { abbr: "μS", name: "Microservices" },
+      { abbr: "AP", name: "REST APIs" },
+      { abbr: "CI", name: "CI/CD" },
+      { abbr: "UT", name: "Unit Testing" },
+      { abbr: "Ag", name: "Agile" },
     ],
   },
   {
