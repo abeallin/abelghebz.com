@@ -10,7 +10,22 @@
       "Bash(git -C /c/Users/Abel/React/ag-cv add src/data/content.js)",
       "Bash(git -C /c/Users/Abel/React/ag-cv commit -m \"feat: add centralised content data file\")",
       "Bash(git mv:*)",
-      "Bash(npx react-scripts:*)"
+      "Bash(npx react-scripts:*)",
+      "mcp__plugin_playwright_playwright__browser_navigate",
+      "Bash(PORT=3001 npx craco start)",
+      "mcp__plugin_playwright_playwright__browser_take_screenshot",
+      "mcp__plugin_playwright_playwright__browser_evaluate",
+      "mcp__plugin_playwright_playwright__browser_run_code",
+      "Bash(npx craco:*)",
+      "Bash(PORT=5000 npx craco start)",
+      "mcp__plugin_playwright_playwright__browser_click",
+      "WebSearch",
+      "Bash(curl -s https://ithinkshewifey.com)",
+      "WebFetch(domain:github.com)",
+      "Bash(npm uninstall:*)",
+      "Bash(rm -f craco.config.js src/index.js public/index.html public/manifest.json public/logo192.png public/logo512.png)",
+      "Bash(rm -rf build)",
+      "Bash(npx next:*)"
     ]
   }
 }
