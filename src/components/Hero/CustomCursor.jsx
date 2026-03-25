@@ -2,7 +2,6 @@ import React, { useEffect, useRef, useState } from "react";
 
 export default function CustomCursor() {
   const cursorRef = useRef(null);
-  const dotRef = useRef(null);
   const mouse = useRef({ x: 0, y: 0 });
   const pos = useRef({ x: 0, y: 0 });
   const visibleRef = useRef(false);
@@ -21,10 +20,6 @@ export default function CustomCursor() {
 
     const onMove = (e) => {
       mouse.current = { x: e.clientX, y: e.clientY };
-      if (dotRef.current) {
-        dotRef.current.style.left = `${e.clientX - 3}px`;
-        dotRef.current.style.top = `${e.clientY - 3}px`;
-      }
       if (!visibleRef.current) {
         visibleRef.current = true;
         setVisible(true);
@@ -47,11 +42,11 @@ export default function CustomCursor() {
 
     let raf;
     const animate = () => {
-      pos.current.x += (mouse.current.x - pos.current.x) * 0.1;
-      pos.current.y += (mouse.current.y - pos.current.y) * 0.1;
+      pos.current.x += (mouse.current.x - pos.current.x) * 0.12;
+      pos.current.y += (mouse.current.y - pos.current.y) * 0.12;
       if (cursorRef.current) {
-        cursorRef.current.style.left = `${pos.current.x - 16}px`;
-        cursorRef.current.style.top = `${pos.current.y - 16}px`;
+        cursorRef.current.style.left = `${pos.current.x}px`;
+        cursorRef.current.style.top = `${pos.current.y}px`;
       }
       raf = requestAnimationFrame(animate);
     };
@@ -68,19 +63,24 @@ export default function CustomCursor() {
   if (!enabled) return null;
 
   return (
-    <>
-      <div
-        ref={cursorRef}
-        className={`fixed w-8 h-8 rounded-full border border-accent/40 pointer-events-none z-[9999] transition-transform duration-200 ease-out ${
-          hovering ? "scale-[2] border-accent/80 bg-accent/5" : ""
-        } ${visible ? "opacity-100" : "opacity-0"}`}
+    <svg
+      ref={cursorRef}
+      className={`fixed pointer-events-none z-[9999] transition-transform duration-150 ease-out ${
+        hovering ? "scale-150" : ""
+      } ${visible ? "opacity-100" : "opacity-0"}`}
+      width="24"
+      height="28"
+      viewBox="0 0 24 28"
+      fill="none"
+      style={{ marginLeft: "-2px", marginTop: "-2px" }}
+    >
+      <path
+        d="M2 2L2 24L8.5 17.5L14 26L18 24L12.5 15.5L22 14L2 2Z"
+        fill="#e8491d"
+        stroke="#0a0a0a"
+        strokeWidth="1.5"
+        strokeLinejoin="round"
       />
-      <div
-        ref={dotRef}
-        className={`fixed w-1.5 h-1.5 rounded-full bg-accent pointer-events-none z-[9999] ${
-          visible ? "opacity-100" : "opacity-0"
-        }`}
-      />
-    </>
+    </svg>
   );
 }
