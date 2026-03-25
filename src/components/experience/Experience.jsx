@@ -3,6 +3,22 @@ import { motion } from "framer-motion";
 import { experience } from "../../data/content";
 import TechPill from "../shared/TechPill";
 
+function CompanyName({ item, className }) {
+  if (item.link) {
+    return (
+      <a
+        href={item.link.url}
+        target="_blank"
+        rel="noopener noreferrer"
+        className={`${className} hover:text-accent transition-colors inline-flex items-center gap-2`}
+      >
+        {item.company} <span className="text-[11px] text-accent">↗</span>
+      </a>
+    );
+  }
+  return <span className={className}>{item.company}</span>;
+}
+
 function ExperienceCard({ item, index }) {
   if (item.featured) {
     return (
@@ -22,24 +38,14 @@ function ExperienceCard({ item, index }) {
               {item.year}
             </span>
           </div>
-          <h3 className="text-2xl font-body font-700 text-text mb-1 group-hover:text-accent transition-colors">
-            {item.company}
+          <h3 className="text-2xl font-body font-700 text-text mb-1">
+            <CompanyName item={item} className="text-2xl font-body font-700 text-text group-hover:text-accent" />
           </h3>
           <div className="font-mono text-[11px] text-text-dim uppercase tracking-wider mb-5">{item.role}</div>
           <p className="text-[14px] leading-[1.8] text-text-dim mb-6">{item.description}</p>
-          <div className="flex flex-wrap gap-2 mb-6">
+          <div className="flex flex-wrap gap-2">
             {item.tech.map((t) => <TechPill key={t} label={t} />)}
           </div>
-          {item.link && (
-            <a
-              href={item.link.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-wider text-accent hover:text-text transition-colors"
-            >
-              Visit {item.link.label} ↗
-            </a>
-          )}
         </div>
         <div className="flex items-center justify-center bg-bg border-l border-border min-h-[240px]">
           <span className="font-mono text-[11px] text-text-dim/30 uppercase tracking-widest">Preview</span>
@@ -62,24 +68,14 @@ function ExperienceCard({ item, index }) {
         </div>
         <span className="font-mono text-[11px] text-text-dim tracking-wider">{item.year}</span>
       </div>
-      <h3 className="text-lg font-body font-600 text-text mb-1 group-hover:text-accent transition-colors">
-        {item.company}
+      <h3 className="text-lg font-body font-600 text-text mb-1">
+        <CompanyName item={item} className="text-lg font-body font-600 text-text group-hover:text-accent" />
       </h3>
       <div className="font-mono text-[11px] text-text-dim uppercase tracking-wider mb-4">{item.role}</div>
       <p className="text-[13px] leading-[1.8] text-text-dim mb-5">{item.description}</p>
-      <div className="flex flex-wrap gap-2 mb-5">
+      <div className="flex flex-wrap gap-2">
         {item.tech.map((t) => <TechPill key={t} label={t} />)}
       </div>
-      {item.link && (
-        <a
-          href={item.link.url}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-wider text-accent hover:text-text transition-colors"
-        >
-          Visit {item.link.label} ↗
-        </a>
-      )}
     </motion.div>
   );
 }

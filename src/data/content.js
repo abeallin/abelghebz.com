@@ -62,7 +62,7 @@ export const timeline = [
   },
   {
     year: "May 2018 — Apr 2021",
-    company: "Optal → Wex",
+    company: "Optal (acquired by Wex)",
     title: "Senior Software Engineer",
     description:
       "B2B e-card payments. Millions of daily transactions for Expedia and Booking.com.",
@@ -128,14 +128,14 @@ export const experience = [
     link: { label: "salaryfinance.com", url: "https://www.salaryfinance.com/uk/" },
   },
   {
-    company: "Optal → Wex",
+    company: "Optal (acquired by Wex)",
     initials: "OP",
     role: "Senior Software Engineer",
     year: "May 2018 — Apr 2021",
     description:
       "Developed desktop applications for accounts management. Monitored millions of daily transactions from Expedia and Booking.com, reconciled with Ixaris and MasterCard data. Settled across 50+ bank accounts in multiple currencies across 10 international entities.",
     tech: ["C# / .NET", "WinForms", "WPF", "MSSQL"],
-    link: { label: "Wex acquires Optal", url: "https://ir.wexinc.com/news/news-details/2020/WEX-Completes-Acquisition-of-eNett-and-Optal/default.aspx" },
+    link: { label: "wexinc.com", url: "https://www.wexinc.com/en-gb/" },
   },
   {
     company: "FDM Group → LME",
