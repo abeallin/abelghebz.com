@@ -1,6 +1,65 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { skillRows } from "../../data/content";
+import {
+  SiJavascript, SiTypescript, SiPython, SiCplusplus,
+  SiReact, SiNextdotjs, SiVuedotjs, SiNodedotjs, SiBlazor, SiFlutter, SiDotnet,
+  SiMongodb, SiSnowflake, SiCockroachlabs,
+  SiTerraform, SiDocker, SiKubernetes, SiGithubactions, SiArgo,
+  SiRedis, SiApachekafka, SiGraphql,
+  SiOpenai, SiGithubcopilot,
+} from "react-icons/si";
+import { DiJava, DiAws, DiMsqlServer, DiMysql, DiPostgresql } from "react-icons/di";
+import { TbApi, TbBrandReactNative } from "react-icons/tb";
+import { VscWindow } from "react-icons/vsc";
+import { FiCpu, FiTool, FiZap, FiTerminal } from "react-icons/fi";
+
+const iconMap = {
+  "C#": SiDotnet,
+  "Java": DiJava,
+  "Python": SiPython,
+  "C++": SiCplusplus,
+  "JavaScript": SiJavascript,
+  "TypeScript": SiTypescript,
+  ".NET Core/Framework": SiDotnet,
+  "React": SiReact,
+  "Vue.js": SiVuedotjs,
+  "Node.js": SiNodedotjs,
+  "Blazor": SiBlazor,
+  "Next.js": SiNextdotjs,
+  "React Native": TbBrandReactNative,
+  "Flutter": SiFlutter,
+  "PWA": FiZap,
+  "WinForms": VscWindow,
+  "WPF": VscWindow,
+  "MSSQL": DiMsqlServer,
+  "MySQL": DiMysql,
+  "PostgreSQL": DiPostgresql,
+  "MongoDB": SiMongodb,
+  "Snowflake": SiSnowflake,
+  "CockroachDB": SiCockroachlabs,
+  "AWS": DiAws,
+  "Terraform": SiTerraform,
+  "Docker": SiDocker,
+  "Kubernetes": SiKubernetes,
+  "GitHub Actions": SiGithubactions,
+  "ArgoCD": SiArgo,
+  "Redis": SiRedis,
+  "Kafka": SiApachekafka,
+  "gRPC": TbApi,
+  "GraphQL": SiGraphql,
+  "SignalR": FiZap,
+  "Claude AI": FiTerminal,
+  "ChatGPT": SiOpenai,
+  "GitHub Copilot": SiGithubcopilot,
+  "Cursor": FiTerminal,
+  "LLM": FiCpu,
+  "Prompt Engineering": FiCpu,
+  "Microservices": FiTool,
+  "Dapper": SiDotnet,
+  "Agile": FiTool,
+  "REST APIs": TbApi,
+};
 
 function MarqueeRow({ row }) {
   const items = [...row.items, ...row.items];
@@ -13,19 +72,26 @@ function MarqueeRow({ row }) {
       </div>
       <div className="overflow-hidden [mask-image:linear-gradient(90deg,transparent,black_8%,black_92%,transparent)]">
         <div className={`flex gap-3 w-max hover:[animation-play-state:paused] ${animClass}`}>
-          {items.map((item, i) => (
-            <div
-              key={`${item.abbr}-${i}`}
-              className="flex items-center gap-3 px-6 py-3.5 bg-bg-raised border border-border whitespace-nowrap hover:border-accent/30 hover:text-accent transition-all duration-300 shrink-0"
-            >
-              <div className="w-7 h-7 border border-border flex items-center justify-center font-mono text-[9px] text-text-dim">
-                {item.abbr}
+          {items.map((item, i) => {
+            const Icon = iconMap[item.name];
+            return (
+              <div
+                key={`${item.name}-${i}`}
+                className="flex items-center gap-3 px-5 py-3 bg-bg-raised border border-border rounded-sm whitespace-nowrap hover:border-accent/40 transition-all duration-300 shrink-0 group"
+              >
+                {Icon ? (
+                  <Icon className="w-5 h-5 text-text-dim group-hover:text-accent transition-colors" />
+                ) : (
+                  <span className="w-5 h-5 flex items-center justify-center font-mono text-[9px] text-text-dim">
+                    {item.abbr}
+                  </span>
+                )}
+                <span className="text-[13px] font-body font-500 text-text">
+                  {item.name}
+                </span>
               </div>
-              <span className="text-[13px] font-body font-500 text-text/70">
-                {item.name}
-              </span>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </div>
     </div>
