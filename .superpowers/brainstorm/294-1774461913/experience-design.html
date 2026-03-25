@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Experience Section — Design Options</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: #06060b;
+    color: #fff;
+    font-family: 'Inter', -apple-system, sans-serif;
+    overflow-x: hidden;
+  }
+
+  .section-wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 80px 64px;
+  }
+
+  .option-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.2);
+    margin-bottom: 24px;
+    padding-bottom: 48px;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    text-align: center;
+  }
+
+  .section-tag {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: rgba(255,255,255,0.3);
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .section-tag::before {
+    content: '';
+    width: 24px;
+    height: 1px;
+    background: linear-gradient(90deg, #AE67FA, #F49867);
+  }
+
+  .section-heading {
+    font-size: 44px;
+    font-weight: 300;
+    line-height: 1.15;
+    letter-spacing: -1.5px;
+    margin-bottom: 56px;
+  }
+  .section-heading strong {
+    font-weight: 700;
+    background: linear-gradient(135deg, #AE67FA, #F49867);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .divider {
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(174,103,250,0.15), rgba(244,152,103,0.15), transparent);
+  }
+
+  /* ——— OPTION A: Expandable Accordion ——— */
+  .exp-accordion {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .exp-row {
+    display: grid;
+    grid-template-columns: 120px 1fr auto;
+    gap: 40px;
+    align-items: start;
+    padding: 36px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  .exp-row:first-child {
+    border-top: 1px solid rgba(255,255,255,0.06);
+  }
+  .exp-row:hover {
+    background: rgba(255,255,255,0.01);
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .exp-year {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px;
+    color: rgba(174,103,250,0.6);
+    letter-spacing: 0.5px;
+    padding-top: 4px;
+  }
+
+  .exp-main h3 {
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 6px;
+    color: rgba(255,255,255,0.9);
+    transition: color 0.3s ease;
+  }
+  .exp-row:hover .exp-main h3 {
+    background: linear-gradient(135deg, #AE67FA, #F49867);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .exp-main .role {
+    font-size: 14px;
+    color: rgba(255,255,255,0.4);
+    margin-bottom: 0;
+    transition: all 0.3s ease;
+  }
+
+  .exp-details {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease, opacity 0.3s ease;
+    opacity: 0;
+  }
+  .exp-row.active .exp-details {
+    max-height: 200px;
+    opacity: 1;
+    margin-top: 16px;
+  }
+  .exp-details p {
+    font-size: 14px;
+    line-height: 1.7;
+    color: rgba(255,255,255,0.4);
+  }
+  .exp-details .tech-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 12px;
+  }
+  .tech-tag {
+    font-size: 11px;
+    font-family: 'JetBrains Mono', monospace;
+    padding: 4px 12px;
+    background: rgba(174,103,250,0.08);
+    border: 1px solid rgba(174,103,250,0.15);
+    border-radius: 20px;
+    color: rgba(174,103,250,0.7);
+  }
+
+  .exp-arrow {
+    font-size: 18px;
+    color: rgba(255,255,255,0.15);
+    transition: all 0.3s ease;
+    padding-top: 4px;
+  }
+  .exp-row:hover .exp-arrow {
+    color: rgba(174,103,250,0.6);
+  }
+  .exp-row.active .exp-arrow {
+    transform: rotate(45deg);
+    color: #F49867;
+  }
+
+  /* ——— OPTION B: Cards Grid ——— */
+  .exp-cards {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+
+  .exp-card {
+    padding: 36px 32px;
+    background: rgba(255,255,255,0.02);
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 20px;
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
+  }
+  .exp-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, #AE67FA, #F49867);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+  }
+  .exp-card:hover {
+    border-color: rgba(174,103,250,0.15);
+    transform: translateY(-4px);
+    box-shadow: 0 12px 40px rgba(0,0,0,0.3);
+  }
+  .exp-card:hover::before { opacity: 1; }
+
+  .exp-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+    margin-bottom: 20px;
+  }
+
+  .exp-card .company-logo {
+    width: 48px;
+    height: 48px;
+    background: rgba(255,255,255,0.05);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    font-weight: 700;
+    color: rgba(255,255,255,0.4);
+  }
+
+  .exp-card .year-badge {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: rgba(174,103,250,0.6);
+    padding: 6px 12px;
+    background: rgba(174,103,250,0.06);
+    border-radius: 20px;
+  }
+
+  .exp-card h3 {
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 4px;
+    color: rgba(255,255,255,0.9);
+  }
+  .exp-card .role {
+    font-size: 13px;
+    color: rgba(255,255,255,0.35);
+    margin-bottom: 16px;
+  }
+  .exp-card p {
+    font-size: 14px;
+    line-height: 1.7;
+    color: rgba(255,255,255,0.4);
+    margin-bottom: 20px;
+  }
+
+  .exp-card .tech-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+
+  .exp-card-link {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 13px;
+    color: rgba(174,103,250,0.6);
+    text-decoration: none;
+    margin-top: 20px;
+    transition: color 0.3s ease;
+  }
+  .exp-card-link:hover {
+    color: #AE67FA;
+  }
+
+  /* First card spans full width */
+  .exp-card.featured {
+    grid-column: 1 / -1;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+  }
+  .exp-card.featured .card-right {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+</style>
+</head>
+<body>
+
+<!-- OPTION A: Expandable Accordion -->
+<div class="section-wrapper">
+  <div class="option-label">Option A — Expandable Rows</div>
+  <div class="section-tag">Experience</div>
+  <h2 class="section-heading">
+    Where I've<br><strong>built things</strong>.
+  </h2>
+
+  <div class="exp-accordion">
+    <div class="exp-row active" onclick="this.classList.toggle('active')">
+      <div class="exp-year">2024 — Now</div>
+      <div class="exp-main">
+        <h3>ITSW (I Think She Wifey)</h3>
+        <div class="role">Founder & Full-Stack Engineer</div>
+        <div class="exp-details">
+          <p>Building a wedding website platform from scratch. Handling everything from product design and branding to full-stack development and infrastructure.</p>
+          <div class="tech-tags">
+            <span class="tech-tag">React</span>
+            <span class="tech-tag">Node.js</span>
+            <span class="tech-tag">AWS</span>
+            <span class="tech-tag">PostgreSQL</span>
+          </div>
+        </div>
+      </div>
+      <div class="exp-arrow">↗</div>
+    </div>
+
+    <div class="exp-row" onclick="this.classList.toggle('active')">
+      <div class="exp-year">2022 — 2024</div>
+      <div class="exp-main">
+        <h3>Salary Finance</h3>
+        <div class="role">Senior Software Engineer</div>
+        <div class="exp-details">
+          <p>Led feature development on a financial wellbeing platform serving hundreds of employers. Full-stack work across .NET microservices and React frontends.</p>
+          <div class="tech-tags">
+            <span class="tech-tag">C# / .NET</span>
+            <span class="tech-tag">React</span>
+            <span class="tech-tag">MSSQL</span>
+            <span class="tech-tag">Azure</span>
+          </div>
+        </div>
+      </div>
+      <div class="exp-arrow">↗</div>
+    </div>
+
+    <div class="exp-row" onclick="this.classList.toggle('active')">
+      <div class="exp-year">2020 — 2022</div>
+      <div class="exp-main">
+        <h3>WEX / Optal</h3>
+        <div class="role">Software Engineer</div>
+        <div class="exp-details">
+          <p>Global payments and travel fintech. Built systems handling high-volume transaction processing and virtual card management.</p>
+          <div class="tech-tags">
+            <span class="tech-tag">C# / .NET</span>
+            <span class="tech-tag">Python</span>
+            <span class="tech-tag">MSSQL</span>
+            <span class="tech-tag">Docker</span>
+          </div>
+        </div>
+      </div>
+      <div class="exp-arrow">↗</div>
+    </div>
+
+    <div class="exp-row" onclick="this.classList.toggle('active')">
+      <div class="exp-year">2018 — 2020</div>
+      <div class="exp-main">
+        <h3>London Metal Exchange</h3>
+        <div class="role">Software Developer</div>
+        <div class="exp-details">
+          <p>Enterprise trading platform used by global commodity traders. Worked on core exchange systems and market data infrastructure.</p>
+          <div class="tech-tags">
+            <span class="tech-tag">C# / .NET</span>
+            <span class="tech-tag">Java</span>
+            <span class="tech-tag">MSSQL</span>
+          </div>
+        </div>
+      </div>
+      <div class="exp-arrow">↗</div>
+    </div>
+
+    <div class="exp-row" onclick="this.classList.toggle('active')">
+      <div class="exp-year">2017 — 2018</div>
+      <div class="exp-main">
+        <h3>FDM Group</h3>
+        <div class="role">Software Consultant</div>
+        <div class="exp-details">
+          <p>IT consultancy programme. Intensive training in enterprise software development, then deployed to client sites.</p>
+          <div class="tech-tags">
+            <span class="tech-tag">Java</span>
+            <span class="tech-tag">SQL</span>
+            <span class="tech-tag">C#</span>
+          </div>
+        </div>
+      </div>
+      <div class="exp-arrow">↗</div>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- OPTION B: Cards Grid -->
+<div class="section-wrapper">
+  <div class="option-label">Option B — Cards Grid</div>
+  <div class="section-tag">Experience</div>
+  <h2 class="section-heading">
+    Where I've<br><strong>built things</strong>.
+  </h2>
+
+  <div class="exp-cards">
+    <div class="exp-card featured">
+      <div>
+        <div class="exp-card-header">
+          <div class="company-logo">IT</div>
+          <span class="year-badge">2024 — Present</span>
+        </div>
+        <h3>ITSW</h3>
+        <div class="role">Founder & Full-Stack Engineer</div>
+        <p>Building a wedding website platform from scratch — product design, full-stack development, and infrastructure. My own product, built from the ground up.</p>
+        <div class="tech-tags">
+          <span class="tech-tag">React</span>
+          <span class="tech-tag">Node.js</span>
+          <span class="tech-tag">AWS</span>
+          <span class="tech-tag">PostgreSQL</span>
+        </div>
+        <a href="#" class="exp-card-link">Visit ithinkshewifey.com →</a>
+      </div>
+      <div class="card-right" style="display: flex; align-items: center; justify-content: center;">
+        <div style="width: 100%; height: 200px; background: linear-gradient(135deg, rgba(174,103,250,0.06), rgba(244,152,103,0.06)); border-radius: 16px; border: 1px solid rgba(255,255,255,0.04); display: flex; align-items: center; justify-content: center;">
+          <span style="color: rgba(255,255,255,0.15); font-size: 13px;">Site preview</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="exp-card">
+      <div class="exp-card-header">
+        <div class="company-logo">SF</div>
+        <span class="year-badge">2022 — 2024</span>
+      </div>
+      <h3>Salary Finance</h3>
+      <div class="role">Senior Software Engineer</div>
+      <p>Financial wellbeing platform. Led feature development across .NET microservices and React frontends.</p>
+      <div class="tech-tags">
+        <span class="tech-tag">C# / .NET</span>
+        <span class="tech-tag">React</span>
+        <span class="tech-tag">MSSQL</span>
+      </div>
+    </div>
+
+    <div class="exp-card">
+      <div class="exp-card-header">
+        <div class="company-logo">WX</div>
+        <span class="year-badge">2020 — 2022</span>
+      </div>
+      <h3>WEX / Optal</h3>
+      <div class="role">Software Engineer</div>
+      <p>Global payments and travel fintech. High-volume transaction processing and virtual card systems.</p>
+      <div class="tech-tags">
+        <span class="tech-tag">C# / .NET</span>
+        <span class="tech-tag">Python</span>
+        <span class="tech-tag">Docker</span>
+      </div>
+    </div>
+
+    <div class="exp-card">
+      <div class="exp-card-header">
+        <div class="company-logo">LM</div>
+        <span class="year-badge">2018 — 2020</span>
+      </div>
+      <h3>London Metal Exchange</h3>
+      <div class="role">Software Developer</div>
+      <p>Enterprise trading platform. Core exchange systems and market data infrastructure for global commodity trading.</p>
+      <div class="tech-tags">
+        <span class="tech-tag">C# / .NET</span>
+        <span class="tech-tag">Java</span>
+        <span class="tech-tag">MSSQL</span>
+      </div>
+    </div>
+
+    <div class="exp-card">
+      <div class="exp-card-header">
+        <div class="company-logo">FD</div>
+        <span class="year-badge">2017 — 2018</span>
+      </div>
+      <h3>FDM Group</h3>
+      <div class="role">Software Consultant</div>
+      <p>IT consultancy programme. Enterprise software development training and client deployment.</p>
+      <div class="tech-tags">
+        <span class="tech-tag">Java</span>
+        <span class="tech-tag">SQL</span>
+        <span class="tech-tag">C#</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

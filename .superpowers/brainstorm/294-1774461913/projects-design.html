@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Projects Section — Design Options</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: #06060b;
+    color: #fff;
+    font-family: 'Inter', -apple-system, sans-serif;
+    overflow-x: hidden;
+  }
+
+  .section-wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 80px 64px;
+  }
+
+  .option-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.2);
+    margin-bottom: 24px;
+    padding-bottom: 48px;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    text-align: center;
+  }
+
+  .section-tag {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: rgba(255,255,255,0.3);
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .section-tag::before {
+    content: '';
+    width: 24px;
+    height: 1px;
+    background: linear-gradient(90deg, #AE67FA, #F49867);
+  }
+
+  .section-heading {
+    font-size: 44px;
+    font-weight: 300;
+    line-height: 1.15;
+    letter-spacing: -1.5px;
+    margin-bottom: 56px;
+  }
+  .section-heading strong {
+    font-weight: 700;
+    background: linear-gradient(135deg, #AE67FA, #F49867);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .divider {
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(174,103,250,0.15), rgba(244,152,103,0.15), transparent);
+  }
+
+  /* ——— OPTION A: Stacked Showcase Cards ——— */
+  .projects-stacked {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+  }
+
+  .project-showcase {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    background: rgba(255,255,255,0.02);
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 24px;
+    overflow: hidden;
+    transition: all 0.4s ease;
+    min-height: 360px;
+  }
+  .project-showcase:hover {
+    border-color: rgba(174,103,250,0.15);
+    transform: translateY(-4px);
+    box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+  }
+  .project-showcase:nth-child(even) {
+    direction: rtl;
+  }
+  .project-showcase:nth-child(even) > * {
+    direction: ltr;
+  }
+
+  .project-preview {
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(135deg, rgba(174,103,250,0.04), rgba(244,152,103,0.04));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 360px;
+  }
+  .project-preview .browser-frame {
+    width: 85%;
+    background: #0a0a12;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid rgba(255,255,255,0.08);
+    box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+    transition: transform 0.4s ease;
+  }
+  .project-showcase:hover .browser-frame {
+    transform: scale(1.03);
+  }
+  .browser-dots {
+    display: flex;
+    gap: 6px;
+    padding: 12px 16px;
+    background: rgba(255,255,255,0.03);
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+  }
+  .browser-dots span {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.1);
+  }
+  .browser-content {
+    height: 180px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgba(255,255,255,0.15);
+    font-size: 13px;
+  }
+
+  .project-info {
+    padding: 48px 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .project-info .project-number {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    color: rgba(174,103,250,0.4);
+    margin-bottom: 16px;
+    letter-spacing: 2px;
+  }
+  .project-info h3 {
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 8px;
+    color: rgba(255,255,255,0.95);
+  }
+  .project-info .project-type {
+    font-size: 13px;
+    color: rgba(244,152,103,0.7);
+    margin-bottom: 20px;
+    font-weight: 500;
+  }
+  .project-info p {
+    font-size: 15px;
+    line-height: 1.7;
+    color: rgba(255,255,255,0.4);
+    margin-bottom: 28px;
+  }
+  .project-info .tech-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 28px;
+  }
+  .tech-pill {
+    font-size: 11px;
+    font-family: 'JetBrains Mono', monospace;
+    padding: 5px 14px;
+    background: rgba(174,103,250,0.08);
+    border: 1px solid rgba(174,103,250,0.12);
+    border-radius: 20px;
+    color: rgba(174,103,250,0.7);
+  }
+
+  .project-links {
+    display: flex;
+    gap: 20px;
+  }
+  .project-links a {
+    font-size: 13px;
+    color: rgba(255,255,255,0.5);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: color 0.3s ease;
+  }
+  .project-links a:hover {
+    color: #AE67FA;
+  }
+
+  /* ——— OPTION B: Bento Grid ——— */
+  .projects-bento {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: auto;
+    gap: 20px;
+  }
+
+  .bento-card {
+    background: rgba(255,255,255,0.02);
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 24px;
+    overflow: hidden;
+    transition: all 0.4s ease;
+    position: relative;
+  }
+  .bento-card:hover {
+    border-color: rgba(174,103,250,0.15);
+    transform: translateY(-4px);
+    box-shadow: 0 16px 48px rgba(0,0,0,0.3);
+  }
+  .bento-card::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(6,6,11,0.95) 0%, rgba(6,6,11,0.4) 40%, transparent 100%);
+    pointer-events: none;
+  }
+
+  .bento-card.large {
+    grid-column: span 7;
+    min-height: 420px;
+  }
+  .bento-card.medium {
+    grid-column: span 5;
+    min-height: 420px;
+  }
+  .bento-card.wide {
+    grid-column: span 6;
+    min-height: 320px;
+  }
+
+  .bento-preview {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(174,103,250,0.06), rgba(244,152,103,0.04));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .bento-preview .placeholder-screen {
+    width: 70%;
+    height: 60%;
+    background: rgba(255,255,255,0.02);
+    border-radius: 12px;
+    border: 1px solid rgba(255,255,255,0.05);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgba(255,255,255,0.1);
+    font-size: 13px;
+  }
+
+  .bento-info {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 32px;
+    z-index: 1;
+  }
+  .bento-info .project-type {
+    font-size: 11px;
+    font-family: 'JetBrains Mono', monospace;
+    color: rgba(244,152,103,0.7);
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+  .bento-info h3 {
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+  .bento-info p {
+    font-size: 14px;
+    line-height: 1.6;
+    color: rgba(255,255,255,0.45);
+    margin-bottom: 16px;
+  }
+  .bento-info .tech-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+
+  .bento-hover-link {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    z-index: 2;
+    width: 40px;
+    height: 40px;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgba(255,255,255,0.3);
+    font-size: 16px;
+    opacity: 0;
+    transition: all 0.3s ease;
+    text-decoration: none;
+  }
+  .bento-card:hover .bento-hover-link {
+    opacity: 1;
+  }
+  .bento-hover-link:hover {
+    background: rgba(174,103,250,0.2);
+    border-color: rgba(174,103,250,0.3);
+    color: #AE67FA;
+  }
+</style>
+</head>
+<body>
+
+<!-- OPTION A: Stacked Showcase -->
+<div class="section-wrapper">
+  <div class="option-label">Option A — Stacked Showcase</div>
+  <div class="section-tag">Projects</div>
+  <h2 class="section-heading">
+    Things I've<br><strong>shipped</strong>.
+  </h2>
+
+  <div class="projects-stacked">
+    <div class="project-showcase">
+      <div class="project-preview">
+        <div class="browser-frame">
+          <div class="browser-dots"><span></span><span></span><span></span></div>
+          <div class="browser-content">ithinkshewifey.com</div>
+        </div>
+      </div>
+      <div class="project-info">
+        <div class="project-number">01</div>
+        <h3>I Think She Wifey</h3>
+        <div class="project-type">Wedding Website Platform</div>
+        <p>A fully featured wedding website builder with RSVP management, gift registry, guest communication, and beautiful customisable templates.</p>
+        <div class="tech-row">
+          <span class="tech-pill">React</span>
+          <span class="tech-pill">Node.js</span>
+          <span class="tech-pill">AWS</span>
+          <span class="tech-pill">PostgreSQL</span>
+        </div>
+        <div class="project-links">
+          <a href="#">Live Site ↗</a>
+          <a href="#">GitHub ↗</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="project-showcase">
+      <div class="project-preview">
+        <div class="browser-frame">
+          <div class="browser-dots"><span></span><span></span><span></span></div>
+          <div class="browser-content">Project 2 Preview</div>
+        </div>
+      </div>
+      <div class="project-info">
+        <div class="project-number">02</div>
+        <h3>Project Two</h3>
+        <div class="project-type">Your Product Category</div>
+        <p>Description of your second product — what it does, who it's for, and why it matters. This alternates to image-right layout.</p>
+        <div class="tech-row">
+          <span class="tech-pill">Tech</span>
+          <span class="tech-pill">Stack</span>
+          <span class="tech-pill">Here</span>
+        </div>
+        <div class="project-links">
+          <a href="#">Live Site ↗</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="project-showcase">
+      <div class="project-preview">
+        <div class="browser-frame">
+          <div class="browser-dots"><span></span><span></span><span></span></div>
+          <div class="browser-content">Project 3 Preview</div>
+        </div>
+      </div>
+      <div class="project-info">
+        <div class="project-number">03</div>
+        <h3>Project Three</h3>
+        <div class="project-type">Your Product Category</div>
+        <p>Description of your third product — what problem it solves and the tech behind it.</p>
+        <div class="tech-row">
+          <span class="tech-pill">Tech</span>
+          <span class="tech-pill">Stack</span>
+          <span class="tech-pill">Here</span>
+        </div>
+        <div class="project-links">
+          <a href="#">Live Site ↗</a>
+          <a href="#">GitHub ↗</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- OPTION B: Bento Grid -->
+<div class="section-wrapper">
+  <div class="option-label">Option B — Bento Grid</div>
+  <div class="section-tag">Projects</div>
+  <h2 class="section-heading">
+    Things I've<br><strong>shipped</strong>.
+  </h2>
+
+  <div class="projects-bento">
+    <!-- Project 1 - Large -->
+    <div class="bento-card large">
+      <div class="bento-preview">
+        <div class="placeholder-screen">ithinkshewifey.com</div>
+      </div>
+      <a href="#" class="bento-hover-link">↗</a>
+      <div class="bento-info">
+        <div class="project-type">Wedding Platform</div>
+        <h3>I Think She Wifey</h3>
+        <p>Full-featured wedding website builder with RSVP, registry, and guest management.</p>
+        <div class="tech-row">
+          <span class="tech-pill">React</span>
+          <span class="tech-pill">Node.js</span>
+          <span class="tech-pill">AWS</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Project 2 - Medium -->
+    <div class="bento-card medium">
+      <div class="bento-preview">
+        <div class="placeholder-screen">Project 2</div>
+      </div>
+      <a href="#" class="bento-hover-link">↗</a>
+      <div class="bento-info">
+        <div class="project-type">Category</div>
+        <h3>Project Two</h3>
+        <p>Brief description of what this product does and who it serves.</p>
+        <div class="tech-row">
+          <span class="tech-pill">Tech</span>
+          <span class="tech-pill">Stack</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Project 3 - Wide -->
+    <div class="bento-card wide">
+      <div class="bento-preview">
+        <div class="placeholder-screen">Project 3</div>
+      </div>
+      <a href="#" class="bento-hover-link">↗</a>
+      <div class="bento-info">
+        <div class="project-type">Category</div>
+        <h3>Project Three</h3>
+        <p>Description of the third product.</p>
+        <div class="tech-row">
+          <span class="tech-pill">Tech</span>
+          <span class="tech-pill">Stack</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Project 4 - Wide -->
+    <div class="bento-card wide">
+      <div class="bento-preview">
+        <div class="placeholder-screen">Project 4</div>
+      </div>
+      <a href="#" class="bento-hover-link">↗</a>
+      <div class="bento-info">
+        <div class="project-type">Category</div>
+        <h3>Project Four</h3>
+        <p>Description of the fourth product.</p>
+        <div class="tech-row">
+          <span class="tech-pill">Tech</span>
+          <span class="tech-pill">Stack</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

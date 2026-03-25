@@ -1,0 +1,16 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(bash \"C:\\\\Users\\\\Abel\\\\.claude\\\\plugins\\\\cache\\\\claude-plugins-official\\\\superpowers\\\\5.0.5\\\\skills\\\\brainstorming\\\\scripts\\\\start-server.sh\" --project-dir \"C:\\\\Users\\\\Abel\\\\React\\\\ag-cv\")",
+      "Bash(npm install:*)",
+      "Bash(timeout 30 npm start)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(rm /c/Users/Abel/React/ag-cv/.git/index.lock)",
+      "Bash(git -C /c/Users/Abel/React/ag-cv add src/data/content.js)",
+      "Bash(git -C /c/Users/Abel/React/ag-cv commit -m \"feat: add centralised content data file\")",
+      "Bash(git mv:*)",
+      "Bash(npx react-scripts:*)"
+    ]
+  }
+}

@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About Section — Design Options</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: #06060b;
+    color: #fff;
+    font-family: 'Inter', -apple-system, sans-serif;
+    overflow-x: hidden;
+  }
+
+  .section-wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 80px 64px;
+  }
+
+  .option-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.2);
+    margin-bottom: 24px;
+    padding-bottom: 48px;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    text-align: center;
+  }
+
+  /* ——— OPTION A: Split Layout ——— */
+  .about-split {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: start;
+  }
+
+  .about-left .section-tag {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: rgba(255,255,255,0.3);
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .about-left .section-tag::before {
+    content: '';
+    width: 24px;
+    height: 1px;
+    background: linear-gradient(90deg, #AE67FA, #F49867);
+  }
+
+  .about-left h2 {
+    font-size: 44px;
+    font-weight: 300;
+    line-height: 1.15;
+    letter-spacing: -1.5px;
+    margin-bottom: 32px;
+  }
+  .about-left h2 strong {
+    font-weight: 700;
+    background: linear-gradient(135deg, #AE67FA, #F49867);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .about-left p {
+    font-size: 16px;
+    line-height: 1.8;
+    color: rgba(255,255,255,0.5);
+    margin-bottom: 20px;
+  }
+
+  .about-right {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    padding-top: 48px;
+  }
+
+  .stat-card {
+    padding: 28px 32px;
+    background: rgba(255,255,255,0.02);
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    transition: all 0.4s ease;
+  }
+  .stat-card:hover {
+    border-color: rgba(174,103,250,0.2);
+    background: rgba(174,103,250,0.03);
+    transform: translateY(-2px);
+  }
+
+  .stat-number {
+    font-size: 36px;
+    font-weight: 800;
+    background: linear-gradient(135deg, #AE67FA, #F49867);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    min-width: 70px;
+  }
+
+  .stat-info h4 {
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 4px;
+    color: rgba(255,255,255,0.85);
+  }
+  .stat-info p {
+    font-size: 13px;
+    color: rgba(255,255,255,0.35);
+    line-height: 1.5;
+  }
+
+  /* Divider */
+  .divider {
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(174,103,250,0.15), rgba(244,152,103,0.15), transparent);
+    margin: 0;
+  }
+
+  /* ——— OPTION B: Narrative with Floating Cards ——— */
+  .about-narrative {
+    text-align: center;
+    max-width: 720px;
+    margin: 0 auto;
+  }
+
+  .about-narrative .section-tag {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: rgba(255,255,255,0.3);
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 24px;
+  }
+
+  .about-narrative h2 {
+    font-size: 40px;
+    font-weight: 300;
+    line-height: 1.2;
+    letter-spacing: -1px;
+    margin-bottom: 40px;
+  }
+  .about-narrative h2 strong {
+    font-weight: 700;
+    background: linear-gradient(135deg, #AE67FA, #F49867);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .about-narrative .bio {
+    font-size: 17px;
+    line-height: 1.9;
+    color: rgba(255,255,255,0.45);
+    margin-bottom: 56px;
+  }
+  .about-narrative .bio .highlight {
+    color: rgba(255,255,255,0.8);
+    font-weight: 500;
+  }
+
+  .floating-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .float-card {
+    padding: 32px 24px;
+    background: rgba(255,255,255,0.02);
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 16px;
+    text-align: center;
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
+  }
+  .float-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, #AE67FA, #F49867);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+  }
+  .float-card:hover {
+    border-color: rgba(174,103,250,0.15);
+    transform: translateY(-4px);
+  }
+  .float-card:hover::before {
+    opacity: 1;
+  }
+
+  .float-card .icon {
+    font-size: 28px;
+    margin-bottom: 16px;
+    display: block;
+  }
+  .float-card h4 {
+    font-size: 32px;
+    font-weight: 800;
+    background: linear-gradient(135deg, #AE67FA, #F49867);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 8px;
+  }
+  .float-card .label {
+    font-size: 12px;
+    color: rgba(255,255,255,0.4);
+    letter-spacing: 0.5px;
+    font-weight: 500;
+  }
+
+  /* ——— OPTION C: Timeline Intro ——— */
+  .about-timeline {
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    gap: 64px;
+    align-items: start;
+  }
+
+  .timeline-left .section-tag {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: rgba(255,255,255,0.3);
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .timeline-left .section-tag::before {
+    content: '';
+    width: 24px;
+    height: 1px;
+    background: linear-gradient(90deg, #AE67FA, #F49867);
+  }
+
+  .timeline-left h2 {
+    font-size: 40px;
+    font-weight: 300;
+    line-height: 1.2;
+    letter-spacing: -1px;
+    margin-bottom: 24px;
+  }
+  .timeline-left h2 strong {
+    font-weight: 700;
+    background: linear-gradient(135deg, #AE67FA, #F49867);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .timeline-left p {
+    font-size: 15px;
+    line-height: 1.8;
+    color: rgba(255,255,255,0.45);
+  }
+
+  .timeline-right {
+    position: relative;
+    padding-left: 40px;
+  }
+  .timeline-right::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 1px;
+    background: linear-gradient(to bottom, #AE67FA, #F49867, transparent);
+  }
+
+  .timeline-item {
+    position: relative;
+    padding-bottom: 40px;
+  }
+  .timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -44px;
+    top: 6px;
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: #06060b;
+    border: 2px solid #AE67FA;
+    transition: all 0.3s ease;
+  }
+  .timeline-item:hover::before {
+    background: #AE67FA;
+    box-shadow: 0 0 12px rgba(174,103,250,0.5);
+  }
+
+  .timeline-year {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    color: rgba(174,103,250,0.6);
+    margin-bottom: 8px;
+    letter-spacing: 1px;
+  }
+  .timeline-item h4 {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: rgba(255,255,255,0.85);
+  }
+  .timeline-item p {
+    font-size: 14px;
+    line-height: 1.7;
+    color: rgba(255,255,255,0.4);
+  }
+</style>
+</head>
+<body>
+
+<!-- OPTION A -->
+<div class="section-wrapper">
+  <div class="option-label">Option A — Split Layout with Stats</div>
+  <div class="about-split">
+    <div class="about-left">
+      <div class="section-tag">About</div>
+      <h2>
+        Engineer by trade,<br>
+        <strong>builder</strong> by nature.
+      </h2>
+      <p>
+        I'm a Senior Software Engineer based in London with a focus on building products that solve real problems. From architecting backend systems to crafting polished user interfaces — I care about the full picture.
+      </p>
+      <p>
+        Currently building wedding tech at ITSW. Previously at Salary Finance, WEX, and the London Metal Exchange. I enjoy working across the stack and turning complex ideas into clean, reliable software.
+      </p>
+    </div>
+    <div class="about-right">
+      <div class="stat-card">
+        <div class="stat-number">7+</div>
+        <div class="stat-info">
+          <h4>Years Experience</h4>
+          <p>Building production software across fintech, enterprise, and startups</p>
+        </div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">5</div>
+        <div class="stat-info">
+          <h4>Companies</h4>
+          <p>From global exchanges to early-stage products</p>
+        </div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">15+</div>
+        <div class="stat-info">
+          <h4>Technologies</h4>
+          <p>Full-stack proficiency from .NET and Python to React and AWS</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- OPTION B -->
+<div class="section-wrapper">
+  <div class="option-label">Option B — Centred Narrative with Stat Cards</div>
+  <div class="about-narrative">
+    <div class="section-tag">About</div>
+    <h2>
+      A bit about <strong>me</strong>.
+    </h2>
+    <p class="bio">
+      I'm a <span class="highlight">Senior Software Engineer</span> based in London, building products across the full stack. I've spent the last 7+ years working in <span class="highlight">fintech, enterprise platforms, and startups</span> — from the London Metal Exchange to my own wedding tech product. I care about <span class="highlight">clean architecture, great UX, and shipping things that matter</span>.
+    </p>
+    <div class="floating-cards">
+      <div class="float-card">
+        <span class="icon">⚡</span>
+        <h4>7+</h4>
+        <div class="label">Years Building Software</div>
+      </div>
+      <div class="float-card">
+        <span class="icon">🏢</span>
+        <h4>5</h4>
+        <div class="label">Companies & Products</div>
+      </div>
+      <div class="float-card">
+        <span class="icon">🛠</span>
+        <h4>15+</h4>
+        <div class="label">Technologies</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- OPTION C -->
+<div class="section-wrapper">
+  <div class="option-label">Option C — Split with Career Timeline</div>
+  <div class="about-timeline">
+    <div class="timeline-left">
+      <div class="section-tag">About</div>
+      <h2>
+        Building for<br>
+        <strong>7+ years</strong>.
+      </h2>
+      <p>
+        Senior Software Engineer based in London. I build full-stack products across fintech, enterprise, and startups. I care about clean code, great UX, and shipping things that work.
+      </p>
+    </div>
+    <div class="timeline-right">
+      <div class="timeline-item">
+        <div class="timeline-year">2024 — Present</div>
+        <h4>Founder & Engineer — ITSW</h4>
+        <p>Building a wedding website platform from the ground up. Full-stack React, Node.js, and cloud infrastructure.</p>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-year">2022 — 2024</div>
+        <h4>Senior Engineer — Salary Finance</h4>
+        <p>Financial wellbeing platform. Led feature development across .NET backend and React frontend.</p>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-year">2020 — 2022</div>
+        <h4>Software Engineer — WEX / Optal</h4>
+        <p>Global payments and travel fintech. Built systems handling high-volume transaction processing.</p>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-year">2018 — 2020</div>
+        <h4>Developer — London Metal Exchange</h4>
+        <p>Enterprise trading platform. Worked on core exchange systems used by global commodity traders.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

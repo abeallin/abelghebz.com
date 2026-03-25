@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Skills Section — Design Options</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: #06060b;
+    color: #fff;
+    font-family: 'Inter', -apple-system, sans-serif;
+    overflow-x: hidden;
+  }
+
+  .section-wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 80px 64px;
+  }
+
+  .option-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.2);
+    margin-bottom: 24px;
+    padding-bottom: 48px;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    text-align: center;
+  }
+
+  .section-tag {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: rgba(255,255,255,0.3);
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .section-tag::before {
+    content: '';
+    width: 24px;
+    height: 1px;
+    background: linear-gradient(90deg, #AE67FA, #F49867);
+  }
+
+  .section-heading {
+    font-size: 44px;
+    font-weight: 300;
+    line-height: 1.15;
+    letter-spacing: -1.5px;
+    margin-bottom: 56px;
+  }
+  .section-heading strong {
+    font-weight: 700;
+    background: linear-gradient(135deg, #AE67FA, #F49867);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .divider {
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(174,103,250,0.15), rgba(244,152,103,0.15), transparent);
+  }
+
+  /* ——— OPTION A: Categorised Grid with Icons ——— */
+  .skills-categories {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+  }
+
+  .skill-category {
+    padding: 36px 32px;
+    background: rgba(255,255,255,0.02);
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 20px;
+    transition: all 0.4s ease;
+  }
+  .skill-category:hover {
+    border-color: rgba(174,103,250,0.12);
+    transform: translateY(-2px);
+  }
+
+  .skill-category h3 {
+    font-size: 13px;
+    font-weight: 600;
+    color: rgba(255,255,255,0.5);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 28px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+  }
+
+  .skill-list {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+  }
+
+  .skill-item {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    transition: all 0.3s ease;
+    padding: 4px 0;
+  }
+  .skill-item:hover {
+    transform: translateX(4px);
+  }
+
+  .skill-icon {
+    width: 36px;
+    height: 36px;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    font-family: 'JetBrains Mono', monospace;
+    color: rgba(174,103,250,0.6);
+    flex-shrink: 0;
+    transition: all 0.3s ease;
+  }
+  .skill-item:hover .skill-icon {
+    background: rgba(174,103,250,0.08);
+    border-color: rgba(174,103,250,0.2);
+  }
+
+  .skill-name {
+    font-size: 15px;
+    font-weight: 500;
+    color: rgba(255,255,255,0.75);
+  }
+
+  /* ——— OPTION B: Horizontal Marquee / Scroll ——— */
+  .skills-marquee-section {
+    overflow: hidden;
+  }
+
+  .skills-row-label {
+    font-size: 12px;
+    font-family: 'JetBrains Mono', monospace;
+    color: rgba(255,255,255,0.25);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+  }
+
+  .marquee-wrapper {
+    overflow: hidden;
+    margin-bottom: 48px;
+    mask-image: linear-gradient(90deg, transparent, black 10%, black 90%, transparent);
+    -webkit-mask-image: linear-gradient(90deg, transparent, black 10%, black 90%, transparent);
+  }
+
+  .marquee-track {
+    display: flex;
+    gap: 16px;
+    animation: marquee 30s linear infinite;
+    width: max-content;
+  }
+  .marquee-track.reverse {
+    animation: marquee-reverse 35s linear infinite;
+  }
+
+  @keyframes marquee {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+  @keyframes marquee-reverse {
+    0% { transform: translateX(-50%); }
+    100% { transform: translateX(0); }
+  }
+
+  .marquee-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 16px 28px;
+    background: rgba(255,255,255,0.02);
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 16px;
+    white-space: nowrap;
+    transition: all 0.3s ease;
+    flex-shrink: 0;
+  }
+  .marquee-item:hover {
+    border-color: rgba(174,103,250,0.2);
+    background: rgba(174,103,250,0.04);
+  }
+
+  .marquee-item .m-icon {
+    width: 32px;
+    height: 32px;
+    background: rgba(255,255,255,0.04);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 10px;
+    font-family: 'JetBrains Mono', monospace;
+    color: rgba(174,103,250,0.5);
+  }
+
+  .marquee-item .m-name {
+    font-size: 14px;
+    font-weight: 500;
+    color: rgba(255,255,255,0.7);
+  }
+
+  /* ——— OPTION C: Pill Cloud ——— */
+  .skills-cloud {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    justify-content: center;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .cloud-pill {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 24px;
+    background: rgba(255,255,255,0.02);
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 100px;
+    transition: all 0.4s ease;
+    cursor: default;
+  }
+  .cloud-pill:hover {
+    border-color: rgba(174,103,250,0.25);
+    background: rgba(174,103,250,0.06);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+  }
+
+  .cloud-pill .c-icon {
+    width: 28px;
+    height: 28px;
+    background: rgba(255,255,255,0.04);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 10px;
+    font-family: 'JetBrains Mono', monospace;
+    color: rgba(174,103,250,0.5);
+  }
+
+  .cloud-pill .c-name {
+    font-size: 14px;
+    font-weight: 500;
+    color: rgba(255,255,255,0.7);
+  }
+
+  /* Size variations for emphasis */
+  .cloud-pill.primary {
+    padding: 18px 32px;
+    border-color: rgba(174,103,250,0.12);
+    background: rgba(174,103,250,0.04);
+  }
+  .cloud-pill.primary .c-name {
+    font-size: 16px;
+    color: rgba(255,255,255,0.85);
+  }
+  .cloud-pill.primary .c-icon {
+    width: 32px;
+    height: 32px;
+    font-size: 11px;
+  }
+
+  .cloud-pill.secondary {
+    padding: 10px 20px;
+    opacity: 0.7;
+  }
+  .cloud-pill.secondary .c-name {
+    font-size: 13px;
+  }
+  .cloud-pill.secondary .c-icon {
+    width: 24px;
+    height: 24px;
+    font-size: 9px;
+  }
+</style>
+</head>
+<body>
+
+<!-- OPTION A: Categorised Grid -->
+<div class="section-wrapper">
+  <div class="option-label">Option A — Categorised Grid</div>
+  <div class="section-tag">Skills</div>
+  <h2 class="section-heading">
+    My <strong>toolkit</strong>.
+  </h2>
+
+  <div class="skills-categories">
+    <div class="skill-category">
+      <h3>Languages</h3>
+      <div class="skill-list">
+        <div class="skill-item">
+          <div class="skill-icon">C#</div>
+          <span class="skill-name">C# / .NET</span>
+        </div>
+        <div class="skill-item">
+          <div class="skill-icon">PY</div>
+          <span class="skill-name">Python</span>
+        </div>
+        <div class="skill-item">
+          <div class="skill-icon">JS</div>
+          <span class="skill-name">JavaScript</span>
+        </div>
+        <div class="skill-item">
+          <div class="skill-icon">JV</div>
+          <span class="skill-name">Java</span>
+        </div>
+        <div class="skill-item">
+          <div class="skill-icon">C+</div>
+          <span class="skill-name">C++</span>
+        </div>
+        <div class="skill-item">
+          <div class="skill-icon">GO</div>
+          <span class="skill-name">Go</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="skill-category">
+      <h3>Frontend & Frameworks</h3>
+      <div class="skill-list">
+        <div class="skill-item">
+          <div class="skill-icon">Re</div>
+          <span class="skill-name">React</span>
+        </div>
+        <div class="skill-item">
+          <div class="skill-icon">Vu</div>
+          <span class="skill-name">Vue.js</span>
+        </div>
+        <div class="skill-item">
+          <div class="skill-icon">No</div>
+          <span class="skill-name">Node.js</span>
+        </div>
+        <div class="skill-item">
+          <div class="skill-icon">Fl</div>
+          <span class="skill-name">Flutter</span>
+        </div>
+        <div class="skill-item">
+          <div class="skill-icon">.N</div>
+          <span class="skill-name">.NET</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="skill-category">
+      <h3>Infrastructure & Data</h3>
+      <div class="skill-list">
+        <div class="skill-item">
+          <div class="skill-icon">AW</div>
+          <span class="skill-name">AWS</span>
+        </div>
+        <div class="skill-item">
+          <div class="skill-icon">Do</div>
+          <span class="skill-name">Docker</span>
+        </div>
+        <div class="skill-item">
+          <div class="skill-icon">MS</div>
+          <span class="skill-name">MSSQL</span>
+        </div>
+        <div class="skill-item">
+          <div class="skill-icon">My</div>
+          <span class="skill-name">MySQL</span>
+        </div>
+        <div class="skill-item">
+          <div class="skill-icon">Mg</div>
+          <span class="skill-name">MongoDB</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- OPTION B: Horizontal Marquee -->
+<div class="section-wrapper">
+  <div class="option-label">Option B — Infinite Scroll Marquee</div>
+  <div class="section-tag">Skills</div>
+  <h2 class="section-heading">
+    My <strong>toolkit</strong>.
+  </h2>
+
+  <div class="skills-marquee-section">
+    <div class="skills-row-label">Languages & Frameworks</div>
+    <div class="marquee-wrapper">
+      <div class="marquee-track">
+        <div class="marquee-item"><div class="m-icon">C#</div><span class="m-name">C# / .NET</span></div>
+        <div class="marquee-item"><div class="m-icon">PY</div><span class="m-name">Python</span></div>
+        <div class="marquee-item"><div class="m-icon">JS</div><span class="m-name">JavaScript</span></div>
+        <div class="marquee-item"><div class="m-icon">Re</div><span class="m-name">React</span></div>
+        <div class="marquee-item"><div class="m-icon">Vu</div><span class="m-name">Vue.js</span></div>
+        <div class="marquee-item"><div class="m-icon">No</div><span class="m-name">Node.js</span></div>
+        <div class="marquee-item"><div class="m-icon">JV</div><span class="m-name">Java</span></div>
+        <div class="marquee-item"><div class="m-icon">GO</div><span class="m-name">Go</span></div>
+        <!-- Duplicated for seamless loop -->
+        <div class="marquee-item"><div class="m-icon">C#</div><span class="m-name">C# / .NET</span></div>
+        <div class="marquee-item"><div class="m-icon">PY</div><span class="m-name">Python</span></div>
+        <div class="marquee-item"><div class="m-icon">JS</div><span class="m-name">JavaScript</span></div>
+        <div class="marquee-item"><div class="m-icon">Re</div><span class="m-name">React</span></div>
+        <div class="marquee-item"><div class="m-icon">Vu</div><span class="m-name">Vue.js</span></div>
+        <div class="marquee-item"><div class="m-icon">No</div><span class="m-name">Node.js</span></div>
+        <div class="marquee-item"><div class="m-icon">JV</div><span class="m-name">Java</span></div>
+        <div class="marquee-item"><div class="m-icon">GO</div><span class="m-name">Go</span></div>
+      </div>
+    </div>
+
+    <div class="skills-row-label">Infrastructure & Data</div>
+    <div class="marquee-wrapper">
+      <div class="marquee-track reverse">
+        <div class="marquee-item"><div class="m-icon">AW</div><span class="m-name">AWS</span></div>
+        <div class="marquee-item"><div class="m-icon">Do</div><span class="m-name">Docker</span></div>
+        <div class="marquee-item"><div class="m-icon">MS</div><span class="m-name">MSSQL</span></div>
+        <div class="marquee-item"><div class="m-icon">My</div><span class="m-name">MySQL</span></div>
+        <div class="marquee-item"><div class="m-icon">Mg</div><span class="m-name">MongoDB</span></div>
+        <div class="marquee-item"><div class="m-icon">Fl</div><span class="m-name">Flutter</span></div>
+        <div class="marquee-item"><div class="m-icon">C+</div><span class="m-name">C++</span></div>
+        <div class="marquee-item"><div class="m-icon">.N</div><span class="m-name">.NET</span></div>
+        <!-- Duplicated for seamless loop -->
+        <div class="marquee-item"><div class="m-icon">AW</div><span class="m-name">AWS</span></div>
+        <div class="marquee-item"><div class="m-icon">Do</div><span class="m-name">Docker</span></div>
+        <div class="marquee-item"><div class="m-icon">MS</div><span class="m-name">MSSQL</span></div>
+        <div class="marquee-item"><div class="m-icon">My</div><span class="m-name">MySQL</span></div>
+        <div class="marquee-item"><div class="m-icon">Mg</div><span class="m-name">MongoDB</span></div>
+        <div class="marquee-item"><div class="m-icon">Fl</div><span class="m-name">Flutter</span></div>
+        <div class="marquee-item"><div class="m-icon">C+</div><span class="m-name">C++</span></div>
+        <div class="marquee-item"><div class="m-icon">.N</div><span class="m-name">.NET</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- OPTION C: Pill Cloud -->
+<div class="section-wrapper">
+  <div class="option-label">Option C — Interactive Pill Cloud</div>
+  <div class="section-tag">Skills</div>
+  <h2 class="section-heading" style="text-align: center;">
+    My <strong>toolkit</strong>.
+  </h2>
+
+  <div class="skills-cloud">
+    <div class="cloud-pill primary"><div class="c-icon">C#</div><span class="c-name">C# / .NET</span></div>
+    <div class="cloud-pill primary"><div class="c-icon">Re</div><span class="c-name">React</span></div>
+    <div class="cloud-pill"><div class="c-icon">PY</div><span class="c-name">Python</span></div>
+    <div class="cloud-pill primary"><div class="c-icon">JS</div><span class="c-name">JavaScript</span></div>
+    <div class="cloud-pill"><div class="c-icon">No</div><span class="c-name">Node.js</span></div>
+    <div class="cloud-pill"><div class="c-icon">AW</div><span class="c-name">AWS</span></div>
+    <div class="cloud-pill primary"><div class="c-icon">.N</div><span class="c-name">.NET</span></div>
+    <div class="cloud-pill"><div class="c-icon">Do</div><span class="c-name">Docker</span></div>
+    <div class="cloud-pill"><div class="c-icon">JV</div><span class="c-name">Java</span></div>
+    <div class="cloud-pill"><div class="c-icon">Vu</div><span class="c-name">Vue.js</span></div>
+    <div class="cloud-pill"><div class="c-icon">MS</div><span class="c-name">MSSQL</span></div>
+    <div class="cloud-pill secondary"><div class="c-icon">My</div><span class="c-name">MySQL</span></div>
+    <div class="cloud-pill"><div class="c-icon">GO</div><span class="c-name">Go</span></div>
+    <div class="cloud-pill secondary"><div class="c-icon">C+</div><span class="c-name">C++</span></div>
+    <div class="cloud-pill secondary"><div class="c-icon">Fl</div><span class="c-name">Flutter</span></div>
+    <div class="cloud-pill secondary"><div class="c-icon">Mg</div><span class="c-name">MongoDB</span></div>
+  </div>
+</div>
+
+</body>
+</html>
