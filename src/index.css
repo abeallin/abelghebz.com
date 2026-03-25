@@ -1,14 +1,40 @@
-@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&display=swap');
+@import "tailwindcss";
 
-:root {
-  --font-family: 'Manrope', sans-serif;
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400&display=swap');
 
-  --gradient-text: linear-gradient(89.97deg, #AE67FA 1.84%, #F49867 102.67%);
-  --gradient-bar: linear-gradient(103.22deg, #AE67FA -13.86%, #F49867 99.55%);
-  
-  --color-bg: #010208;
-  --color-footer : #031B34;
-  --color-blog: #042c54;
-  --color-text: #ffffff;
-  --color-subtext: #FF8A71;
+@theme {
+  --color-bg-primary: #06060b;
+  --color-gradient-start: #AE67FA;
+  --color-gradient-end: #F49867;
+  --color-text-primary: #ffffff;
+  --color-text-secondary: rgba(255, 255, 255, 0.45);
+  --color-text-muted: rgba(255, 255, 255, 0.25);
+  --color-border-subtle: rgba(255, 255, 255, 0.06);
+  --color-surface: rgba(255, 255, 255, 0.02);
+  --color-status-green: #34D399;
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-sans);
+  background-color: var(--color-bg-primary);
+  color: var(--color-text-primary);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
