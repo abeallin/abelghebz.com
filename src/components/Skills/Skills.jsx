@@ -3,13 +3,13 @@ import { motion } from "framer-motion";
 import { skillRows } from "../../data/content";
 import {
   SiJavascript, SiTypescript, SiPython, SiCplusplus,
-  SiReact, SiNextdotjs, SiVuedotjs, SiNodedotjs, SiBlazor, SiFlutter, SiDotnet,
+  SiReact, SiNextdotjs, SiVuedotjs, SiNodedotjs, SiBlazor, SiDotnet,
   SiMongodb, SiSnowflake, SiCockroachlabs,
   SiTerraform, SiDocker, SiKubernetes, SiGithubactions, SiArgo,
   SiRedis, SiApachekafka, SiGraphql,
   SiOpenai, SiGithubcopilot,
 } from "react-icons/si";
-import { DiJava, DiAws, DiMsqlServer, DiMysql, DiPostgresql } from "react-icons/di";
+import { DiJava, DiAws, DiMsqlServer, DiMysql, DiPostgresql, DiGo } from "react-icons/di";
 import { TbApi, TbBrandReactNative } from "react-icons/tb";
 import { VscWindow } from "react-icons/vsc";
 import { FiCpu, FiTool, FiZap, FiTerminal } from "react-icons/fi";
@@ -28,8 +28,8 @@ const iconMap = {
   "Blazor": SiBlazor,
   "Next.js": SiNextdotjs,
   "React Native": TbBrandReactNative,
-  "Flutter": SiFlutter,
-  "PWA": FiZap,
+  "Go": DiGo,
+  "Expo": SiReact,
   "WinForms": VscWindow,
   "WPF": VscWindow,
   "MSSQL": DiMsqlServer,
@@ -48,7 +48,6 @@ const iconMap = {
   "Kafka": SiApachekafka,
   "gRPC": TbApi,
   "GraphQL": SiGraphql,
-  "SignalR": FiZap,
   "Claude AI": FiTerminal,
   "ChatGPT": SiOpenai,
   "GitHub Copilot": SiGithubcopilot,

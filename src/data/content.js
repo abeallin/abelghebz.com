@@ -207,6 +207,7 @@ export const skillRows = [
       { abbr: "C+", name: "C++" },
       { abbr: "JS", name: "JavaScript" },
       { abbr: "TS", name: "TypeScript" },
+      { abbr: "GO", name: "Go" },
     ],
   },
   {
@@ -220,8 +221,7 @@ export const skillRows = [
       { abbr: "Bz", name: "Blazor" },
       { abbr: "Nx", name: "Next.js" },
       { abbr: "RN", name: "React Native" },
-      { abbr: "Fl", name: "Flutter" },
-      { abbr: "PW", name: "PWA" },
+      { abbr: "EX", name: "Expo" },
     ],
   },
   {
@@ -250,7 +250,6 @@ export const skillRows = [
       { abbr: "Ka", name: "Kafka" },
       { abbr: "gR", name: "gRPC" },
       { abbr: "GQ", name: "GraphQL" },
-      { abbr: "SR", name: "SignalR" },
     ],
   },
   {
