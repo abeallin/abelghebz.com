@@ -20,14 +20,14 @@ function BrowserFrame({ label }) {
 
 export default function Projects() {
   return (
-    <section id="projects" className="max-w-[1600px] mx-auto px-6 lg:px-12 py-32">
+    <section id="projects" className="max-w-[1600px] mx-auto px-6 lg:px-12 py-16 lg:py-32">
       <div className="border-t border-border pt-12">
-        <div className="flex items-center gap-4 mb-16">
+        <div className="flex items-center gap-4 mb-10 lg:mb-16">
           <span className="font-mono text-[11px] text-accent tracking-[0.2em]">03</span>
           <span className="font-mono text-[11px] uppercase tracking-[0.2em] text-text-dim">Projects</span>
         </div>
 
-        <h2 className="text-[clamp(36px,5vw,64px)] leading-[1.05] tracking-[-0.03em] mb-14">
+        <h2 className="text-[clamp(36px,5vw,64px)] leading-[1.05] tracking-[-0.03em] mb-10 lg:mb-14">
           <span className="font-body font-800 text-text">Things I've </span>
           <span className="font-display italic text-accent">shipped</span>
           <span className="font-body font-800 text-text">.</span>
@@ -39,21 +39,21 @@ export default function Projects() {
             return (
               <motion.div
                 key={project.number}
-                className="group grid grid-cols-1 lg:grid-cols-2 bg-bg-raised border border-border overflow-hidden min-h-[360px] hover:border-accent/30 transition-all duration-500"
+                className="group grid grid-cols-1 lg:grid-cols-2 bg-bg-raised border border-border overflow-hidden min-h-[200px] lg:min-h-[360px] hover:border-accent/30 transition-all duration-500"
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-80px" }}
                 transition={{ duration: 0.7 }}
               >
-                <div className={`relative overflow-hidden bg-bg flex items-center justify-center min-h-[360px] border-border ${!isEven ? "lg:order-2 lg:border-l" : "lg:border-r"}`}>
+                <div className={`relative overflow-hidden bg-bg flex items-center justify-center min-h-[200px] lg:min-h-[360px] border-border ${!isEven ? "lg:order-2 lg:border-l" : "lg:border-r"}`}>
                   <BrowserFrame label={project.name} />
                 </div>
 
-                <div className={`p-10 lg:p-14 flex flex-col justify-center ${!isEven ? "lg:order-1" : ""}`}>
+                <div className={`p-6 sm:p-10 lg:p-14 flex flex-col justify-center ${!isEven ? "lg:order-1" : ""}`}>
                   <div className="font-mono text-[11px] text-accent tracking-[0.2em] mb-5">
                     {project.number}
                   </div>
-                  <h3 className="text-[28px] font-body font-700 text-text mb-2 group-hover:text-accent transition-colors">
+                  <h3 className="text-[22px] sm:text-[28px] font-body font-700 text-text mb-2 group-hover:text-accent transition-colors">
                     {project.name}
                   </h3>
                   <div className="font-mono text-[11px] text-text-dim uppercase tracking-wider mb-6">

@@ -29,7 +29,7 @@ function ExperienceCard({ item, index }) {
         viewport={{ once: true, margin: "-50px" }}
         transition={{ duration: 0.6 }}
       >
-        <div className="p-8 lg:p-10">
+        <div className="p-6 sm:p-8 lg:p-10">
           <div className="flex justify-between items-start mb-6">
             <div className="w-12 h-12 bg-accent/10 border border-accent/20 flex items-center justify-center font-mono text-sm text-accent font-bold">
               {item.initials}
@@ -56,7 +56,7 @@ function ExperienceCard({ item, index }) {
 
   return (
     <motion.div
-      className="p-8 bg-bg-raised border border-border group hover:border-accent/30 transition-all duration-500"
+      className="p-6 sm:p-8 bg-bg-raised border border-border group hover:border-accent/30 transition-all duration-500"
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-50px" }}
@@ -85,20 +85,20 @@ export default function Experience() {
   const rest = experience.filter((e) => !e.featured);
 
   return (
-    <section id="experience" className="max-w-[1600px] mx-auto px-6 lg:px-12 py-32">
+    <section id="experience" className="max-w-[1600px] mx-auto px-6 lg:px-12 py-16 lg:py-32">
       <div className="border-t border-border pt-12">
-        <div className="flex items-center gap-4 mb-16">
+        <div className="flex items-center gap-4 mb-10 lg:mb-16">
           <span className="font-mono text-[11px] text-accent tracking-[0.2em]">02</span>
           <span className="font-mono text-[11px] uppercase tracking-[0.2em] text-text-dim">Experience</span>
         </div>
 
-        <h2 className="text-[clamp(36px,5vw,64px)] leading-[1.05] tracking-[-0.03em] mb-14">
+        <h2 className="text-[clamp(36px,5vw,64px)] leading-[1.05] tracking-[-0.03em] mb-10 lg:mb-14">
           <span className="font-body font-800 text-text">Where I've </span>
           <span className="font-display italic text-accent">built things</span>
           <span className="font-body font-800 text-text">.</span>
         </h2>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-3 sm:gap-4">
           {featured.map((item, i) => <ExperienceCard key={item.company} item={item} index={i} />)}
           {rest.map((item, i) => <ExperienceCard key={item.company} item={item} index={i} />)}
         </div>

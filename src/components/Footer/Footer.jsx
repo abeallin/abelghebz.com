@@ -20,7 +20,7 @@ export default function Footer() {
             © {new Date().getFullYear()} Abel Ghebrezadik
           </p>
         </div>
-        <div className="flex gap-8">
+        <div className="flex flex-wrap gap-4 sm:gap-8">
           {social.map((s) => {
             const Icon = iconMap[s.icon];
             return (

@@ -53,7 +53,7 @@ export default function Hero() {
         {/* Title — oversized mixed typography */}
         <h1 className="mb-8">
           <motion.span
-            className="block font-body text-[clamp(48px,9vw,140px)] font-800 leading-[0.9] tracking-[-0.04em] text-text"
+            className="block font-body text-[clamp(36px,9vw,140px)] font-800 leading-[0.9] tracking-[-0.04em] text-text"
             custom={0}
             initial="hidden"
             animate="visible"
@@ -62,7 +62,7 @@ export default function Hero() {
             {personal.tagline}
           </motion.span>
           <motion.span
-            className="block font-display italic text-[clamp(48px,9vw,140px)] leading-[0.95] tracking-[-0.02em] text-accent"
+            className="block font-display italic text-[clamp(36px,9vw,140px)] leading-[0.95] tracking-[-0.02em] text-accent"
             custom={1}
             initial="hidden"
             animate="visible"
@@ -71,7 +71,7 @@ export default function Hero() {
             {personal.taglineHighlight}
           </motion.span>
           <motion.span
-            className="block font-body text-[clamp(48px,9vw,140px)] font-800 leading-[0.9] tracking-[-0.04em] text-text"
+            className="block font-body text-[clamp(36px,9vw,140px)] font-800 leading-[0.9] tracking-[-0.04em] text-text"
             custom={2}
             initial="hidden"
             animate="visible"
@@ -83,7 +83,7 @@ export default function Hero() {
 
         {/* Description */}
         <motion.p
-          className="text-[15px] text-text-dim leading-[1.8] max-w-[520px] mb-10 font-body font-normal"
+          className="text-[15px] text-text-dim leading-[1.8] w-full max-w-[520px] mb-10 font-body font-normal"
           variants={fade(1.0)}
           initial="hidden"
           animate="visible"
@@ -93,7 +93,7 @@ export default function Hero() {
 
         {/* CTAs */}
         <motion.div
-          className="flex gap-6 items-center"
+          className="flex flex-col sm:flex-row gap-4 sm:gap-6 items-start sm:items-center"
           variants={fade(1.2)}
           initial="hidden"
           animate="visible"
@@ -118,12 +118,12 @@ export default function Hero() {
 
       {/* Bottom bar */}
       <motion.div
-        className="flex justify-between items-end pt-12 border-t border-border mt-12"
+        className="flex justify-between items-end pt-8 mt-8 sm:pt-12 sm:mt-12 border-t border-border"
         variants={fade(1.5)}
         initial="hidden"
         animate="visible"
       >
-        <div className="flex gap-8">
+        <div className="flex flex-wrap gap-4 sm:gap-8">
           {social.map((s) => {
             const Icon = iconMap[s.icon];
             return (

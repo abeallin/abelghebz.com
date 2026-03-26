@@ -152,7 +152,7 @@ function MarqueeRow({ row }) {
 
 export default function Skills() {
   return (
-    <section id="skills" className="max-w-[1600px] mx-auto px-6 lg:px-12 py-32">
+    <section id="skills" className="max-w-[1600px] mx-auto px-6 lg:px-12 py-16 lg:py-32">
       <motion.div
         className="border-t border-border pt-12"
         initial={{ opacity: 0, y: 20 }}
@@ -160,12 +160,12 @@ export default function Skills() {
         viewport={{ once: true, margin: "-80px" }}
         transition={{ duration: 0.6 }}
       >
-        <div className="flex items-center gap-4 mb-16">
+        <div className="flex items-center gap-4 mb-10 lg:mb-16">
           <span className="font-mono text-[11px] text-accent tracking-[0.2em]">04</span>
           <span className="font-mono text-[11px] uppercase tracking-[0.2em] text-text-dim">Skills</span>
         </div>
 
-        <h2 className="text-[clamp(36px,5vw,64px)] leading-[1.05] tracking-[-0.03em] mb-14">
+        <h2 className="text-[clamp(36px,5vw,64px)] leading-[1.05] tracking-[-0.03em] mb-10 lg:mb-14">
           <span className="font-body font-800 text-text">My </span>
           <span className="font-display italic text-accent">toolkit</span>
           <span className="font-body font-800 text-text">.</span>

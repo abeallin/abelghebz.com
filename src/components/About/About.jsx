@@ -4,15 +4,15 @@ import { about, timeline } from "../../data/content";
 
 export default function About() {
   return (
-    <section id="about" className="max-w-[1600px] mx-auto px-6 lg:px-12 py-32">
+    <section id="about" className="max-w-[1600px] mx-auto px-6 lg:px-12 py-16 lg:py-32">
       <div className="border-t border-border pt-12">
         {/* Section number + label */}
-        <div className="flex items-center gap-4 mb-16">
+        <div className="flex items-center gap-4 mb-10 lg:mb-16">
           <span className="font-mono text-[11px] text-accent tracking-[0.2em]">01</span>
           <span className="font-mono text-[11px] uppercase tracking-[0.2em] text-text-dim">About</span>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-[2fr_3fr] gap-20 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-[2fr_3fr] gap-10 lg:gap-20 items-start">
           {/* Left — Bio */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -35,13 +35,13 @@ export default function About() {
             {timeline.map((item, i) => (
               <motion.div
                 key={item.company}
-                className="group border-t border-border py-8 flex gap-8 items-start"
+                className="group border-t border-border py-8 flex flex-col sm:flex-row gap-2 sm:gap-8 items-start"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-50px" }}
                 transition={{ duration: 0.6, delay: i * 0.1 }}
               >
-                <span className="font-mono text-[11px] text-text-dim tracking-wider min-w-[120px] pt-1">
+                <span className="font-mono text-[11px] text-text-dim tracking-wider min-w-[100px] sm:min-w-[120px] pt-1">
                   {item.year}
                 </span>
                 <div>
