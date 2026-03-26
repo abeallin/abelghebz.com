@@ -13,13 +13,30 @@ export default function About() {
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-[2fr_3fr] gap-10 lg:gap-20 items-start">
-          {/* Left — Bio */}
+          {/* Left — Photo + Bio */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
           >
+            {/* Photo */}
+            <div className="relative mb-10 w-fit">
+              <div className="relative overflow-hidden group">
+                <img
+                  src="/me.jpg"
+                  alt="Abel Ghebrezadik"
+                  className="w-[180px] h-[180px] sm:w-[220px] sm:h-[220px] object-cover grayscale group-hover:grayscale-0 transition-all duration-700"
+                />
+                {/* Accent corner frame */}
+                <div className="absolute top-0 left-0 w-6 h-6 border-t-2 border-l-2 border-accent" />
+                <div className="absolute bottom-0 right-0 w-6 h-6 border-b-2 border-r-2 border-accent" />
+              </div>
+              <span className="block mt-3 font-mono text-[10px] text-text-dim tracking-[0.2em] uppercase">
+                Abel Ghebrezadik
+              </span>
+            </div>
+
             <h2 className="text-[clamp(36px,5vw,64px)] leading-[1.05] tracking-[-0.03em] mb-8">
               <span className="font-body font-800 text-text">{about.heading} </span>
               <span className="font-display italic text-accent">{about.headingHighlight}</span>
