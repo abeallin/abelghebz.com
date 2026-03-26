@@ -9,12 +9,28 @@ import {
   SiRedis, SiApachekafka, SiGraphql,
   SiOpenai, SiGithubcopilot,
   SiVercel, SiRailway, SiCloudflare, SiPerl, SiExpo,
-  SiGithub, SiBitbucket, SiJira, SiConfluence, SiNotion, SiClaude,
+  SiGithub, SiBitbucket, SiJira, SiConfluence, SiNotion, SiClaude, SiSentry, SiDatadog,
 } from "react-icons/si";
 import { DiJava, DiAws, DiMsqlServer, DiMysql, DiPostgresql, DiGo } from "react-icons/di";
 import { TbApi, TbBrandReactNative } from "react-icons/tb";
 import { VscWindow, VscAzure } from "react-icons/vsc";
 import { FiCpu, FiTool, FiTerminal } from "react-icons/fi";
+
+function VisualStudioIcon({ className }) {
+  return (
+    <svg className={className} viewBox="0 0 24 24" fill="currentColor">
+      <path d="M17.58 2.01L10 8.53l-4.77-3.7L2 6.18v11.64l3.23 1.35L10 15.47l7.58 6.52L22 19.67V4.34zM5.23 15.07V8.93L8.11 12zm10.35.87L12 12l3.58-3.94z"/>
+    </svg>
+  );
+}
+
+function VSCodeIcon({ className }) {
+  return (
+    <svg className={className} viewBox="0 0 24 24" fill="currentColor">
+      <path d="M17 1.46l-5.94 5.47L5 2.84 2 4.41v15.17l3 1.59 6.06-4.1L17 22.54l5-2.5V3.96zm-1 16.27l-4.5-3.49L7 17.73V6.27l4.5 3.49L16 6.27z"/>
+    </svg>
+  );
+}
 
 function CursorIcon({ className }) {
   return (
@@ -75,12 +91,16 @@ const iconMap = {
   "Railway": SiRailway,
   "Cloudflare": SiCloudflare,
   "Azure": VscAzure,
+  "Visual Studio": VisualStudioIcon,
+  "VS Code": VSCodeIcon,
   "GitHub": SiGithub,
   "Bitbucket": SiBitbucket,
   "Jira": SiJira,
   "Confluence": SiConfluence,
   "Notion": SiNotion,
   "Monday.com": MondayIcon,
+  "Sentry": SiSentry,
+  "Datadog": SiDatadog,
   "Claude AI": SiClaude,
   "ChatGPT": SiOpenai,
   "GitHub Copilot": SiGithubcopilot,

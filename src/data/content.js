@@ -254,32 +254,59 @@ export const skillRows = [
     direction: "left",
     items: [
       { abbr: "Do", name: "Docker" },
-      { abbr: "K8", name: "Kubernetes" },
       { abbr: "TF", name: "Terraform" },
       { abbr: "GH", name: "GitHub Actions" },
       { abbr: "Ar", name: "ArgoCD" },
     ],
   },
   {
-    label: "Build Tools & Protocols",
+    label: "Protocols",
     direction: "right",
     items: [
-      { abbr: "Rd", name: "Redis" },
-      { abbr: "Ka", name: "Kafka" },
       { abbr: "gR", name: "gRPC" },
       { abbr: "GQ", name: "GraphQL" },
     ],
   },
   {
-    label: "Project Management",
+    label: "Messaging & Cache",
+    direction: "left",
+    items: [
+      { abbr: "Ka", name: "Kafka" },
+      { abbr: "Rd", name: "Redis" },
+    ],
+  },
+  {
+    label: "Monitoring",
+    direction: "right",
+    items: [
+      { abbr: "Sn", name: "Sentry" },
+      { abbr: "Dd", name: "Datadog" },
+    ],
+  },
+  {
+    label: "Repositories",
     direction: "left",
     items: [
       { abbr: "GH", name: "GitHub" },
       { abbr: "BB", name: "Bitbucket" },
+    ],
+  },
+  {
+    label: "Project Management",
+    direction: "right",
+    items: [
       { abbr: "JR", name: "Jira" },
       { abbr: "CF", name: "Confluence" },
       { abbr: "NT", name: "Notion" },
-      { abbr: "MN", name: "Monday.com" },
+    ],
+  },
+  {
+    label: "IDEs",
+    direction: "left",
+    items: [
+      { abbr: "VS", name: "Visual Studio" },
+      { abbr: "VC", name: "VS Code" },
+      { abbr: "CU", name: "Cursor" },
     ],
   },
   {
@@ -290,14 +317,6 @@ export const skillRows = [
       { abbr: "GP", name: "ChatGPT" },
       { abbr: "CP", name: "GitHub Copilot" },
       { abbr: "CU", name: "Cursor" },
-    ],
-  },
-  {
-    label: "Practices",
-    direction: "left",
-    items: [
-      { abbr: "μS", name: "Microservices" },
-      { abbr: "Ag", name: "Agile" },
     ],
   },
 ];
