@@ -129,7 +129,7 @@ function MarqueeRow({ row }) {
             return (
               <div
                 key={`${item.name}-${i}`}
-                className="flex items-center gap-3 px-5 py-3 bg-bg-raised border border-border rounded-sm whitespace-nowrap hover:border-accent/40 transition-all duration-300 shrink-0 group"
+                className="flex items-center gap-3 px-5 py-3 bg-[#1e1e1e] border border-[#444] rounded-sm whitespace-nowrap hover:border-accent/50 hover:bg-[#222] transition-all duration-300 shrink-0 group"
               >
                 {Icon ? (
                   <Icon className="w-5 h-5 text-text-dim group-hover:text-accent transition-colors" />

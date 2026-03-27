@@ -23,7 +23,7 @@ function ExperienceCard({ item, index }) {
   if (item.featured) {
     return (
       <motion.div
-        className="col-span-full grid grid-cols-1 lg:grid-cols-2 gap-0 bg-bg-raised border border-border overflow-hidden group hover:border-accent/30 transition-all duration-500"
+        className="col-span-full bg-bg-raised border border-border overflow-hidden group hover:border-accent/30 transition-all duration-500"
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-50px" }}
@@ -42,13 +42,10 @@ function ExperienceCard({ item, index }) {
             <CompanyName item={item} className="text-2xl font-body font-700 text-text group-hover:text-accent" />
           </h3>
           <div className="font-mono text-[11px] text-text-dim uppercase tracking-wider mb-5">{item.role}</div>
-          <p className="text-[14px] leading-[1.8] text-text-dim mb-6">{item.description}</p>
+          <p className="text-[14px] leading-[1.8] text-text-dim mb-6 max-w-[720px]">{item.description}</p>
           <div className="flex flex-wrap gap-2">
             {item.tech.map((t) => <TechPill key={t} label={t} />)}
           </div>
-        </div>
-        <div className="flex items-center justify-center bg-bg border-l border-border min-h-[240px]">
-          <span className="font-mono text-[11px] text-text-dim/30 uppercase tracking-widest">Preview</span>
         </div>
       </motion.div>
     );

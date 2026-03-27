@@ -12,12 +12,16 @@ function BrowserFrame({ label, screenshot }) {
         <span className="w-2 h-2 rounded-full bg-border" />
       </div>
       {screenshot ? (
-        <img src={screenshot} alt={label} className="w-full h-auto block" />
-      ) : (
-        <div className="h-[180px] flex items-center justify-center font-mono text-[11px] text-text-dim/20 uppercase tracking-widest">
-          {label}
-        </div>
-      )}
+        <img
+          src={screenshot}
+          alt={label}
+          className="w-full h-auto block"
+          onError={(e) => { e.target.style.display = 'none'; e.target.nextSibling.style.display = 'flex'; }}
+        />
+      ) : null}
+      <div className={`h-[180px] items-center justify-center font-mono text-[11px] text-text-dim/20 uppercase tracking-widest ${screenshot ? 'hidden' : 'flex'}`}>
+        {label}
+      </div>
     </div>
   );
 }

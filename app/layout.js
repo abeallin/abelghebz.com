@@ -4,7 +4,7 @@ export const metadata = {
   title: "Abel Ghebrezadik | Lead/Senior Software Engineer",
   description:
     "Lead/Senior Software Engineer with 10 years' experience across Finance, Property, Health, and Gambling. Portfolio showcasing projects, experience, and skills.",
-  icons: { icon: "/favicon.ico" },
+  icons: { icon: "/favicon.svg" },
 };
 
 export default function RootLayout({ children }) {

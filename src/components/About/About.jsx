@@ -4,15 +4,15 @@ import { about, timeline } from "../../data/content";
 
 export default function About() {
   return (
-    <section id="about" className="max-w-[1600px] mx-auto px-6 lg:px-12 py-16 lg:py-32">
+    <section id="about" className="max-w-[1600px] mx-auto px-6 lg:px-12 py-12 lg:py-20">
       <div className="border-t border-border pt-12">
         {/* Section number + label */}
-        <div className="flex items-center gap-4 mb-10 lg:mb-16">
+        <div className="flex items-center gap-4 mb-8 lg:mb-12">
           <span className="font-mono text-[11px] text-accent tracking-[0.2em]">01</span>
           <span className="font-mono text-[11px] uppercase tracking-[0.2em] text-text-dim">About</span>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-[2fr_3fr] gap-10 lg:gap-20 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-[2fr_3fr] gap-8 lg:gap-16 items-start">
           {/* Left — Photo + Bio */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -21,7 +21,7 @@ export default function About() {
             transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
           >
             {/* Photo */}
-            <div className="relative mb-10 w-fit">
+            <div className="relative mb-6 w-fit">
               <div className="relative overflow-hidden group">
                 <img
                   src="/me.jpg"
@@ -52,7 +52,7 @@ export default function About() {
             {timeline.map((item, i) => (
               <motion.div
                 key={item.company}
-                className="group border-t border-border py-8 grid grid-cols-[140px_1fr] sm:grid-cols-[160px_1fr] gap-x-6 gap-y-0 items-baseline"
+                className="group border-t border-border py-5 grid grid-cols-[140px_1fr] sm:grid-cols-[160px_1fr] gap-x-6 gap-y-0 items-baseline"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-50px" }}
