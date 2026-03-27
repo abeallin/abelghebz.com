@@ -7,21 +7,22 @@ export const personal = {
   tagline: "I build",
   taglineHighlight: "products",
   description:
-    "Lead/Senior Software Engineer with 9 years' experience across Tech: Finance, Property, Health, and Gambling. Self-taught developer with a Mathematics degree. Proven track record in leading greenfield projects, resolving legacy tech debt, and deploying scalable backend systems.",
+    "Lead/Senior Software Engineer with 10 years' experience across Tech: Finance, Property, Health, and Gambling. Self-taught developer with a Mathematics degree. Proven track record in leading greenfield projects, resolving legacy tech debt, and deploying scalable backend systems.",
   cvPath: "/assets/abel_ghebrezadik_cv.pdf",
 };
 
 export const social = [
   { label: "GitHub", url: "https://github.com/abeallin", icon: "github" },
   { label: "LinkedIn", url: "https://linkedin.com/in/abel-ghebrezadik", icon: "linkedin" },
-  { label: "Email", url: "mailto:abel_g@hotmail.co.uk", icon: "email" },
-  { label: "Phone", url: "tel:07527841324", icon: "phone" },
+  { label: "Gmail", url: "mailto:abelghebz@gmail.com", icon: "gmail" },
+  { label: "Outlook", url: "mailto:abel_g@hotmail.co.uk", icon: "outlook" },
+  { label: "Phone", url: "tel:+447527841324", icon: "phone" },
 ];
 
 export const about = {
   heading: "Building for",
-  headingHighlight: "9+ years",
-  bio: "Lead/Senior Software Engineer based in London with 9 years' experience across Finance, Property, Health, and Gambling. Self-taught developer with a Mathematics degree and a strong analytical mindset. Proven track record in leading greenfield projects, resolving legacy tech debt, and deploying scalable backend systems using .NET, AWS, and modern ORMs.",
+  headingHighlight: "10+ years",
+  bio: "Lead/Senior Software Engineer based in London with 10 years' experience across Finance, Property, Health, and Gambling.",
 };
 
 export const timeline = [
@@ -30,49 +31,49 @@ export const timeline = [
     company: "Arena Entertainment",
     title: "Full Stack Developer",
     description:
-      "Crypto gambling platform. Optimising TypeScript performance and rebuilding admin platform in C# with Kafka, gRPC, and DDD.",
+      "Crypto gambling platform.",
   },
   {
     year: "Apr — Jul 2025",
     company: "Betmate",
     title: "Lead/Senior Software Engineer",
     description:
-      "Multiplayer sports betting game with £500k jackpot. Scaled to 300,000 users on AWS Lambda serverless architecture.",
+      "Multiplayer sports betting platform.",
   },
   {
     year: "Dec 2024 — Feb 2025",
     company: "NHS England",
-    title: "Software Engineer (Contract)",
+    title: "Full Stack Software Engineer",
     description:
-      "Python healthcare automation tool for GP practices nationwide. Contract outside IR35.",
+      "National healthcare service.",
   },
   {
     year: "Apr — Jul 2024",
     company: "Fvtvre",
     title: "Senior Software Engineer",
     description:
-      ".NET 8 microservices and Vue.js for a KSA-based PropTech startup, deployed to EJAR.",
+      "KSA-based PropTech startup.",
   },
   {
     year: "Aug 2021 — Apr 2024",
     company: "SalaryFinance",
     title: "Senior Software Engineer",
     description:
-      "Technical lead on critical project. Resolved 500+ prod issues in 6 months, 80% faster than peers.",
+      "Credit facility platform.",
   },
   {
     year: "May 2018 — Apr 2021",
     company: "Optal (acquired by Wex)",
-    title: "Senior Software Engineer",
+    title: "Senior/Mid-Level Software Engineer",
     description:
-      "B2B e-card payments. Millions of daily transactions for Expedia and Booking.com.",
+      "e-Payments platform.",
   },
   {
     year: "May 2016 — May 2018",
-    company: "FDM Group",
-    title: "IT Consultant at London Metal Exchange",
+    company: "London Metal Exchange",
+    title: "Junior Software Engineer (via FDM Group)",
     description:
-      "Graduate scheme, contracted to London Metal Exchange. MIFID II regulatory reporting APIs in C# .NET.",
+      "International financial services.",
   },
 ];
 
@@ -138,9 +139,9 @@ export const experience = [
     link: { label: "wexinc.com", url: "https://www.wexinc.com/en-gb/" },
   },
   {
-    company: "FDM Group",
-    initials: "FD",
-    role: "IT Consultant at London Metal Exchange",
+    company: "London Metal Exchange (via FDM Group)",
+    initials: "LME",
+    role: "IT Consultant at FDM Group",
     year: "May 2016 — May 2018",
     description:
       "Graduate scheme, contracted to London Metal Exchange. Built functionality in C++, Java, and C#. Created a SOAP API for internal data retrieval. Developed MIFID II regulatory reporting APIs. Scripted in Perl, PowerShell, and Batch.",
@@ -157,34 +158,13 @@ export const projects = [
     description:
       "A fully featured wedding website builder with RSVP management, gift registry, guest communication, and beautiful customisable templates.",
     tech: ["TypeScript", "Next.js", "React", "PostgreSQL", "AWS"],
+    screenshot: "/screenshots/01.png",
     links: [
       { label: "Live Site", url: "https://ithinkshewifey.com" },
     ],
   },
   {
     number: "02",
-    name: "cabeazy.com",
-    type: "Ride-Hailing Platform",
-    description:
-      "The UK's first driver-owned ride-hailing platform. An alternative to Uber with a 10% commission capped at £149/month — after which rides are free. Operating in 35+ UK cities.",
-    tech: ["React", "Node.js", "AWS", "PostgreSQL"],
-    links: [
-      { label: "Live Site", url: "https://cabeazy.com" },
-    ],
-  },
-  {
-    number: "03",
-    name: "Diaspora Dreams",
-    type: "Art Dealership",
-    description:
-      "An online art dealership startup. Built as a side venture to showcase and sell art.",
-    tech: ["React", "JavaScript", "CSS"],
-    links: [
-      { label: "Live Site", url: "https://diasporadreams.co.uk" },
-    ],
-  },
-  {
-    number: "04",
     name: "GPFlow",
     type: "Healthcare Automation Tool",
     description:

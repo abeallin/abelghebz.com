@@ -1,11 +1,14 @@
 import React from "react";
 import { FiGithub, FiLinkedin, FiMail, FiPhone } from "react-icons/fi";
+import { SiGmail } from "react-icons/si";
 import { social } from "../../data/content";
 
 const iconMap = {
   github: FiGithub,
   linkedin: FiLinkedin,
   email: FiMail,
+  gmail: SiGmail,
+  outlook: FiMail,
   phone: FiPhone,
 };
 

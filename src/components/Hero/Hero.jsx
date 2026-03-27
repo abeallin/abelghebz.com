@@ -1,12 +1,15 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { FiGithub, FiLinkedin, FiMail, FiPhone } from "react-icons/fi";
+import { SiGmail } from "react-icons/si";
 import { personal, social } from "../../data/content";
 
 const iconMap = {
   github: FiGithub,
   linkedin: FiLinkedin,
   email: FiMail,
+  gmail: SiGmail,
+  outlook: FiMail,
   phone: FiPhone,
 };
 
@@ -128,7 +131,7 @@ export default function Hero() {
             const Icon = iconMap[s.icon];
             return (
               <a
-                key={s.label}
+                key={s.url}
                 href={s.url}
                 target={s.url.startsWith("tel:") ? undefined : "_blank"}
                 rel={s.url.startsWith("tel:") ? undefined : "noopener noreferrer"}
