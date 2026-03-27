@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { projects } from "../../data/content";
 import TechPill from "../shared/TechPill";
 
-function BrowserFrame({ label }) {
+function BrowserFrame({ label, screenshot }) {
   return (
     <div className="w-[85%] bg-bg border border-border overflow-hidden group-hover:border-accent/20 transition-colors duration-500">
       <div className="flex gap-1.5 px-4 py-3 border-b border-border">
@@ -11,9 +11,13 @@ function BrowserFrame({ label }) {
         <span className="w-2 h-2 rounded-full bg-border" />
         <span className="w-2 h-2 rounded-full bg-border" />
       </div>
-      <div className="h-[180px] flex items-center justify-center font-mono text-[11px] text-text-dim/20 uppercase tracking-widest">
-        {label}
-      </div>
+      {screenshot ? (
+        <img src={screenshot} alt={label} className="w-full h-auto block" />
+      ) : (
+        <div className="h-[180px] flex items-center justify-center font-mono text-[11px] text-text-dim/20 uppercase tracking-widest">
+          {label}
+        </div>
+      )}
     </div>
   );
 }
@@ -46,7 +50,7 @@ export default function Projects() {
                 transition={{ duration: 0.7 }}
               >
                 <div className={`relative overflow-hidden bg-bg flex items-center justify-center min-h-[200px] lg:min-h-[360px] border-border ${!isEven ? "lg:order-2 lg:border-l" : "lg:border-r"}`}>
-                  <BrowserFrame label={project.name} />
+                  <BrowserFrame label={project.name} screenshot={project.screenshot} />
                 </div>
 
                 <div className={`p-6 sm:p-10 lg:p-14 flex flex-col justify-center ${!isEven ? "lg:order-1" : ""}`}>

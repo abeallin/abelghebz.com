@@ -170,6 +170,7 @@ export const projects = [
     description:
       "An Electron desktop application that automates Accurx template management for NHS England. Bulk create and delete templates via CSV import with a clean GUI.",
     tech: ["Electron", "JavaScript", "Selenium", "CSV"],
+    screenshot: "/screenshots/02.png",
     links: [
       { label: "GitHub", url: "https://github.com/abeallin/GPFlow" },
     ],

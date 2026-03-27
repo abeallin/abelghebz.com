@@ -52,13 +52,13 @@ export default function About() {
             {timeline.map((item, i) => (
               <motion.div
                 key={item.company}
-                className="group border-t border-border py-8 flex flex-col sm:flex-row gap-2 sm:gap-8 items-start"
+                className="group border-t border-border py-8 grid grid-cols-[140px_1fr] sm:grid-cols-[160px_1fr] gap-x-6 gap-y-0 items-baseline"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-50px" }}
                 transition={{ duration: 0.6, delay: i * 0.1 }}
               >
-                <span className="font-mono text-[11px] text-text-dim tracking-wider min-w-[100px] sm:min-w-[120px] pt-1">
+                <span className="font-mono text-[11px] text-text-dim tracking-wider pt-[5px]">
                   {item.year}
                 </span>
                 <div>
@@ -66,6 +66,9 @@ export default function About() {
                     {item.company}
                   </h4>
                   <p className="text-[13px] text-text-dim leading-relaxed">
+                    {item.title}
+                  </p>
+                  <p className="text-[13px] text-text-dim leading-relaxed italic">
                     {item.description}
                   </p>
                 </div>
