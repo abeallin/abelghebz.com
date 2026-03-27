@@ -14,7 +14,7 @@ export const personal = {
 export const social = [
   { label: "GitHub", url: "https://github.com/abeallin", icon: "github" },
   { label: "LinkedIn", url: "https://linkedin.com/in/abel-ghebrezadik", icon: "linkedin" },
-  { label: "Gmail", url: "mailto:abelghebz@gmail.com", icon: "gmail" },
+  { label: "Gmail", url: "mailto:2percentcargoltd@gmail.com", icon: "gmail" },
   { label: "Outlook", url: "mailto:abel_g@hotmail.co.uk", icon: "outlook" },
   { label: "Phone", url: "tel:+447527841324", icon: "phone" },
 ];
