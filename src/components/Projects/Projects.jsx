@@ -1,7 +1,63 @@
-import React from "react";
-import { motion } from "framer-motion";
+import React, { useState, useEffect, useCallback } from "react";
+import Image from "next/image";
+import { motion, AnimatePresence } from "framer-motion";
 import { projects } from "../../data/content";
 import TechPill from "../shared/TechPill";
+
+function PhoneSlideshow({ label, images }) {
+  const [current, setCurrent] = useState(0);
+  const goTo = useCallback((i) => setCurrent(i), []);
+
+  useEffect(() => {
+    if (images.length <= 1) return;
+    const timer = setInterval(() => {
+      setCurrent((prev) => (prev + 1) % images.length);
+    }, 3000);
+    return () => clearInterval(timer);
+  }, [images.length]);
+
+  return (
+    <div className="flex flex-col items-center justify-center h-full py-8 gap-4">
+      {/* Phone frame */}
+      <div className="relative w-[200px] sm:w-[220px] lg:w-[240px] aspect-[9/19.5] rounded-[2rem] border-[3px] border-text/20 bg-black overflow-hidden shadow-2xl shadow-black/50">
+        <div className="relative w-full h-full overflow-hidden rounded-[1.7rem]">
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={current}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.5 }}
+              className="absolute inset-0"
+            >
+              <Image
+                src={images[current]}
+                alt={`${label} – ${current + 1}`}
+                fill
+                className="object-contain"
+              />
+            </motion.div>
+          </AnimatePresence>
+        </div>
+      </div>
+      {/* Dots */}
+      {images.length > 1 && (
+        <div className="flex gap-1.5">
+          {images.map((_, i) => (
+            <button
+              key={i}
+              onClick={() => goTo(i)}
+              aria-label={`Go to slide ${i + 1}`}
+              className={`w-1.5 h-1.5 rounded-full transition-all duration-300 ${
+                i === current ? "bg-accent w-4" : "bg-text/30 hover:bg-text/50"
+              }`}
+            />
+          ))}
+        </div>
+      )}
+    </div>
+  );
+}
 
 function BrowserFrame({ label, screenshot }) {
   return (
@@ -12,16 +68,18 @@ function BrowserFrame({ label, screenshot }) {
         <span className="w-2 h-2 rounded-full bg-border" />
       </div>
       {screenshot ? (
-        <img
+        <Image
           src={screenshot}
           alt={label}
+          width={800}
+          height={450}
           className="w-full h-auto block"
-          onError={(e) => { e.target.style.display = 'none'; e.target.nextSibling.style.display = 'flex'; }}
         />
-      ) : null}
-      <div className={`h-[180px] items-center justify-center font-mono text-[11px] text-text-dim/20 uppercase tracking-widest ${screenshot ? 'hidden' : 'flex'}`}>
-        {label}
-      </div>
+      ) : (
+        <div className="h-[180px] flex items-center justify-center font-mono text-[11px] text-text-dim/20 uppercase tracking-widest">
+          {label}
+        </div>
+      )}
     </div>
   );
 }
@@ -54,7 +112,11 @@ export default function Projects() {
                 transition={{ duration: 0.7 }}
               >
                 <div className={`relative overflow-hidden bg-bg flex items-center justify-center min-h-[200px] lg:min-h-[360px] border-border ${!isEven ? "lg:order-2 lg:border-l" : "lg:border-r"}`}>
-                  <BrowserFrame label={project.name} screenshot={project.screenshot} />
+                  {project.screenshots ? (
+                    <PhoneSlideshow label={project.name} images={project.screenshots} />
+                  ) : (
+                    <BrowserFrame label={project.name} screenshot={project.screenshot} />
+                  )}
                 </div>
 
                 <div className={`p-6 sm:p-10 lg:p-14 flex flex-col justify-center ${!isEven ? "lg:order-1" : ""}`}>

@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { about, timeline } from "../../data/content";
 
@@ -23,10 +24,13 @@ export default function About() {
             {/* Photo */}
             <div className="relative mb-6 w-fit">
               <div className="relative overflow-hidden group">
-                <img
+                <Image
                   src="/me.jpg"
                   alt="Abel Ghebrezadik"
+                  width={220}
+                  height={220}
                   className="w-[180px] h-[180px] sm:w-[220px] sm:h-[220px] object-cover grayscale group-hover:grayscale-0 transition-all duration-700"
+                  priority
                 />
                 {/* Accent corner frame */}
                 <div className="absolute top-0 left-0 w-6 h-6 border-t-2 border-l-2 border-accent" />

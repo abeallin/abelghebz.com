@@ -25,5 +25,6 @@ yarn-debug.log*
 yarn-error.log*
 .playwright-mcp/
 *.jpeg
+!public/**/*.jpeg
 *.png
 !public/**/*.png

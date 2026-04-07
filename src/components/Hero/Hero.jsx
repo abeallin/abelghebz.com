@@ -54,7 +54,7 @@ export default function Hero() {
         </motion.div>
 
         {/* Title — oversized mixed typography */}
-        <h1 className="mb-8">
+        <h1 className="mb-5">
           <motion.span
             className="block font-body text-[clamp(36px,9vw,140px)] font-800 leading-[0.9] tracking-[-0.04em] text-text"
             custom={0}
@@ -135,9 +135,10 @@ export default function Hero() {
                 href={s.url}
                 target={s.url.startsWith("tel:") ? undefined : "_blank"}
                 rel={s.url.startsWith("tel:") ? undefined : "noopener noreferrer"}
+                aria-label={s.label}
                 className="inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.15em] text-text-dim hover:text-accent transition-colors duration-300"
               >
-                {Icon && <Icon size={13} />}
+                {Icon && <Icon size={13} aria-hidden="true" />}
                 {s.label}
               </a>
             );

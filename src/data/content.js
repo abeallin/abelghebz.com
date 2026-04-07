@@ -165,6 +165,30 @@ export const projects = [
   },
   {
     number: "02",
+    name: "Betmate",
+    type: "Multiplayer Sports Betting Game",
+    description:
+      "Built the backend for a multiplayer game integrated into the William Hill app with a £500k jackpot, scaled to 500,000 users. High-performance C# serverless architecture on AWS Lambda with event-driven messaging via SNS/SQS.",
+    tech: ["C#", "AWS Lambda", "CockroachDB", "Dapper", "SNS/SQS", "CloudFormation"],
+    screenshots: [
+      "/screenshots/FOS1.jpeg",
+      "/screenshots/FOS2.jpeg",
+      "/screenshots/FOS3.jpeg",
+      "/screenshots/FOS4.jpeg",
+      "/screenshots/FOS5.jpeg",
+      "/screenshots/FOS6.jpeg",
+      "/screenshots/FOS7.jpeg",
+      "/screenshots/FOS8.jpeg",
+      "/screenshots/FOS9.jpeg",
+      "/screenshots/FOS10.jpeg",
+    ],
+    links: [
+      { label: "App Store", url: "https://apps.apple.com/gb/app/william-hill-sports-betting/id465712788" },
+      { label: "Google Play", url: "https://play.google.com/store/apps/dev?id=7184499669623963795" },
+    ],
+  },
+  {
+    number: "03",
     name: "GPFlow",
     type: "Healthcare Automation Tool",
     description:

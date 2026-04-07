@@ -32,9 +32,10 @@ export default function Footer() {
                 href={s.url}
                 target={s.url.startsWith("tel:") ? undefined : "_blank"}
                 rel={s.url.startsWith("tel:") ? undefined : "noopener noreferrer"}
+                aria-label={s.label}
                 className="inline-flex items-center gap-2 px-6 py-3 border border-border text-[12px] font-mono uppercase tracking-[0.1em] text-text-dim hover:text-accent hover:border-accent transition-all duration-300"
               >
-                {Icon && <Icon size={14} />}
+                {Icon && <Icon size={14} aria-hidden="true" />}
                 {s.label}
               </a>
             );
@@ -60,9 +61,10 @@ export default function Footer() {
                 href={s.url}
                 target={s.url.startsWith("tel:") ? undefined : "_blank"}
                 rel={s.url.startsWith("tel:") ? undefined : "noopener noreferrer"}
+                aria-label={s.label}
                 className="inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.15em] text-text-dim hover:text-accent transition-colors duration-300"
               >
-                {Icon && <Icon size={13} />}
+                {Icon && <Icon size={13} aria-hidden="true" />}
                 {s.label}
               </a>
             );
