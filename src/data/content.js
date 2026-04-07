@@ -158,7 +158,16 @@ export const projects = [
     description:
       "A fully featured wedding website builder with RSVP management, gift registry, guest communication, and beautiful customisable templates.",
     tech: ["TypeScript", "Next.js", "React", "PostgreSQL", "AWS"],
-    screenshot: "/screenshots/01.png",
+    screenshots: [
+      "/screenshots/WWYM1.png",
+      "/screenshots/WWYM2.png",
+      "/screenshots/WWYM3.png",
+      "/screenshots/WWYM4.png",
+      "/screenshots/WWYM5.png",
+      "/screenshots/WWYM6.png",
+      "/screenshots/WWYM7.png",
+      "/screenshots/WWYM8.png",
+    ],
     links: [
       { label: "Live Site", url: "https://whenwillyoumarry.com" },
     ],
@@ -170,17 +179,18 @@ export const projects = [
     description:
       "Built the backend for a multiplayer game integrated into the William Hill app with a £500k jackpot, scaled to 500,000 users. High-performance C# serverless architecture on AWS Lambda with event-driven messaging via SNS/SQS.",
     tech: ["C#", "AWS Lambda", "CockroachDB", "Dapper", "SNS/SQS", "CloudFormation"],
+    screenshotType: "phone",
     screenshots: [
-      "/screenshots/FOS1.jpeg",
-      "/screenshots/FOS2.jpeg",
-      "/screenshots/FOS3.jpeg",
-      "/screenshots/FOS4.jpeg",
-      "/screenshots/FOS5.jpeg",
-      "/screenshots/FOS6.jpeg",
-      "/screenshots/FOS7.jpeg",
-      "/screenshots/FOS8.jpeg",
-      "/screenshots/FOS9.jpeg",
       "/screenshots/FOS10.jpeg",
+      "/screenshots/FOS9.jpeg",
+      "/screenshots/FOS8.jpeg",
+      "/screenshots/FOS7.jpeg",
+      "/screenshots/FOS6.jpeg",
+      "/screenshots/FOS5.jpeg",
+      "/screenshots/FOS4.jpeg",
+      "/screenshots/FOS3.jpeg",
+      "/screenshots/FOS2.jpeg",
+      "/screenshots/FOS1.jpeg",
     ],
     links: [
       { label: "App Store", url: "https://apps.apple.com/gb/app/william-hill-sports-betting/id465712788" },
@@ -194,7 +204,12 @@ export const projects = [
     description:
       "An Electron desktop application that automates Accurx template management for NHS England. Bulk create and delete templates via CSV import with a clean GUI.",
     tech: ["Electron", "JavaScript", "Selenium", "CSV"],
-    screenshot: "/screenshots/02.png",
+    screenshots: [
+      "/screenshots/GPFlow2.png",
+      "/screenshots/GPFlow3.png",
+      "/screenshots/GPFlow1.png",
+      "/screenshots/GPFlow4.png",
+    ],
     links: [
       { label: "Live Site", url: "https://gpflow-prod.up.railway.app/data/" },
     ],

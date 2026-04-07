@@ -59,6 +59,62 @@ function PhoneSlideshow({ label, images }) {
   );
 }
 
+function BrowserSlideshow({ label, images }) {
+  const [current, setCurrent] = useState(0);
+  const goTo = useCallback((i) => setCurrent(i), []);
+
+  useEffect(() => {
+    if (images.length <= 1) return;
+    const timer = setInterval(() => {
+      setCurrent((prev) => (prev + 1) % images.length);
+    }, 3000);
+    return () => clearInterval(timer);
+  }, [images.length]);
+
+  return (
+    <div className="w-[85%] bg-bg border border-border overflow-hidden group-hover:border-accent/20 transition-colors duration-500">
+      <div className="flex gap-1.5 px-4 py-3 border-b border-border">
+        <span className="w-2 h-2 rounded-full bg-border" />
+        <span className="w-2 h-2 rounded-full bg-border" />
+        <span className="w-2 h-2 rounded-full bg-border" />
+      </div>
+      <div className="relative aspect-video overflow-hidden">
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={current}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.5 }}
+            className="absolute inset-0"
+          >
+            <Image
+              src={images[current]}
+              alt={`${label} – ${current + 1}`}
+              fill
+              className="object-cover"
+            />
+          </motion.div>
+        </AnimatePresence>
+        {images.length > 1 && (
+          <div className="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-1.5 z-10">
+            {images.map((_, i) => (
+              <button
+                key={i}
+                onClick={() => goTo(i)}
+                aria-label={`Go to slide ${i + 1}`}
+                className={`w-1.5 h-1.5 rounded-full transition-all duration-300 ${
+                  i === current ? "bg-accent w-4" : "bg-text/30 hover:bg-text/50"
+                }`}
+              />
+            ))}
+          </div>
+        )}
+      </div>
+    </div>
+  );
+}
+
 function BrowserFrame({ label, screenshot }) {
   return (
     <div className="w-[85%] bg-bg border border-border overflow-hidden group-hover:border-accent/20 transition-colors duration-500">
@@ -112,8 +168,10 @@ export default function Projects() {
                 transition={{ duration: 0.7 }}
               >
                 <div className={`relative overflow-hidden bg-bg flex items-center justify-center min-h-[200px] lg:min-h-[360px] border-border ${!isEven ? "lg:order-2 lg:border-l" : "lg:border-r"}`}>
-                  {project.screenshots ? (
+                  {project.screenshots && project.screenshotType === "phone" ? (
                     <PhoneSlideshow label={project.name} images={project.screenshots} />
+                  ) : project.screenshots ? (
+                    <BrowserSlideshow label={project.name} images={project.screenshots} />
                   ) : (
                     <BrowserFrame label={project.name} screenshot={project.screenshot} />
                   )}
