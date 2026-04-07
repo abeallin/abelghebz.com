@@ -172,7 +172,7 @@ export const projects = [
     tech: ["Electron", "JavaScript", "Selenium", "CSV"],
     screenshot: "/screenshots/02.png",
     links: [
-      { label: "GitHub", url: "https://github.com/abeallin/GPFlow" },
+      { label: "Live Site", url: "https://gpflow-prod.up.railway.app/data/" },
     ],
   },
 ];
