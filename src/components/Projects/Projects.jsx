@@ -34,6 +34,7 @@ function PhoneSlideshow({ label, images }) {
                 src={images[current]}
                 alt={`${label} – ${current + 1}`}
                 fill
+                sizes="240px"
                 className="object-contain"
               />
             </motion.div>
@@ -92,6 +93,7 @@ function BrowserSlideshow({ label, images }) {
               src={images[current]}
               alt={`${label} – ${current + 1}`}
               fill
+              sizes="(max-width: 1024px) 85vw, 40vw"
               className="object-cover"
             />
           </motion.div>
