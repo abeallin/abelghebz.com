@@ -73,16 +73,20 @@ export default function Projects() {
                   <div className="flex flex-wrap gap-2 mb-8">
                     {project.tech.map((t) => <TechPill key={t} label={t} />)}
                   </div>
-                  <div className="flex gap-6">
+                  <div className="flex gap-4">
                     {project.links.map((link) => (
                       <a
                         key={link.label}
                         href={link.url}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="font-mono text-[11px] uppercase tracking-wider text-text-dim hover:text-accent transition-colors border-b border-border hover:border-accent pb-1"
+                        className="group/btn relative inline-flex items-center gap-2 px-5 py-2.5 font-mono text-[11px] uppercase tracking-[0.15em] text-text bg-transparent border border-border hover:border-accent hover:text-accent transition-all duration-300 overflow-hidden"
                       >
-                        {link.label} ↗
+                        <span className="absolute inset-0 bg-accent/5 translate-y-full group-hover/btn:translate-y-0 transition-transform duration-300" />
+                        <span className="relative">{link.label}</span>
+                        <svg className="relative w-3.5 h-3.5 transition-transform duration-300 group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M3.5 10.5L10.5 3.5M10.5 3.5H5M10.5 3.5V9" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"/>
+                        </svg>
                       </a>
                     ))}
                   </div>

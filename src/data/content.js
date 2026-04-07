@@ -153,14 +153,14 @@ export const experience = [
 export const projects = [
   {
     number: "01",
-    name: "ithinkshewifey.com (ITSW)",
+    name: "whenwillyoumarry.com",
     type: "Wedding Website Platform",
     description:
       "A fully featured wedding website builder with RSVP management, gift registry, guest communication, and beautiful customisable templates.",
     tech: ["TypeScript", "Next.js", "React", "PostgreSQL", "AWS"],
     screenshot: "/screenshots/01.png",
     links: [
-      { label: "Live Site", url: "https://ithinkshewifey.com" },
+      { label: "Live Site", url: "https://whenwillyoumarry.com" },
     ],
   },
   {

@@ -3,7 +3,7 @@ const fs = require("fs");
 const path = require("path");
 
 const PROJECTS = [
-  { number: "01", url: "https://ithinkshewifey.com" },
+  { number: "01", url: "https://whenwillyoumarry.com" },
   { number: "02", url: "https://gpflow-prod.up.railway.app/data/" },
 ];
 
