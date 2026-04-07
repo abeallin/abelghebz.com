@@ -35,7 +35,21 @@
       "Bash(node -e \"const si = require\\(''react-icons/si''\\); console.log\\(Object.keys\\(si\\).filter\\(n => n.toLowerCase\\(\\).includes\\(''vscode''\\) || n.toLowerCase\\(\\).includes\\(''vstudio''\\)\\).join\\(''\\\\n''\\)\\)\")",
       "Bash(node -e \"const vsc = require\\(''react-icons/vsc''\\); console.log\\(Object.keys\\(vsc\\).filter\\(n => n.includes\\(''Vsc''\\)\\).slice\\(0,10\\).join\\(''\\\\n''\\)\\)\")",
       "Bash(ls -la \"C:/Users/Abel/React/ag-cv/next.config\"*)",
-      "mcp__plugin_playwright_playwright__browser_press_key"
+      "mcp__plugin_playwright_playwright__browser_press_key",
+      "Bash(ls -la /c/Users/Abel/React/ag-cv/*.config.* /c/Users/Abel/React/ag-cv/.*)",
+      "mcp__plugin_playwright_playwright__browser_snapshot",
+      "Bash(mv \"Screenshot 2026-04-07 222245.png\" FOS4.png)",
+      "Bash(mv \"Screenshot 2026-04-07 222304.png\" FOS5.png)",
+      "Bash(mv \"Screenshot 2026-04-07 222334.png\" FOS6.png)",
+      "Bash(mv \"Screenshot 2026-04-07 222356.png\" FOS7.png)",
+      "Bash(mv \"Screenshot 2026-04-07 222408.png\" FOS8.png)",
+      "Bash(mv \"WhatsApp Image 2026-04-07 at 22.34.43.jpeg\" FOS1.jpeg)",
+      "Bash(mv \"WhatsApp Image 2026-04-07 at 22.34.43 \\(1\\).jpeg\" FOS2.jpeg)",
+      "Bash(mv \"WhatsApp Image 2026-04-07 at 22.34.44.jpeg\" FOS3.jpeg)",
+      "Bash(mv \"WhatsApp Image 2026-04-07 at 22.34.44 \\(1\\).jpeg\" FOS4.jpeg)",
+      "Bash(mv \"WhatsApp Image 2026-04-07 at 22.34.44 \\(2\\).jpeg\" FOS5.jpeg)",
+      "mcp__plugin_playwright_playwright__browser_resize",
+      "mcp__plugin_playwright_playwright__browser_close"
     ]
   }
 }
