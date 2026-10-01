@@ -25,12 +25,21 @@ test.describe("case studies with JavaScript off", () => {
   });
 
   test("next project cycles through all three and back", async ({ page }) => {
-    const order = ["betmate", "gpflow", "whenwillyoumarry", "betmate"];
-    for (let i = 0; i < 3; i++) {
+    const order = ["betmate", "cabeazy", "gpflow", "whenwillyoumarry", "betmate"];
+    for (let i = 0; i < 4; i++) {
       await page.goto(`/work/${order[i]}`);
       await expect(page.getByRole("link", { name: /^Next project/ })).toHaveAttribute("href", `/work/${order[i + 1]}`);
     }
   });
+});
+
+test("a strip that mixes desktop and phone screens keeps each one's own shape", async ({ page }) => {
+  await page.goto("/work/cabeazy");
+  const links = page.getByRole("list", { name: "Screens" }).getByRole("link");
+  const web = await links.first().boundingBox();
+  const phone = await links.last().boundingBox();
+  expect(web.width).toBeGreaterThan(web.height);
+  expect(phone.height).toBeGreaterThan(phone.width);
 });
 
 test.describe("screen viewer", () => {

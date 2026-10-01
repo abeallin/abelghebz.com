@@ -89,3 +89,13 @@ test("GPFlow says it ships as both an Electron desktop app and a web app", () =>
   assert.match(g.summary, /Electron desktop app and a web app/);
   assert.ok(g.built.some((b) => /web/i.test(b.lead + b.text)));
 });
+
+test("cabeazy is a pre-launch own product with its live site, pricing and no invented numbers", () => {
+  const c = projects.find((p) => p.slug === "cabeazy");
+  assert.ok(c, "cabeazy project exists");
+  assert.match(c.eyebrow, /pre-launch/i);
+  assert.ok(c.live.some((l) => l.url === "https://cabeazy.com"));
+  assert.match(JSON.stringify(c), /£50 a month/);
+  assert.ok(c.screens.some((s) => s.ratio === "web") && c.screens.some((s) => s.ratio === "phone"), "mixes web and phone screens");
+  assert.doesNotMatch(JSON.stringify(c), /\b\d[\d,]* (users|rides|drivers signed)/);
+});

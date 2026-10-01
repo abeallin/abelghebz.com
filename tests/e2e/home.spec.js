@@ -47,7 +47,7 @@ test.describe("home with JavaScript off", () => {
   test("selected work links each project to its case study", async ({ page }) => {
     await page.goto("/");
     const work = page.locator("#work");
-    for (const slug of ["betmate", "gpflow", "whenwillyoumarry"]) {
+    for (const slug of ["betmate", "cabeazy", "gpflow", "whenwillyoumarry"]) {
       await expect(work.locator(`a[href="/work/${slug}"]`).first()).toBeVisible();
     }
   });

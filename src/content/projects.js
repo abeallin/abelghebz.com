@@ -41,6 +41,45 @@ export const projects = [
     result: "The game scaled to 1 million users inside the William Hill app, with a £500k jackpot.",
   },
   {
+    // From the cabeazy repo (README, AGENTS.md, docs/engineering.md, TODO.md) and the live cabeazy.com, 1 Oct 2026.
+    // Status, pricing and screenshots confirmed by Abel the same day. Screens show test data, not real customers.
+    slug: "cabeazy",
+    name: "cabeazy",
+    kind: "mobile",
+    eyebrow: "Own product · pre-launch",
+    headline: "A ride-hailing platform for London where drivers keep 100% of every fare",
+    summary:
+      "Passenger and driver apps, a portal for cab offices and the Go API behind them. The marketing site is live at cabeazy.com; a closed Android beta is next.",
+    facts: [
+      { label: "Client", value: "Own product" },
+      { label: "Role", value: "Sole developer" },
+      { label: "Since", value: "Mar 2026" },
+    ],
+    live: [{ label: "cabeazy.com", url: "https://cabeazy.com" }],
+    stack: ["Go", "PostgreSQL", "Redis", "Stripe", "WebSockets", "React Native", "Next.js"],
+    screens: [
+      { src: "/screenshots/cabeazy-london.jpg", caption: "cabeazy.com, launching in London", ratio: "web" },
+      { src: "/screenshots/cabeazy-cab-offices.jpg", caption: "Modern dispatch for cab offices", ratio: "web" },
+      { src: "/screenshots/cabeazy-operator-dashboard.jpg", caption: "Operator portal: live operations", ratio: "web" },
+      { src: "/screenshots/cabeazy-portal-demo.jpg", caption: "Clickable demo of the booking queue", ratio: "web" },
+      { src: "/screenshots/cabeazy-cities.jpg", caption: "Planned UK cities", ratio: "web" },
+      { src: "/screenshots/cabeazy-driver-earnings.jpg", caption: "Driver earnings", ratio: "phone" },
+      { src: "/screenshots/cabeazy-driver-licence.jpg", caption: "Driver's PHV licence", ratio: "phone" },
+      { src: "/screenshots/cabeazy-driver-vehicle.jpg", caption: "Vehicle and documents", ratio: "phone" },
+      { src: "/screenshots/cabeazy-passenger-activity.jpg", caption: "Passenger trip history", ratio: "phone" },
+      { src: "/screenshots/cabeazy-passenger-account.jpg", caption: "Passenger account", ratio: "phone" },
+    ],
+    problem:
+      "Ride-hailing apps take a commission on every fare. cabeazy charges drivers a flat £50 a month and cab offices £10 per driver per month instead, with no commission. That means running bookings, dispatch and payments for three kinds of user at once: passengers, drivers and cab offices.",
+    built: [
+      { lead: "Contract-first API.", text: "A Go API on PostgreSQL and Redis whose /v2 is generated from an OpenAPI spec; CI fails if the code drifts from it." },
+      { lead: "Money that adds up.", text: "Signed fare quotes valid for 10 minutes, idempotency keys on booking and payouts, and settlement through a job queue where every step is safe to retry." },
+      { lead: "Real time.", text: "Ride updates over WebSockets, fanned out through Redis across instances; unanswered offers are re-dispatched every 4 seconds." },
+      { lead: "Three front ends.", text: "React Native apps for passengers and drivers, and a Next.js marketing site, operator portal and admin." },
+    ],
+    result: "The marketing site is live at cabeazy.com. The platform is pre-launch, with a closed Android beta next.",
+  },
+  {
     slug: "gpflow",
     name: "GPFlow",
     kind: "web",

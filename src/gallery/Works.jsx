@@ -4,7 +4,7 @@ import { Arrow } from "../components/ui/Actions.jsx";
 import { projects } from "../content/projects.js";
 
 // Each project's cover takes its app's own background, so dark app screens sit on their own colour, not on beige.
-const COVER = { betmate: "#0C1A4B", gpflow: "#0F1A17", whenwillyoumarry: "#211E19" };
+const COVER = { betmate: "#0C1A4B", cabeazy: "#1B1A16", gpflow: "#0F1A17", whenwillyoumarry: "#211E19" };
 
 function Shots({ project, compact = false }) {
   const [a, b] = project.screens;

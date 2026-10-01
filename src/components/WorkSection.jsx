@@ -6,7 +6,7 @@ import SectionLabel from "./SectionLabel.jsx";
 import { Pill } from "./ui/Actions.jsx";
 import { projects } from "../content/projects.js";
 
-const COVER = { betmate: "#0C1A4B", gpflow: "#0F1A17", whenwillyoumarry: "#211E19" };
+const COVER = { betmate: "#0C1A4B", cabeazy: "#1B1A16", gpflow: "#0F1A17", whenwillyoumarry: "#211E19" };
 
 function Shots({ project, compact = false }) {
   const [a, b] = project.screens;
@@ -70,7 +70,7 @@ export default function WorkSection() {
           </div>
         </div>
       </article>
-      <div className="mt-6 grid gap-6 md:grid-cols-2">
+      <div className={`mt-6 grid gap-6 md:grid-cols-2 ${rest.length === 3 ? "lg:grid-cols-3" : ""}`}>
         {rest.map((p) => (
           <article key={p.slug} className="group flex flex-col overflow-hidden rounded-3xl bg-tile">
             <a href={`/work/${p.slug}`} tabIndex={-1} aria-hidden="true" className="relative block h-[260px] overflow-hidden" style={{ background: COVER[p.slug] }}>
