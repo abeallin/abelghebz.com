@@ -2,6 +2,9 @@
 // Based on Dribbble 27429954 (Alevtinka).
 import Container from "./Container.jsx";
 import { profile } from "../content/profile.js";
+import { GitHubIcon, LinkedInIcon, MailIcon, PhoneIcon } from "./ui/Icons.jsx";
+
+const ICONS = { GitHub: GitHubIcon, LinkedIn: LinkedInIcon, Email: MailIcon, Phone: PhoneIcon };
 
 export default function Footer() {
   const links = [
@@ -19,14 +22,15 @@ export default function Footer() {
           </p>
         </div>
         <ul className="flex flex-wrap gap-2" aria-label="Contact links">
-          {links.map((l) => (
-            <li key={l.label}>
+          {links.map(({ label, url, Icon = ICONS[label] }) => (
+            <li key={label}>
               <a
-                href={l.url}
-                className="inline-flex rounded-full border border-ink/20 px-4 py-2 text-[14px] text-ink transition-colors hover:border-ink hover:bg-ink hover:text-paper"
-                {...(l.url.startsWith("http") ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+                href={url}
+                className="inline-flex items-center gap-2 rounded-full border border-ink/20 px-4 py-2 text-[14px] text-ink transition-colors hover:border-ink hover:bg-ink hover:text-paper"
+                {...(url.startsWith("http") ? { target: "_blank", rel: "noopener noreferrer" } : {})}
               >
-                {l.label}
+                {Icon && <Icon />}
+                {label}
               </a>
             </li>
           ))}

@@ -3,6 +3,7 @@
 // the plain link below it is always in the HTML, so booking never depends on the embed.
 import { useEffect, useRef } from "react";
 import { CAL_LINK, CAL_URL } from "../content/routing.js";
+import { CalIcon } from "./ui/Icons.jsx";
 
 function loadCal() {
   // Cal.com's published embed loader, unchanged apart from formatting.
@@ -72,8 +73,9 @@ export default function CalEmbed() {
           href={CAL_URL}
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex rounded-full border border-ink/20 px-4 py-2 text-[14px] font-medium text-ink hover:border-ink hover:bg-ink hover:text-paper"
+          className="inline-flex items-center gap-2 rounded-full border border-ink/20 px-4 py-2 text-[14px] font-medium text-ink hover:border-ink hover:bg-ink hover:text-paper"
         >
+          <CalIcon />
           Book a 15-minute call on Cal.com
         </a>
       </p>

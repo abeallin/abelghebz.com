@@ -35,6 +35,15 @@ test.describe("home with JavaScript off", () => {
     await expect(footer.getByRole("link", { name: "LinkedIn" })).toHaveAttribute("href", "https://linkedin.com/in/abel-ghebrezadik");
   });
 
+  test("each contact pill shows its icon beside the text, hidden from screen readers", async ({ page }) => {
+    await page.goto("/");
+    for (const name of ["GitHub", "LinkedIn", "Email", "Phone"]) {
+      const link = page.locator("footer").getByRole("link", { name, exact: true });
+      await expect(link.locator('svg[aria-hidden="true"]')).toHaveCount(1);
+    }
+    await expect(page.locator("#contact").getByRole("link", { name: "Book a 15-minute call on Cal.com" }).locator('svg[aria-hidden="true"]')).toHaveCount(1);
+  });
+
   test("selected work links each project to its case study", async ({ page }) => {
     await page.goto("/");
     const work = page.locator("#work");
