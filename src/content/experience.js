@@ -4,7 +4,7 @@ export const experience = [
     company: "Arena Entertainment",
     role: "Full Stack Developer",
     period: "Dec 2025 — Present",
-    outcome: "Cut API latency by up to 8s with Lambda warm-up pings and concurrency (94% hit rate); 50% faster Snowflake and MySQL queries.",
+    outcome: "Cut average API latency from 14s to 2s with Lambda warm-up pings and provisioned concurrency (94% hit rate); 50% faster Snowflake and MySQL queries.",
     detail:
       "Crypto gambling platform. Refactored TypeScript for algorithmic efficiency, added Redis batch pipelines and rebuilt data tables with keyset pagination. Built an automation app that drives UI testing through Playwright, Bitbucket, GitHub and Jira MCPs. Now building a new React and .NET app with DDD, CQRS over Kafka and gRPC between services.",
     stack: ["C# / .NET", "TypeScript", "React", "Snowflake", "Redis", "Kafka", "gRPC", "AWS Lambda"],

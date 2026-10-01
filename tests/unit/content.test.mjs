@@ -122,3 +122,9 @@ test("stacks match the repos: whenwillyoumarry runs on Railway and R2, not AWS; 
   for (const t of ["NATS", "Expo", "Jetpack Compose", "Mapbox"]) assert.ok(projects.find((p) => p.slug === "cabeazy").stack.includes(t), t);
   assert.deepEqual(projects.find((p) => p.slug === "betmate").stack, ["C#", "AWS", "CockroachDB", "Dapper"]);
 });
+
+test("Arena's latency result is the average Abel measured: 14s down to 2s", () => {
+  const arena = experience.find((e) => e.company === "Arena Entertainment");
+  assert.match(arena.outcome, /from 14s to 2s/);
+  assert.doesNotMatch(JSON.stringify(experience), /up to 8s/);
+});
