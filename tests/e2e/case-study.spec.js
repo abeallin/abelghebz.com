@@ -90,3 +90,12 @@ test("case-study stack chips carry technology marks where an exact one exists", 
   await expect(stack.getByRole("listitem").filter({ hasText: /^Kotlin$/ }).locator("svg")).toHaveCount(1);
   await expect(stack.getByRole("listitem").filter({ hasText: /^WebSockets$/ }).locator("svg")).toHaveCount(0);
 });
+
+test("Betmate's stack shows AWS as one chip with the AWS mark", async ({ page }) => {
+  await page.goto("/work/betmate");
+  const stack = page.getByRole("list", { name: "Stack" });
+  await expect(stack.getByRole("listitem").filter({ hasText: /^AWS$/ }).locator('svg[aria-hidden="true"]')).toHaveCount(1);
+  await expect(stack.getByRole("listitem").filter({ hasText: /AWS Lambda|SNS\/SQS|CloudFormation/ })).toHaveCount(0);
+  // simple-icons has no C# mark ("siSharp" is the sharp image library), so C# stays text-only.
+  await expect(stack.getByRole("listitem").filter({ hasText: /^C#$/ }).locator("svg")).toHaveCount(0);
+});

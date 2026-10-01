@@ -17,7 +17,7 @@ export const projects = [
       { label: "App Store", url: "https://apps.apple.com/gb/app/william-hill-sports-betting/id465712788" },
       { label: "Google Play", url: "https://play.google.com/store/apps/dev?id=7184499669623963795" },
     ],
-    stack: ["C#", "AWS Lambda", "CockroachDB", "Dapper", "SNS/SQS", "CloudFormation"],
+    stack: ["C#", "AWS", "CockroachDB", "Dapper"],
     screens: [
       { src: "/screenshots/FOS10.jpeg", caption: "Lobby", ratio: "phone" },
       { src: "/screenshots/FOS1.jpeg", caption: "How to play", ratio: "phone" },
@@ -56,7 +56,7 @@ export const projects = [
       { label: "Since", value: "Mar 2026" },
     ],
     live: [{ label: "cabeazy.com", url: "https://cabeazy.com" }],
-    stack: ["Go", "PostgreSQL", "Redis", "Stripe", "WebSockets", "React Native", "Kotlin", "Next.js"],
+    stack: ["Go", "PostgreSQL", "Redis", "NATS", "Stripe", "WebSockets", "React Native", "Expo", "Kotlin", "Jetpack Compose", "Next.js", "Mapbox", "Sentry", "Docker", "Railway", "Maestro"],
     screens: [
       { src: "/screenshots/cabeazy-london.jpg", caption: "cabeazy.com, launching in London", ratio: "web" },
       { src: "/screenshots/cabeazy-cab-offices.jpg", caption: "Modern dispatch for cab offices", ratio: "web" },
@@ -92,7 +92,7 @@ export const projects = [
       { label: "When", value: "Dec 2024 — Feb 2025" },
     ],
     live: [{ label: "Web app", url: "https://gpflow-prod.up.railway.app/data/" }],
-    stack: ["Next.js", "Tailwind CSS", "Electron", "TypeScript", "Playwright", "SQLite"],
+    stack: ["Next.js", "Tailwind CSS", "Electron", "TypeScript", "Playwright", "SQLite", "MongoDB", "Vitest"],
     screens: [
       { src: "/screenshots/GPFlow2.png", caption: "Loading practices from a CSV", ratio: "web" },
       { src: "/screenshots/GPFlow1.png", caption: "Creating a template", ratio: "web" },
@@ -118,10 +118,10 @@ export const projects = [
     summary: "Couples pick a template, add their details and share one link. Behind it: RSVP and guest management, a seating chart, email and SMS broadcasts and a gift registry.",
     facts: [
       { label: "Client", value: "Own product" },
-      { label: "Stack", value: "Next.js, PostgreSQL, AWS" },
+      { label: "Stack", value: "Next.js, PostgreSQL, Railway" },
     ],
     live: [{ label: "whenwillyoumarry.com", url: "https://whenwillyoumarry.com" }],
-    stack: ["TypeScript", "Next.js", "React", "PostgreSQL", "AWS"],
+    stack: ["TypeScript", "Next.js", "Tailwind CSS", "PostgreSQL", "Drizzle", "Redis", "Stripe", "Cloudflare R2", "Railway", "Playwright", "Vitest", "Sentry"],
     screens: [
       { src: "/screenshots/WWYM1.png", caption: "Home page", ratio: "web" },
       { src: "/screenshots/WWYM2.png", caption: "Live in three steps", ratio: "web" },
@@ -138,7 +138,7 @@ export const projects = [
       { lead: "Templates and editor.", text: "Customisable templates with a visual editor and live preview." },
       { lead: "Guests.", text: "RSVP tracking and a guest list." },
       { lead: "Seating.", text: "A drag-and-drop seating chart." },
-      { lead: "Messaging.", text: "Email and SMS broadcasts to all guests or a filtered group, plus a gift registry." },
+      { lead: "Messaging.", text: "Email and SMS broadcasts to all guests or a filtered group through Sweego, plus a gift registry." },
     ],
     result: "Live at whenwillyoumarry.com, with a free tier to start building.",
   },

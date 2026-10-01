@@ -112,3 +112,13 @@ test("cabeazy lists Kotlin and says Swift is planned, not built", () => {
   assert.ok(c.stack.includes("Kotlin"));
   assert.match(JSON.stringify(c.built), /Swift iOS app planned/);
 });
+
+test("stacks match the repos: whenwillyoumarry runs on Railway and R2, not AWS; GPFlow uses MongoDB; cabeazy uses NATS", () => {
+  const w = projects.find((p) => p.slug === "whenwillyoumarry");
+  assert.ok(!w.stack.includes("AWS"), "whenwillyoumarry is not on AWS");
+  for (const t of ["Drizzle", "Redis", "Stripe", "Cloudflare R2", "Railway"]) assert.ok(w.stack.includes(t), t);
+  assert.doesNotMatch(JSON.stringify(w.facts), /AWS/);
+  assert.ok(projects.find((p) => p.slug === "gpflow").stack.includes("MongoDB"));
+  for (const t of ["NATS", "Expo", "Jetpack Compose", "Mapbox"]) assert.ok(projects.find((p) => p.slug === "cabeazy").stack.includes(t), t);
+  assert.deepEqual(projects.find((p) => p.slug === "betmate").stack, ["C#", "AWS", "CockroachDB", "Dapper"]);
+});
