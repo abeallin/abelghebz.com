@@ -1,7 +1,7 @@
 // Brand marks and two outline icons for the contact pills. Generated once; edit by hand if a mark changes.
 // GitHub and Cal.com: simple-icons 16.29.0 (CC0 1.0), the same library kifleandmilka uses.
 // LinkedIn: gilbarbara/logos via Iconify "logos:linkedin-icon" (CC0 1.0); simple-icons dropped LinkedIn's mark.
-// Mail and phone: Tabler Icons (MIT, Copyright (c) 2020-2024 Paweł Kuna), drawn as outlines.
+// Mail, phone and the PDF/DOCX file outlines: Tabler Icons (MIT, Copyright (c) 2020-2024 Paweł Kuna), drawn as outlines.
 // Every icon is decorative (aria-hidden): the pill's text is the accessible name.
 
 const solid = (viewBox, d) =>
@@ -29,3 +29,5 @@ export const CalIcon = solid("0 0 24 24", "M2.408 14.488C1.035 14.488 0 13.4 0 1
 export const LinkedInIcon = solid("0 0 256 256", "M218.123 218.127h-37.931v-59.403c0-14.165-.253-32.4-19.728-32.4c-19.756 0-22.779 15.434-22.779 31.369v60.43h-37.93V95.967h36.413v16.694h.51a39.91 39.91 0 0 1 35.928-19.733c38.445 0 45.533 25.288 45.533 58.186zM56.955 79.27c-12.157.002-22.014-9.852-22.016-22.009s9.851-22.014 22.008-22.016c12.157-.003 22.014 9.851 22.016 22.008A22.013 22.013 0 0 1 56.955 79.27m18.966 138.858H37.95V95.967h37.97zM237.033.018H18.89C8.58-.098.125 8.161-.001 18.471v219.053c.122 10.315 8.576 18.582 18.89 18.474h218.144c10.336.128 18.823-8.139 18.966-18.474V18.454c-.147-10.33-8.635-18.588-18.966-18.453");
 export const MailIcon = outline(["M3 7a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z", "m3 7l9 6l9-6"]);
 export const PhoneIcon = outline(["M5 4h4l2 5l-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"]);
+export const PdfIcon = outline(["M14 3v4a1 1 0 0 0 1 1h4", "M5 12V5a2 2 0 0 1 2-2h7l5 5v4M5 18h1.5a1.5 1.5 0 0 0 0-3H5v6m12-3h2m1-3h-3v6m-6-6v6h1a2 2 0 0 0 2-2v-2a2 2 0 0 0-2-2z"]);
+export const WordIcon = outline(["M14 3v4a1 1 0 0 0 1 1h4", "M5 12V5a2 2 0 0 1 2-2h7l5 5v4M2 15v6h1a2 2 0 0 0 2-2v-2a2 2 0 0 0-2-2zm15 1.5a1.5 1.5 0 0 0-3 0v3a1.5 1.5 0 0 0 3 0M9.5 15a1.5 1.5 0 0 1 1.5 1.5v3a1.5 1.5 0 0 1-3 0v-3A1.5 1.5 0 0 1 9.5 15m10 0l3 6m-3 0l3-6"]);
