@@ -26,8 +26,7 @@ export const mono = JetBrains_Mono({
   weight: "400",
   variable: "--font-jetbrains",
   display: "swap",
-  // Small labels only, never the largest paint: no preload, so it doesn't compete with Erode and Author.
-  preload: false,
+  // Preloaded: the first screen has mono labels, and loading it late re-renders them (live speed index 1.8s to 3.0s).
 });
 
 export const fontVariables = `${erode.variable} ${author.variable} ${mono.variable}`;
