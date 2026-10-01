@@ -1,36 +1,28 @@
-import "../src/index.css";
-
-const siteUrl = "https://abelghebz.com";
+import "./globals.css";
+import { fontVariables } from "../src/lib/fonts.js";
+import { seo } from "../src/content/seo.js";
 
 export const metadata = {
-  title: "Abel Ghebrezadik | Lead/Senior Software Engineer",
-  description:
-    "Lead/Senior Software Engineer with 10 years' experience across Finance, Property, Health, and Gambling. Portfolio showcasing projects, experience, and skills.",
+  metadataBase: new URL(seo.site),
+  title: seo.pages["/"].title,
+  description: seo.pages["/"].description,
   icons: { icon: "/favicon.svg" },
-  metadataBase: new URL(siteUrl),
-  openGraph: {
-    title: "Abel Ghebrezadik | Lead/Senior Software Engineer",
-    description:
-      "Lead/Senior Software Engineer with 10+ years' experience across Finance, Property, Health, and Gambling.",
-    url: siteUrl,
-    siteName: "Abel Ghebrezadik",
-    locale: "en_GB",
-    type: "website",
-    images: [{ url: "/me.jpg", width: 400, height: 400, alt: "Abel Ghebrezadik" }],
-  },
-  twitter: {
-    card: "summary",
-    title: "Abel Ghebrezadik | Lead/Senior Software Engineer",
-    description:
-      "Lead/Senior Software Engineer with 10+ years' experience across Finance, Property, Health, and Gambling.",
-    images: ["/me.jpg"],
-  },
+  openGraph: { siteName: seo.name, locale: "en_GB", type: "website" },
+  twitter: { card: "summary_large_image" },
 };
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
-      <body>{children}</body>
+    <html lang="en-GB" className={fontVariables}>
+      <body>
+        <a
+          href="#main"
+          className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50 focus:bg-ink focus:px-4 focus:py-2 focus:text-paper"
+        >
+          Skip to content
+        </a>
+        {children}
+      </body>
     </html>
   );
 }

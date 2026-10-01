@@ -1,0 +1,72 @@
+@import "tailwindcss" source(none);
+@source "../app";
+@source "../src";
+
+@theme {
+  --color-paper: #f6f4ef;
+  --color-ink: #151515;
+  --color-body: #3c3c3c;
+  --color-muted: #6a6a6a; /* 4.9:1 on paper; never on tile (4.3:1) */
+  --color-tile: #e8e4db;
+  --color-rule: #d9d5cc;
+  --color-accent: #d9461b; /* 3.95:1: hover bars, focus, markers only, never text */
+  --color-accent-ink: #b83a12; /* 5.2:1 text on paper; 5.75:1 white on it */
+
+  --font-display: var(--font-erode), Georgia, serif;
+  --font-sans: var(--font-author), system-ui, sans-serif;
+  --font-mono: var(--font-jetbrains), ui-monospace, monospace;
+
+  --shadow-float: 0 6px 18px rgb(21 21 21 / 0.16);
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 1.5rem;
+  }
+  body {
+    background: var(--color-paper);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    font-size: 17px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+  ::selection {
+    background: var(--color-ink);
+    color: var(--color-paper);
+  }
+  :focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
+}
+
+/* Motion only adds to a finished page: case-study screens ease in on scroll, wide screens only. */
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) and (min-width: 48rem) {
+    .reveal-on-scroll {
+      animation: reveal linear both;
+      animation-timeline: view();
+      animation-range: entry 0% entry 60%;
+    }
+  }
+}
+
+@keyframes reveal {
+  from {
+    opacity: 0.35;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
