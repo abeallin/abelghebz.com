@@ -46,14 +46,14 @@ export const projects = [
     kind: "web",
     eyebrow: "Contract · NHS England · 2025",
     headline: "Bulk template management for GP practices, built for NHS England",
-    summary: "An Electron desktop app that automates Accurx template management: load practices from a CSV, then create or delete templates across all of them at once.",
+    summary: "An Electron desktop app and a web app that automate Accurx template management: load practices from a CSV, then create or delete templates across all of them at once.",
     facts: [
       { label: "Client", value: "NHS England" },
       { label: "Role", value: "Software Engineer (Contract)" },
       { label: "When", value: "Dec 2024 — Feb 2025" },
     ],
-    live: [{ label: "Live site", url: "https://gpflow-prod.up.railway.app/data/" }],
-    stack: ["Electron", "JavaScript", "Selenium", "CSV"],
+    live: [{ label: "Web app", url: "https://gpflow-prod.up.railway.app/data/" }],
+    stack: ["Electron", "Web", "JavaScript", "Selenium", "CSV"],
     screens: [
       { src: "/screenshots/GPFlow2.png", caption: "Loading practices from a CSV", ratio: "web" },
       { src: "/screenshots/GPFlow1.png", caption: "Creating a template", ratio: "web" },
@@ -63,7 +63,7 @@ export const projects = [
     problem:
       "GPs nationwide use Accurx, a third-party healthcare application, to send templated messages. Creating or deleting a template across many practices was manual work, practice by practice.",
     built: [
-      { lead: "Desktop app.", text: "Electron, with a clean GUI over the whole process." },
+      { lead: "Desktop and web.", text: "An Electron desktop app and a web app, each with a clean GUI over the whole process." },
       { lead: "CSV import.", text: "Select the practices to work on from one file." },
       { lead: "Bulk operations.", text: "Create or delete a template across every selected practice." },
       { lead: "Automation.", text: "Selenium drives Accurx, with a run dashboard showing progress." },

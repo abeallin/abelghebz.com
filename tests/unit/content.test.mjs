@@ -83,3 +83,9 @@ test("Betmate copy matches the game as the screenshots describe it", () => {
 test("Optal says monitored, as the original did, not that Abel reconciled millions", () => {
   assert.match(experience.find((e) => e.company.startsWith("Optal")).outcome, /^Monitored/);
 });
+
+test("GPFlow says it ships as both an Electron desktop app and a web app", () => {
+  const g = projects.find((p) => p.slug === "gpflow");
+  assert.match(g.summary, /Electron desktop app and a web app/);
+  assert.ok(g.built.some((b) => /web/i.test(b.lead + b.text)));
+});
