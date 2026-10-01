@@ -18,8 +18,8 @@ export const profile = {
   ],
 };
 
-// Hero "Worked with" row (gallery Hero D): William Hill as Betmate's client, Wex as Optal's acquirer.
-export const workedWith = ["William Hill", "NHS England", "SalaryFinance", "Wex", "London Metal Exchange"];
+// Hero "Worked with" row (gallery Hero D), newest first; names chosen by Abel, 2 Oct 2026.
+export const workedWith = ["Arena Entertainment", "Betmate", "NHS England", "SalaryFinance", "Optal (a Wex company)", "London Metal Exchange"];
 
 export const paths = [
   { prompt: "Hiring for a lead or senior role?", label: "Experience and CV", href: "/#experience" },

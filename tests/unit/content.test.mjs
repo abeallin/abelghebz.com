@@ -143,3 +143,8 @@ test("Arena's AI chat says who uses it and what it saves", () => {
   assert.match(arena.detail, /AI conversational assistant on AWS Bedrock, used by 200 people/);
   assert.match(arena.detail, /Slack and Jira/);
 });
+
+test("the worked-with row names the companies Abel worked for, not their clients or parents", async () => {
+  const { workedWith } = await import("../../src/content/profile.js");
+  assert.deepEqual(workedWith, ["Arena Entertainment", "Betmate", "NHS England", "SalaryFinance", "Optal (a Wex company)", "London Metal Exchange"]);
+});
