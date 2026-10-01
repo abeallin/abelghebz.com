@@ -1,13 +1,13 @@
 import { test, expect } from "@playwright/test";
 import AxeBuilder from "@axe-core/playwright";
-import { pages } from "./pages.js";
+import { pages, reviewPages } from "./pages.js";
 
 // Cal.com's embed is stubbed so these checks measure this site, not Cal's iframe or its uptime.
 test.beforeEach(async ({ page }) => {
   await page.route("https://app.cal.com/**", (route) => route.fulfill({ status: 200, contentType: "text/javascript", body: "" }));
 });
 
-for (const path of pages) {
+for (const path of [...pages, ...reviewPages]) {
   test.describe(path, () => {
     test("has no WCAG 2.2 A/AA violations at any impact level", async ({ page }) => {
       await page.goto(path);
