@@ -153,3 +153,20 @@ test("William Hill is not named anywhere in the content (Abel, 2 Oct 2026)", () 
   assert.doesNotMatch(all, /William Hill/);
   assert.equal(projects.find((p) => p.slug === "betmate").facts.find((f) => f.label === "Client").value, "Betmate");
 });
+
+test("stat strips use only facts already in the content, and only where numbers exist", () => {
+  const byslug = Object.fromEntries(projects.map((p) => [p.slug, p]));
+  assert.deepEqual(byslug.betmate.stats.map((s) => s.value), ["1M", "£500k", "iOS + Android"]);
+  assert.deepEqual(byslug.cabeazy.stats.map((s) => s.value), ["0%", "£50", "3"]);
+  assert.equal(byslug.gpflow.stats, undefined);
+  assert.equal(byslug.whenwillyoumarry.stats, undefined);
+});
+
+test("every flow strip uses 3 to 5 of the project's own screens, in order", () => {
+  for (const p of projects) {
+    assert.ok(p.flow, `${p.slug} has a flow`);
+    assert.ok(p.flow.steps.length >= 3 && p.flow.steps.length <= 5, p.slug);
+    const srcs = new Set(p.screens.map((s) => s.src));
+    for (const step of p.flow.steps) assert.ok(srcs.has(step.src), `${p.slug}: ${step.src}`);
+  }
+});

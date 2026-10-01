@@ -18,6 +18,20 @@ export const projects = [
       { label: "Google Play", url: "https://play.google.com/store/apps/dev?id=7184499669623963795" },
     ],
     stack: ["C#", "AWS", "CockroachDB", "Dapper"],
+    stats: [
+      { value: "1M", label: "users" },
+      { value: "£500k", label: "jackpot" },
+      { value: "iOS + Android", label: "inside a betting app on both stores" },
+    ],
+    flow: {
+      title: "Playing a round",
+      steps: [
+        { src: "/screenshots/FOS10.jpeg", caption: "Lobby" },
+        { src: "/screenshots/FOS8.jpeg", caption: "Make a round pick" },
+        { src: "/screenshots/FOS7.jpeg", caption: "Check my picks" },
+        { src: "/screenshots/FOS6.jpeg", caption: "League standings" },
+      ],
+    },
     screens: [
       { src: "/screenshots/FOS10.jpeg", caption: "Lobby", ratio: "phone" },
       { src: "/screenshots/FOS1.jpeg", caption: "How to play", ratio: "phone" },
@@ -57,6 +71,20 @@ export const projects = [
     ],
     live: [{ label: "cabeazy.com", url: "https://cabeazy.com" }],
     stack: ["Go", "PostgreSQL", "Redis", "NATS", "Stripe", "WebSockets", "React Native", "Expo", "Kotlin", "Jetpack Compose", "Next.js", "Mapbox", "Sentry", "Docker", "Railway", "Maestro"],
+    stats: [
+      { value: "0%", label: "commission on fares" },
+      { value: "£50", label: "a month, flat, for drivers" },
+      { value: "3", label: "kinds of user: passengers, drivers, cab offices" },
+    ],
+    flow: {
+      title: "A cab office's way in",
+      steps: [
+        { src: "/screenshots/cabeazy-london.jpg", caption: "Find cabeazy" },
+        { src: "/screenshots/cabeazy-cab-offices.jpg", caption: "See the office offer" },
+        { src: "/screenshots/cabeazy-portal-demo.jpg", caption: "Try the portal demo" },
+        { src: "/screenshots/cabeazy-operator-dashboard.jpg", caption: "Run live operations" },
+      ],
+    },
     screens: [
       { src: "/screenshots/cabeazy-london.jpg", caption: "cabeazy.com, launching in London", ratio: "web" },
       { src: "/screenshots/cabeazy-cab-offices.jpg", caption: "Modern dispatch for cab offices", ratio: "web" },
@@ -93,6 +121,14 @@ export const projects = [
     ],
     live: [{ label: "Web app", url: "https://gpflow-prod.up.railway.app/data/" }],
     stack: ["Next.js", "Tailwind CSS", "Electron", "TypeScript", "Playwright", "SQLite", "MongoDB", "Vitest"],
+    flow: {
+      title: "A bulk change",
+      steps: [
+        { src: "/screenshots/GPFlow2.png", caption: "Load practices from a CSV" },
+        { src: "/screenshots/GPFlow1.png", caption: "Set up the template" },
+        { src: "/screenshots/GPFlow3.png", caption: "Watch the run" },
+      ],
+    },
     screens: [
       { src: "/screenshots/GPFlow2.png", caption: "Loading practices from a CSV", ratio: "web" },
       { src: "/screenshots/GPFlow1.png", caption: "Creating a template", ratio: "web" },
@@ -122,6 +158,15 @@ export const projects = [
     ],
     live: [{ label: "whenwillyoumarry.com", url: "https://whenwillyoumarry.com" }],
     stack: ["TypeScript", "Next.js", "Tailwind CSS", "PostgreSQL", "Drizzle", "Redis", "Stripe", "Cloudflare R2", "Railway", "Playwright", "Vitest", "Sentry"],
+    flow: {
+      title: "Building a wedding site",
+      steps: [
+        { src: "/screenshots/WWYM4.png", caption: "Design it in the editor" },
+        { src: "/screenshots/WWYM5.png", caption: "Add the wedding details" },
+        { src: "/screenshots/WWYM6.png", caption: "Track RSVPs" },
+        { src: "/screenshots/WWYM8.png", caption: "Message guests" },
+      ],
+    },
     screens: [
       { src: "/screenshots/WWYM1.png", caption: "Home page", ratio: "web" },
       { src: "/screenshots/WWYM2.png", caption: "Live in three steps", ratio: "web" },
