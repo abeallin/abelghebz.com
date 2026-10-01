@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Version from "./Version.jsx";
 import { Pill, Block, Arrow } from "../components/ui/Actions.jsx";
-import { profile } from "../content/profile.js";
+import { profile, workedWith } from "../content/profile.js";
 import { experience } from "../content/experience.js";
 
 const roleLine = `${profile.role} · ${profile.location}`;
@@ -143,7 +143,7 @@ function HeroD() {
       </div>
       <p className="mt-12 font-mono text-[12.5px] text-muted">Worked with</p>
       <p className="mt-3 flex flex-wrap gap-x-7 gap-y-2 text-[17px] font-semibold text-ink/80">
-        {["William Hill", "NHS England", "SalaryFinance", "Wex", "London Metal Exchange"].map((n) => (
+        {workedWith.map((n) => (
           <span key={n}>{n}</span>
         ))}
       </p>
@@ -170,7 +170,6 @@ export default function Heroes() {
         id="hero-d"
         title="Hero · D, quiet CV"
         source="Dribbble 27050710 and 27063944 (Wachid, read.cv style)"
-        note="'Worked with' names William Hill and Wex as the companies behind Betmate's client and Optal's acquirer; check you're happy to name them."
       >
         <HeroD />
       </Version>
