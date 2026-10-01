@@ -3,6 +3,7 @@ import Hero from "../src/components/Hero.jsx";
 import WorkSection from "../src/components/WorkSection.jsx";
 import ExperienceList from "../src/components/ExperienceList.jsx";
 import About from "../src/components/About.jsx";
+import Contact from "../src/components/Contact.jsx";
 import Footer from "../src/components/Footer.jsx";
 
 export default function Home() {
@@ -14,6 +15,7 @@ export default function Home() {
         <WorkSection />
         <ExperienceList />
         <About />
+        <Contact />
       </main>
       <Footer />
     </>
