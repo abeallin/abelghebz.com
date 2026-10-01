@@ -56,7 +56,7 @@ export const projects = [
       { label: "Since", value: "Mar 2026" },
     ],
     live: [{ label: "cabeazy.com", url: "https://cabeazy.com" }],
-    stack: ["Go", "PostgreSQL", "Redis", "Stripe", "WebSockets", "React Native", "Next.js"],
+    stack: ["Go", "PostgreSQL", "Redis", "Stripe", "WebSockets", "React Native", "Kotlin", "Next.js"],
     screens: [
       { src: "/screenshots/cabeazy-london.jpg", caption: "cabeazy.com, launching in London", ratio: "web" },
       { src: "/screenshots/cabeazy-cab-offices.jpg", caption: "Modern dispatch for cab offices", ratio: "web" },
@@ -75,7 +75,7 @@ export const projects = [
       { lead: "Contract-first API.", text: "A Go API on PostgreSQL and Redis whose /v2 is generated from an OpenAPI spec; CI fails if the code drifts from it." },
       { lead: "Money that adds up.", text: "Signed fare quotes valid for 10 minutes, idempotency keys on booking and payouts, and settlement through a job queue where every step is safe to retry." },
       { lead: "Real time.", text: "Ride updates over WebSockets, fanned out through Redis across instances; unanswered offers are re-dispatched every 4 seconds." },
-      { lead: "Three front ends.", text: "React Native apps for passengers and drivers, and a Next.js marketing site, operator portal and admin." },
+      { lead: "Apps and web.", text: "React Native apps for passengers and drivers today, with a native Kotlin Android app under way and a Swift iOS app planned; a Next.js marketing site, operator portal and admin." },
     ],
     result: "The marketing site is live at cabeazy.com. The platform is pre-launch, with a closed Android beta next.",
   },
@@ -85,14 +85,14 @@ export const projects = [
     kind: "web",
     eyebrow: "Contract · NHS England · 2025",
     headline: "Bulk template management for GP practices, built for NHS England",
-    summary: "An Electron desktop app and a web app that automate Accurx template management: load practices from a CSV, then create or delete templates across all of them at once.",
+    summary: "A Next.js and Tailwind app, shipped as an Electron desktop app and as a web app, that automates Accurx template management: load practices from a CSV, then create or delete templates across all of them at once.",
     facts: [
       { label: "Client", value: "NHS England" },
       { label: "Role", value: "Software Engineer (Contract)" },
       { label: "When", value: "Dec 2024 — Feb 2025" },
     ],
     live: [{ label: "Web app", url: "https://gpflow-prod.up.railway.app/data/" }],
-    stack: ["Electron", "Web", "JavaScript", "Selenium", "CSV"],
+    stack: ["Next.js", "Tailwind CSS", "Electron", "TypeScript", "Playwright", "SQLite"],
     screens: [
       { src: "/screenshots/GPFlow2.png", caption: "Loading practices from a CSV", ratio: "web" },
       { src: "/screenshots/GPFlow1.png", caption: "Creating a template", ratio: "web" },
@@ -102,10 +102,10 @@ export const projects = [
     problem:
       "GPs nationwide use Accurx, a third-party healthcare application, to send templated messages. Creating or deleting a template across many practices was manual work, practice by practice.",
     built: [
-      { lead: "Desktop and web.", text: "An Electron desktop app and a web app, each with a clean GUI over the whole process." },
+      { lead: "Desktop and web.", text: "One Next.js and Tailwind front end, packaged with Electron for the desktop and served as a web app." },
       { lead: "CSV import.", text: "Select the practices to work on from one file." },
       { lead: "Bulk operations.", text: "Create or delete a template across every selected practice." },
-      { lead: "Automation.", text: "Selenium drives Accurx, with a run dashboard showing progress." },
+      { lead: "Automation.", text: "Playwright drives Accurx, with a run dashboard showing live progress." },
     ],
     result: "Template changes that took manual work at each practice became one bulk run, removing a significant amount of time and labour.",
   },

@@ -4,6 +4,7 @@ import Nav from "../../../src/components/Nav.jsx";
 import Footer from "../../../src/components/Footer.jsx";
 import Container from "../../../src/components/Container.jsx";
 import FactsRow from "../../../src/components/FactsRow.jsx";
+import StackChips from "../../../src/components/StackChips.jsx";
 import { Pill } from "../../../src/components/ui/Actions.jsx";
 import ScreenGallery from "../../../src/components/ScreenGallery.jsx";
 import { projects, projectBySlug, nextProject } from "../../../src/content/projects.js";
@@ -74,7 +75,7 @@ export default async function CaseStudy({ params }) {
                 </p>
               ))}
             </div>
-            <p className="mt-4 font-mono text-[13px] text-muted">{p.stack.join(" / ")}</p>
+            <StackChips items={p.stack} tone="tile" className="mt-5" />
           </Section>
           <Section title="The result">
             <p>{p.result}</p>

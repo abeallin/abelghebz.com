@@ -4,6 +4,7 @@ import Image from "next/image";
 import Container from "./Container.jsx";
 import SectionLabel from "./SectionLabel.jsx";
 import { Pill } from "./ui/Actions.jsx";
+import StackChips from "./StackChips.jsx";
 import { projects } from "../content/projects.js";
 
 const COVER = { betmate: "#0C1A4B", cabeazy: "#1B1A16", gpflow: "#0F1A17", whenwillyoumarry: "#211E19" };
@@ -35,18 +36,6 @@ function Shots({ project, compact = false }) {
   );
 }
 
-function Chips({ items }) {
-  return (
-    <ul className="mt-4 flex flex-wrap gap-2">
-      {items.map((s) => (
-        <li key={s} className="rounded-full bg-paper px-3 py-1 font-mono text-[12.5px] text-ink">
-          {s}
-        </li>
-      ))}
-    </ul>
-  );
-}
-
 export default function WorkSection() {
   const [first, ...rest] = projects;
   return (
@@ -63,7 +52,7 @@ export default function WorkSection() {
             <p className="font-mono text-[13px] text-body">(Featured) · {first.eyebrow}</p>
             <h3 className="mt-3 font-display text-[clamp(30px,3.6vw,42px)] font-normal leading-[1.06] tracking-[-0.01em] text-ink">{first.headline}</h3>
             <p className="mt-4 text-[17px] leading-[1.6] text-body">{first.summary}</p>
-            <Chips items={first.stack.slice(0, 4)} />
+            <StackChips items={first.stack.slice(0, 4)} />
           </div>
           <div>
             <Pill href={`/work/${first.slug}`}>Read the {first.name} case study</Pill>
@@ -82,7 +71,7 @@ export default function WorkSection() {
               <div>
                 <p className="text-[14px] font-medium text-accent-ink">{p.eyebrow}</p>
                 <h3 className="mt-1 text-[21px] font-semibold leading-[1.3] tracking-[-0.01em] text-ink">{p.headline}</h3>
-                <Chips items={p.stack.slice(0, 3)} />
+                <StackChips items={p.stack.slice(0, 3)} />
               </div>
               <div>
                 <Pill href={`/work/${p.slug}`} tone="light">

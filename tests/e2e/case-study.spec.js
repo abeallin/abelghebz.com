@@ -82,3 +82,11 @@ test("an unknown project's preview card is a 404, not a server error", async ({ 
   const res = await request.get("/work/nope/opengraph-image");
   expect(res.status()).toBe(404);
 });
+
+test("case-study stack chips carry technology marks where an exact one exists", async ({ page }) => {
+  await page.goto("/work/cabeazy");
+  const stack = page.getByRole("list", { name: "Stack" });
+  await expect(stack.getByRole("listitem").filter({ hasText: /^Go$/ }).locator('svg[aria-hidden="true"]')).toHaveCount(1);
+  await expect(stack.getByRole("listitem").filter({ hasText: /^Kotlin$/ }).locator("svg")).toHaveCount(1);
+  await expect(stack.getByRole("listitem").filter({ hasText: /^WebSockets$/ }).locator("svg")).toHaveCount(0);
+});

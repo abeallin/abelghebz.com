@@ -86,7 +86,8 @@ test("Optal says monitored, as the original did, not that Abel reconciled millio
 
 test("GPFlow says it ships as both an Electron desktop app and a web app", () => {
   const g = projects.find((p) => p.slug === "gpflow");
-  assert.match(g.summary, /Electron desktop app and a web app/);
+  assert.match(g.summary, /Electron desktop app/);
+  assert.match(g.summary, /web app/);
   assert.ok(g.built.some((b) => /web/i.test(b.lead + b.text)));
 });
 
@@ -98,4 +99,16 @@ test("cabeazy is a pre-launch own product with its live site, pricing and no inv
   assert.match(JSON.stringify(c), /£50 a month/);
   assert.ok(c.screens.some((s) => s.ratio === "web") && c.screens.some((s) => s.ratio === "phone"), "mixes web and phone screens");
   assert.doesNotMatch(JSON.stringify(c), /\b\d[\d,]* (users|rides|drivers signed)/);
+});
+
+test("GPFlow's stack is what its repo uses: Next.js, Tailwind, Electron and Playwright, not Selenium", () => {
+  const g = projects.find((p) => p.slug === "gpflow");
+  for (const t of ["Next.js", "Tailwind CSS", "Electron", "Playwright"]) assert.ok(g.stack.includes(t), t);
+  assert.doesNotMatch(JSON.stringify(g), /Selenium/);
+});
+
+test("cabeazy lists Kotlin and says Swift is planned, not built", () => {
+  const c = projects.find((p) => p.slug === "cabeazy");
+  assert.ok(c.stack.includes("Kotlin"));
+  assert.match(JSON.stringify(c.built), /Swift iOS app planned/);
 });
