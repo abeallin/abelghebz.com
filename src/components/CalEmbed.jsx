@@ -66,9 +66,14 @@ export default function CalEmbed() {
   return (
     <div>
       <div ref={box} id="cal-inline" className="min-h-[120px] overflow-hidden rounded-xl border border-rule bg-white" />
-      <p className="mt-3 text-[15px] text-body">
-        Calendar not showing?{" "}
-        <a href={CAL_URL} className="link-underline font-medium text-ink" target="_blank" rel="noopener noreferrer">
+      <p className="mt-4 flex flex-wrap items-center gap-3 text-[15px] text-body">
+        Calendar not showing?
+        <a
+          href={CAL_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex rounded-full border border-ink/20 px-4 py-2 text-[14px] font-medium text-ink hover:border-ink hover:bg-ink hover:text-paper"
+        >
           Book a 15-minute call on Cal.com
         </a>
       </p>

@@ -27,7 +27,7 @@ const TYPE = [
 ];
 
 const RULES = [
-  ["Links", "Never underlined. Actions are pills, blocks or arrows; nav links get a short accent bar on hover and focus."],
+  ["Links", "Never underlined. Actions are pills (picked by Abel, 1 October 2026); nav links get a short accent bar on hover and focus."],
   ["Caps", "Sentence case everywhere, including labels."],
   ["Lists", "Divided rows, a ruled table or a two-column grid with bold lead-ins; no bullet characters."],
   ["Colour", "One accent. No gradients or glows; dark app screens sit on their own app colour."],

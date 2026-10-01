@@ -4,6 +4,7 @@ import Nav from "../../../src/components/Nav.jsx";
 import Footer from "../../../src/components/Footer.jsx";
 import Container from "../../../src/components/Container.jsx";
 import FactsRow from "../../../src/components/FactsRow.jsx";
+import { Pill } from "../../../src/components/ui/Actions.jsx";
 import ScreenGallery from "../../../src/components/ScreenGallery.jsx";
 import { projects, projectBySlug, nextProject } from "../../../src/content/projects.js";
 import { seo } from "../../../src/content/seo.js";
@@ -42,7 +43,7 @@ export default async function CaseStudy({ params }) {
       <main id="main" className="pb-16">
         <Container className="pt-12 sm:pt-16">
           <p className="mb-5 font-mono text-[13px] text-muted">
-            <Link href="/#work" className="underline decoration-rule underline-offset-4 hover:decoration-accent">
+            <Link href="/#work" className="text-ink hover:text-accent-ink">
               Work
             </Link>{" "}
             / {p.name}
@@ -80,13 +81,14 @@ export default async function CaseStudy({ params }) {
           </Section>
 
           <div className="mt-6 flex flex-wrap items-baseline justify-between gap-4 border-t border-rule pt-6">
-            <Link href="/#contact" className="link-underline text-[17px] font-medium text-ink">
-              Have something similar to build? Book a call
-            </Link>
-            <Link href={`/work/${next.slug}`} className="group sm:text-right">
+            <div className="flex flex-wrap items-center gap-4">
+              <p className="text-[17px] text-body">Have something similar to build?</p>
+              <Pill href="/#contact">Book a 15-minute call</Pill>
+            </div>
+            <Link href={`/work/${next.slug}`} className="group max-w-full rounded-2xl border border-rule px-6 py-4 transition-colors hover:border-ink sm:text-right">
               <span className="block font-mono text-[13px] text-muted">Next project</span>
-              <span className="font-display text-[28px] text-ink underline decoration-accent decoration-[1.5px] underline-offset-4">
-                {next.name}
+              <span className="font-display text-[22px] text-ink [overflow-wrap:anywhere] group-hover:text-accent-ink sm:text-[28px]">
+                {next.name} <span aria-hidden="true">→</span>
               </span>
             </Link>
           </div>

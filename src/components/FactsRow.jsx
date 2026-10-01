@@ -12,9 +12,15 @@ export default function FactsRow({ facts, live = [], size = "sm" }) {
       {live.length > 0 && (
         <div>
           <dt className="font-mono text-[12.5px] text-muted">Live</dt>
-          <dd className={`flex flex-wrap gap-x-3 font-semibold text-ink ${big ? "text-[16px]" : "text-[14.5px]"}`}>
+          <dd className={`mt-1 flex flex-wrap gap-2 font-medium text-ink ${big ? "text-[16px]" : "text-[14.5px]"}`}>
             {live.map((l) => (
-              <a key={l.url} href={l.url} target="_blank" rel="noopener noreferrer" className="link-underline">
+              <a
+                key={l.url}
+                href={l.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex rounded-full border border-ink/20 px-3 py-1 text-[14px] hover:border-ink hover:bg-ink hover:text-paper"
+              >
                 {l.label}
               </a>
             ))}

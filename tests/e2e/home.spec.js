@@ -6,8 +6,33 @@ test.describe("home with JavaScript off", () => {
   test("hero shows the name with no full stop and the two paths", async ({ page }) => {
     await page.goto("/");
     await expect(page.getByRole("heading", { level: 1 })).toHaveText("Abel Ghebrezadik");
-    await expect(page.getByRole("link", { name: "Experience and CV" })).toHaveAttribute("href", "/#experience");
-    await expect(page.getByRole("link", { name: "See the work, book a call" })).toHaveAttribute("href", "/#work");
+    const hero = page.locator("main section").first();
+    await expect(hero.getByRole("link", { name: "Book a 15-minute call" })).toHaveAttribute("href", "/#contact");
+    await expect(hero.getByRole("link", { name: "Experience and CV" })).toHaveAttribute("href", "/#experience");
+    await expect(hero.getByText("Worked with")).toBeVisible();
+    await expect(hero.getByText("NHS England")).toBeVisible();
+  });
+
+  test("work features Betmate first, with the other two beside each other", async ({ page }) => {
+    await page.goto("/");
+    const work = page.locator("#work");
+    await expect(work.locator("[data-featured]")).toHaveAttribute("data-featured", "betmate");
+    await expect(work.getByRole("link", { name: /Read the Betmate case study/ })).toHaveAttribute("href", "/work/betmate");
+  });
+
+  test("each role's detail opens from a More toggle without JavaScript", async ({ page }) => {
+    await page.goto("/");
+    const first = page.locator("#experience li").first();
+    await expect(first.getByText(/Redis batch pipelines/)).toBeHidden();
+    await first.getByText("More").click();
+    await expect(first.getByText(/Redis batch pipelines/)).toBeVisible();
+  });
+
+  test("the footer sets the name large with pill links", async ({ page }) => {
+    await page.goto("/");
+    const footer = page.locator("footer");
+    await expect(footer.getByText("Abel Ghebrezadik", { exact: true })).toBeVisible();
+    await expect(footer.getByRole("link", { name: "LinkedIn" })).toHaveAttribute("href", "https://linkedin.com/in/abel-ghebrezadik");
   });
 
   test("selected work links each project to its case study", async ({ page }) => {

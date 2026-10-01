@@ -9,7 +9,7 @@
   --color-muted: #6a6a6a; /* 4.9:1 on paper; never on tile (4.3:1) */
   --color-tile: #e8e4db;
   --color-rule: #d9d5cc;
-  --color-accent: #d9461b; /* 3.95:1: underlines, focus, hover only, never text */
+  --color-accent: #d9461b; /* 3.95:1: hover bars, focus, markers only, never text */
   --color-accent-ink: #b83a12; /* 5.2:1 text on paper; 5.75:1 white on it */
 
   --font-display: var(--font-erode), Georgia, serif;
@@ -46,16 +46,6 @@
     html {
       scroll-behavior: auto;
     }
-  }
-}
-
-@utility link-underline {
-  text-decoration-line: underline;
-  text-decoration-color: var(--color-accent);
-  text-decoration-thickness: 1.5px;
-  text-underline-offset: 4px;
-  &:hover {
-    text-decoration-thickness: 2.5px;
   }
 }
 

@@ -1,28 +1,44 @@
+// Opens with gallery Buttons A's dark call-to-action card (Dribbble 27429954, Alevtinka; 27050710, Wachid),
+// then the Cal.com booking full width and the enquiry router below it.
 import Container from "./Container.jsx";
 import SectionLabel from "./SectionLabel.jsx";
 import CalEmbed from "./CalEmbed.jsx";
 import EnquiryRouter from "./EnquiryRouter.jsx";
+import { Pill } from "./ui/Actions.jsx";
 
 export default function Contact() {
   return (
     <Container as="section" id="contact" aria-labelledby="contact-label" className="py-16 sm:py-20">
-      <div className="grid gap-8 md:grid-cols-[160px_1fr] md:gap-6">
-        <SectionLabel id="contact-label">Contact</SectionLabel>
-        <div>
-          <p className="font-display text-[clamp(38px,5vw,52px)] leading-[1.05] tracking-[-0.01em] text-ink">Let&apos;s talk</p>
-          <p className="mb-8 mt-3 max-w-[620px] text-[19px] leading-[1.55] text-body">
-            Book 15 minutes, or tell me what you need and I&apos;ll reply by email.
-          </p>
-          {/* Full width so Cal.com uses its three-pane layout; at half width it falls back to one long column. */}
-          <CalEmbed />
-          <div className="mt-14 grid gap-6 border-t border-rule pt-10 lg:grid-cols-[minmax(0,2fr)_minmax(0,5fr)] lg:gap-10">
-            <div>
-              <h3 className="font-display text-[28px] leading-[1.15] text-ink">Or send an enquiry</h3>
-              <p className="mt-2 text-[16px] text-body">Hiring, a project, or something else: say which and it reaches the right inbox.</p>
-            </div>
-            <EnquiryRouter />
-          </div>
+      <SectionLabel id="contact-label">Contact</SectionLabel>
+      <div className="mt-6 rounded-[28px] bg-ink px-6 py-12 text-paper sm:px-12 sm:py-14">
+        <p className="text-[15px] text-[#b9b5ac]">Lead roles and private work</p>
+        <p className="mt-3 max-w-[640px] font-display text-[clamp(32px,4.4vw,52px)] leading-[1.06] tracking-[-0.01em]">
+          Need a backend built, or a lead for your team?
+        </p>
+        <div className="mt-8 flex flex-wrap gap-3">
+          <Pill href="#book" tone="paper">
+            Book a 15-minute call
+          </Pill>
+          <a
+            href="#enquiry"
+            className="inline-flex items-center rounded-full border border-paper/40 px-5 py-3 text-[16px] font-medium text-paper transition-colors hover:bg-paper/10"
+          >
+            Send an enquiry
+          </a>
         </div>
+      </div>
+
+      <div id="book" className="mt-12 scroll-mt-6">
+        <h3 className="mb-5 font-display text-[28px] leading-[1.15] text-ink">Book a call</h3>
+        <CalEmbed />
+      </div>
+
+      <div id="enquiry" className="mt-14 grid scroll-mt-6 gap-6 border-t border-rule pt-10 lg:grid-cols-[minmax(0,2fr)_minmax(0,5fr)] lg:gap-10">
+        <div>
+          <h3 className="font-display text-[28px] leading-[1.15] text-ink">Or send an enquiry</h3>
+          <p className="mt-2 text-[16px] text-body">Hiring, a project, or something else: say which and it reaches the right inbox.</p>
+        </div>
+        <EnquiryRouter />
       </div>
     </Container>
   );

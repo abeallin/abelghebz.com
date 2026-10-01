@@ -12,7 +12,7 @@ test.describe("contact with JavaScript off", () => {
 
   test("the booking link goes to the 15-minute Cal.com event", async ({ page }) => {
     await page.goto("/");
-    await expect(page.locator("#contact").getByRole("link", { name: /Book a 15-minute call/ })).toHaveAttribute("href", CAL_URL);
+    await expect(page.locator("#contact").getByRole("link", { name: "Book a 15-minute call on Cal.com" })).toHaveAttribute("href", CAL_URL);
   });
 
   test("the form still sends by email to the work address", async ({ page }) => {

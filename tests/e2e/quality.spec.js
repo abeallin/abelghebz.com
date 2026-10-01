@@ -49,6 +49,18 @@ for (const path of [...pages, ...reviewPages]) {
   });
 }
 
+for (const path of pages) {
+  test(`${path}: no link is underlined at rest`, async ({ page }) => {
+    await page.goto(path);
+    const underlined = await page.evaluate(() =>
+      [...document.querySelectorAll("a")]
+        .filter((a) => getComputedStyle(a).textDecorationLine.includes("underline") || [...a.querySelectorAll("*")].some((c) => getComputedStyle(c).textDecorationLine.includes("underline")))
+        .map((a) => a.textContent.trim().slice(0, 40)),
+    );
+    expect(underlined).toEqual([]);
+  });
+}
+
 test("the scroll reveal does run when motion is allowed (so the reduced-motion test can fail)", async ({ page }) => {
   await page.setViewportSize({ width: 1440, height: 900 });
   await page.goto("/work/betmate");

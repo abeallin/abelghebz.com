@@ -139,7 +139,7 @@ export default function EnquiryRouter() {
       </Field>
 
       <div>
-        <button type="submit" className="rounded-lg bg-accent-ink px-5 py-3 text-[16px] font-medium text-white hover:bg-ink">
+        <button type="submit" className="rounded-full bg-ink px-6 py-3 text-[16px] font-medium text-paper transition-colors hover:bg-accent-ink">
           Send enquiry
         </button>
         <p className="mt-2 text-[14px] text-muted">This opens your email app with the enquiry filled in, ready to send.</p>
@@ -151,11 +151,10 @@ export default function EnquiryRouter() {
         <p role="status" className="mt-2 text-[15px] text-body">
           {sentTo && (
             <>
-              If your email app didn&apos;t open, email{" "}
-              <a href={`mailto:${sentTo}`} className="link-underline font-medium text-ink">
+              If your email app didn&apos;t open, email me directly:{" "}
+              <a href={`mailto:${sentTo}`} className="ml-1 inline-flex rounded-full bg-tile px-3.5 py-1.5 font-medium text-ink hover:bg-ink hover:text-paper">
                 {sentTo}
-              </a>{" "}
-              directly.
+              </a>
             </>
           )}
         </p>
