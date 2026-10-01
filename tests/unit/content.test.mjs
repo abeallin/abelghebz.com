@@ -137,3 +137,9 @@ test("Arena includes the Angular rebuild, the Bedrock AI chat and the 250 pages 
   assert.match(all, /250 pages/);
   for (const t of ["Angular", "AWS Bedrock"]) assert.ok(arena.stack.includes(t), t);
 });
+
+test("Arena's AI chat says who uses it and what it saves", () => {
+  const arena = experience.find((e) => e.company === "Arena Entertainment");
+  assert.match(arena.detail, /AI conversational assistant on AWS Bedrock, used by 200 people/);
+  assert.match(arena.detail, /Slack and Jira/);
+});
