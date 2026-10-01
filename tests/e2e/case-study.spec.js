@@ -99,3 +99,42 @@ test("Betmate's stack shows AWS as one chip with the AWS mark", async ({ page })
   // simple-icons has no C# mark ("siSharp" is the sharp image library), so C# stays text-only.
   await expect(stack.getByRole("listitem").filter({ hasText: /^C#$/ }).locator("svg")).toHaveCount(0);
 });
+
+test.describe("case-study extras with JavaScript off", () => {
+  test.use({ javaScriptEnabled: false });
+
+  test("Betmate shows its key numbers; GPFlow has no stat strip", async ({ page }) => {
+    await page.goto("/work/betmate");
+    const stats = page.getByRole("list", { name: "Key numbers" });
+    await expect(stats).toContainText("1M");
+    await expect(stats).toContainText("£500k");
+    await page.goto("/work/gpflow");
+    await expect(page.getByRole("list", { name: "Key numbers" })).toHaveCount(0);
+  });
+
+  test("the flow strip is an ordered list of numbered steps with decorative arrows", async ({ page }) => {
+    const p = projects.find((x) => x.slug === "betmate");
+    await page.goto("/work/betmate");
+    const flow = page.locator("#flow");
+    await expect(flow.getByRole("heading", { level: 2 })).toHaveText(p.flow.title);
+    const steps = flow.locator("ol > li");
+    await expect(steps).toHaveCount(p.flow.steps.length);
+    await expect(steps.first()).toContainText(`1 ${p.flow.steps[0].caption}`);
+    await expect(flow.locator('[data-connector][aria-hidden="true"]')).toHaveCount(p.flow.steps.length - 1);
+  });
+});
+
+test("wide screens get a sticky 'On this page' menu that tracks the section in view", async ({ page }) => {
+  await page.setViewportSize({ width: 1440, height: 900 });
+  await page.goto("/work/cabeazy");
+  const nav = page.getByRole("navigation", { name: "On this page" });
+  await expect(nav).toBeVisible();
+  for (const name of ["How it works", "Screens", "The problem", "What I built", "The result"]) {
+    await expect(nav.getByRole("link", { name })).toBeVisible();
+  }
+  await nav.getByRole("link", { name: "The result" }).click();
+  await expect(nav.getByRole("link", { name: "The result" })).toHaveAttribute("aria-current", "true");
+  await expect(nav.getByRole("link", { name: "How it works" })).not.toHaveAttribute("aria-current", "true");
+  await page.setViewportSize({ width: 1024, height: 900 });
+  await expect(nav).toBeHidden();
+});

@@ -10,7 +10,7 @@ const OUT = path.join(path.dirname(fileURLToPath(import.meta.url)), "..", "src",
 
 // family slug -> weights. woff2 serves the site; woff serves next/og (satori can't read woff2).
 export const FAMILIES = {
-  erode: [400, 500],
+  erode: [400],
   author: [400, 500, 600],
 };
 
