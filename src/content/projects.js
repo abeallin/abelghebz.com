@@ -31,7 +31,7 @@ export const projects = [
       { src: "/screenshots/FOS2.jpeg", caption: "Rounds and results", ratio: "phone" },
     ],
     problem:
-      "William Hill wanted Final One Standing inside its app: each round, players pick one team to win. A wrong pick knocks them out, and the last players standing share the prize pool. The backend had to run every round, league and pick, and settle prize pools of up to £500k.",
+      "William Hill wanted Final One Standing inside its app: each round, players pick one team to win, and a wrong pick knocks them out. Outlast everyone to win the pot, with a £500k jackpot. The backend had to run every round, league and pick.",
     built: [
       { lead: "Serverless backend.", text: "High-performance C# on AWS Lambda." },
       { lead: "Event-driven.", text: "Messaging between services over SNS and SQS." },

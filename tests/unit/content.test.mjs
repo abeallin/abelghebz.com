@@ -73,3 +73,13 @@ test("the site shows abelghebz@gmail.com and not the Outlook address", () => {
   assert.equal(profile.email, "abelghebz@gmail.com");
   assert.equal(all.includes("hotmail"), false);
 });
+
+test("Betmate copy matches the game as the screenshots describe it", () => {
+  const b = projects.find((p) => p.slug === "betmate");
+  assert.doesNotMatch(b.problem, /share the prize pool/);
+  assert.match(b.problem, /[Oo]utlast everyone/);
+});
+
+test("Optal says monitored, as the original did, not that Abel reconciled millions", () => {
+  assert.match(experience.find((e) => e.company.startsWith("Optal")).outcome, /^Monitored/);
+});

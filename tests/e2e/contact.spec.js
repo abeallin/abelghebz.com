@@ -85,4 +85,24 @@ test.describe("enquiry router", () => {
     await expect(form.getByText("Add an email address.")).toBeVisible();
     expect(await page.evaluate(() => window.__opened)).toEqual([]);
   });
+
+  test("a failed send is announced and focus moves to the first problem", async ({ page }) => {
+    const form = page.locator("#contact form");
+    await form.getByRole("button", { name: "Send enquiry" }).click();
+    await expect(form.getByRole("alert")).toContainText("4 fields need attention");
+    await expect(form.locator('input[name="who"]').first()).toBeFocused();
+    await expect(form.getByRole("radiogroup", { name: "I'm…" })).toHaveAttribute("aria-invalid", "true");
+  });
+
+  test("after sending, the routed address is shown in case no email app opened", async ({ page }) => {
+    const form = page.locator("#contact form");
+    await form.locator("label", { hasText: "Looking for someone to build something" }).click();
+    await form.getByLabel("Name").fill("Sam Taylor");
+    await form.getByLabel("Email").fill("sam@example.com");
+    await form.getByLabel(/Message/).fill("An app.");
+    await form.getByRole("button", { name: "Send enquiry" }).click();
+    const status = form.getByRole("status");
+    await expect(status).toContainText("didn't open");
+    await expect(status.getByRole("link", { name: "2percentcargoltd@gmail.com" })).toHaveAttribute("href", "mailto:2percentcargoltd@gmail.com");
+  });
 });

@@ -2,9 +2,12 @@
 // Enquiry router based on ESA decision 0031 and 21st.dev ziegfiroyt/faq92, with native fieldsets and radios.
 // Without JS every field shows and the browser posts the form to the work address as text/plain mailto.
 // With JS only the chosen route's fields show, and Send opens a tidy email routed by buildEnquiry.
-import { useState, useSyncExternalStore } from "react";
+import { useRef, useState, useSyncExternalStore } from "react";
 import { buildEnquiry, fieldsFor, NEEDS, WHO } from "../lib/mailto.js";
 import { HIRING_EMAIL } from "../content/routing.js";
+
+// Focus goes to the first problem in the order the fields appear.
+const FIELD_ORDER = ["who", "company", "role", "name", "email", "message"];
 
 const subscribe = () => () => {};
 const useHydrated = () => useSyncExternalStore(subscribe, () => true, () => false);
@@ -47,20 +50,32 @@ export default function EnquiryRouter() {
   const hydrated = useHydrated();
   const [v, setV] = useState({ who: "", need: "", company: "", role: "", timeline: "", budget: "", name: "", email: "", message: "" });
   const [errors, setErrors] = useState({});
+  const [sentTo, setSentTo] = useState("");
+  const form = useRef(null);
   const set = (key) => (e) => setV((s) => ({ ...s, [key]: e.target.value }));
   const shown = (key) => !hydrated || fieldsFor(v.who).includes(key);
   const err = (key) => (errors[key] ? { "aria-invalid": true, "aria-describedby": `enq-${key}-error` } : {});
+  const problems = Object.keys(errors).length;
 
   function onSubmit(e) {
     e.preventDefault();
     const found = validate(v);
     setErrors(found);
-    if (Object.keys(found).length) return;
-    window.open(buildEnquiry(v).href, "_self");
+    const first = FIELD_ORDER.find((key) => found[key]);
+    if (first) {
+      setSentTo("");
+      form.current?.querySelector(`[name="${first}"]`)?.focus();
+      return;
+    }
+    const enquiry = buildEnquiry(v);
+    window.open(enquiry.href, "_self");
+    // mailto fails silently when no email app is set up, so the address it went to stays on screen.
+    setSentTo(enquiry.to);
   }
 
   return (
     <form
+      ref={form}
       action={`mailto:${HIRING_EMAIL}`}
       method="post"
       encType="text/plain"
@@ -69,7 +84,7 @@ export default function EnquiryRouter() {
       className="space-y-5"
       aria-label="Enquiry"
     >
-      <fieldset aria-describedby={errors.who ? "enq-who-error" : undefined}>
+      <fieldset role="radiogroup" aria-invalid={errors.who ? true : undefined} aria-describedby={errors.who ? "enq-who-error" : undefined}>
         <legend className="mb-2 text-[15px] font-semibold text-ink">I&apos;m…</legend>
         <div className="flex flex-wrap gap-2">
           {Object.entries(WHO).map(([value, label]) => (
@@ -128,6 +143,22 @@ export default function EnquiryRouter() {
           Send enquiry
         </button>
         <p className="mt-2 text-[14px] text-muted">This opens your email app with the enquiry filled in, ready to send.</p>
+        {problems > 0 && (
+          <p role="alert" className="mt-2 text-[15px] font-medium text-accent-ink">
+            {problems} {problems === 1 ? "field needs" : "fields need"} attention.
+          </p>
+        )}
+        <p role="status" className="mt-2 text-[15px] text-body">
+          {sentTo && (
+            <>
+              If your email app didn&apos;t open, email{" "}
+              <a href={`mailto:${sentTo}`} className="link-underline font-medium text-ink">
+                {sentTo}
+              </a>{" "}
+              directly.
+            </>
+          )}
+        </p>
       </div>
     </form>
   );

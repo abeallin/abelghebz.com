@@ -53,9 +53,9 @@ export const experience = [
     company: "Optal (acquired by Wex)",
     role: "Senior Software Engineer",
     period: "May 2018 — Apr 2021",
-    outcome: "Reconciled millions of daily Expedia and Booking.com transactions and settled across 50+ bank accounts in 10 international entities.",
+    outcome: "Monitored millions of daily Expedia and Booking.com transactions, reconciled against Ixaris and MasterCard data, and settled across 50+ bank accounts in 10 international entities.",
     detail:
-      "e-Payments platform. Built desktop applications for accounts management, reconciling against Ixaris and MasterCard data in multiple currencies.",
+      "e-Payments platform. Built desktop applications for accounts management, in multiple currencies.",
     stack: ["C# / .NET", "WinForms", "WPF", "MSSQL"],
     link: { label: "wexinc.com", url: "https://www.wexinc.com/en-gb/" },
   },

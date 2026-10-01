@@ -68,3 +68,8 @@ test.describe("screen viewer", () => {
     await expect(dialog).toBeHidden();
   });
 });
+
+test("an unknown project's preview card is a 404, not a server error", async ({ request }) => {
+  const res = await request.get("/work/nope/opengraph-image");
+  expect(res.status()).toBe(404);
+});
