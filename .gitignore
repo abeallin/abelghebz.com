@@ -28,3 +28,11 @@ yarn-error.log*
 !public/**/*.jpeg
 *.png
 !public/**/*.png
+
+# local tooling (anchored)
+/.claude/settings.local.json
+/.superpowers/
+/itsw-full.jpeg
+/src/fonts/
+/test-results/
+/playwright-report/
