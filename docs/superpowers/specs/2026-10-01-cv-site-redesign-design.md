@@ -46,7 +46,7 @@ gradients). Its look and patterns come from named Dribbble shots, Mobbin pattern
 
 ### `/` Home, in order
 
-1. **Nav:** "Abel Ghebrezadik" left; Work, Experience, CV, Contact right. On phones a menu button opens a Radix Dialog.
+1. **Nav:** "Abel Ghebrezadik" left; Work, Experience, CV, Contact right. On phones the links wrap to a second row under the name; no menu dialog (four short links fit; changed during planning).
 2. **Hero**
    - Mono line: `Lead / Senior Software Engineer · London`.
    - Name in Erode, two lines, very large (`clamp` up to ~112px). No full stop.
@@ -197,8 +197,8 @@ Same steps locally and in CI:
      disabled**; no console errors; no horizontal scroll at 320px and 375px; **axe at WCAG 2.2 A/AA, failing on any
      violation at any impact level**.
    - **Behaviour:** enquiry router (fields switch, hidden fields not sent, `mailto` address/subject/body exact for
-     each route); screen viewer (open, arrows, Escape, focus return); Cal fallback link present and correct; phone menu
-     with and without JS; reduced motion leaves nothing animating; every `/work/<slug>` linked from home resolves;
+     each route); screen viewer (open, arrows, Escape, focus return); Cal fallback link present and correct; nav links all
+     visible at 320px; reduced motion leaves nothing animating; every `/work/<slug>` linked from home resolves;
      corrected facts (1 million, Dec 2025) appear and the old ones don't.
 4. **Style guard** (`scripts/style-guard.mjs`, ported from XG `tropes.py`): scans built HTML/CSS for bullet glyphs,
    `<ul>` with markers, `text-transform: uppercase`, any `linear-gradient`/`radial-gradient`,
