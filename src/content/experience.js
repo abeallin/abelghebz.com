@@ -4,10 +4,10 @@ export const experience = [
     company: "Arena Entertainment",
     role: "Full Stack Developer",
     period: "Dec 2025 — Present",
-    outcome: "Cut API latency by up to 8s with Lambda warm-up pings and concurrency (94% hit rate); 50% faster Snowflake and MySQL queries.",
+    outcome: "Cut average API latency from 14s to 2s with Lambda warm-up pings and provisioned concurrency (94% hit rate); 50% faster Snowflake and MySQL queries.",
     detail:
-      "Crypto gambling platform. Refactored TypeScript for algorithmic efficiency, added Redis batch pipelines and rebuilt data tables with keyset pagination. Built an automation app that drives UI testing through Playwright, Bitbucket, GitHub and Jira MCPs. Now building a new React and .NET app with DDD, CQRS over Kafka and gRPC between services.",
-    stack: ["C# / .NET", "TypeScript", "React", "Snowflake", "Redis", "Kafka", "gRPC", "AWS Lambda"],
+      "Crypto gambling platform. Rebuilt a five-year-old Angular frontend into a modern UI based on Cloudflare's designs, with standardised patterns and strict frontend principles. Built an AI chat assistant on AWS Bedrock, and wrote 250 pages of in-app documentation covering customer-ops triage, how-to guides and permissions and access. Refactored TypeScript for algorithmic efficiency, added Redis batch pipelines and rebuilt data tables with keyset pagination. Built an automation app that drives UI testing through Playwright, Bitbucket, GitHub and Jira MCPs. Now building a new React and .NET app with DDD, CQRS over Kafka and gRPC between services.",
+    stack: ["C# / .NET", "TypeScript", "Angular", "React", "AWS Bedrock", "AWS Lambda", "Snowflake", "Redis", "Kafka", "gRPC"],
     link: { label: "arenaentertainment.com", url: "https://arenaentertainment.com/" },
   },
   {

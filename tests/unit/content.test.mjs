@@ -122,3 +122,18 @@ test("stacks match the repos: whenwillyoumarry runs on Railway and R2, not AWS; 
   for (const t of ["NATS", "Expo", "Jetpack Compose", "Mapbox"]) assert.ok(projects.find((p) => p.slug === "cabeazy").stack.includes(t), t);
   assert.deepEqual(projects.find((p) => p.slug === "betmate").stack, ["C#", "AWS", "CockroachDB", "Dapper"]);
 });
+
+test("Arena's latency result is the average Abel measured: 14s down to 2s", () => {
+  const arena = experience.find((e) => e.company === "Arena Entertainment");
+  assert.match(arena.outcome, /from 14s to 2s/);
+  assert.doesNotMatch(JSON.stringify(experience), /up to 8s/);
+});
+
+test("Arena includes the Angular rebuild, the Bedrock AI chat and the 250 pages of docs", () => {
+  const arena = experience.find((e) => e.company === "Arena Entertainment");
+  const all = arena.outcome + " " + arena.detail;
+  assert.match(all, /Angular/);
+  assert.match(all, /AWS Bedrock/);
+  assert.match(all, /250 pages/);
+  for (const t of ["Angular", "AWS Bedrock"]) assert.ok(arena.stack.includes(t), t);
+});

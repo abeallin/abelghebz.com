@@ -81,7 +81,7 @@ function ExpC() {
     ["10", "years across finance, property, health and gambling"],
     ["1M", "users on the Betmate game"],
     ["500+", "production issues resolved in 6 months at SalaryFinance"],
-    ["8s", "cut from API latency at Arena"],
+    ["14s \u2192 2s", "average API latency at Arena"],
   ];
   return (
     <div className="p-6 sm:p-10">
