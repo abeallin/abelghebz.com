@@ -8,6 +8,7 @@ export const profile = {
     "Ten years building backends and products across finance, property, health and gambling. I lead greenfield builds, clear out legacy tech debt and ship systems that scale.",
   background: "Self-taught developer with a Mathematics degree.",
   cvPath: "/assets/abel_ghebrezadik_cv.pdf",
+  cvDocxPath: "/assets/abel_ghebrezadik_cv.docx",
   photo: "/me.jpg",
   email: HIRING_EMAIL,
   phone: { label: "+44 7527 841324", url: "tel:+447527841324" },

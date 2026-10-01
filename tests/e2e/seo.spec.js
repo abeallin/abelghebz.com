@@ -35,3 +35,12 @@ test("home describes Abel as a Person in JSON-LD", async ({ page }) => {
   expect(data.jobTitle).toBe("Lead / Senior Software Engineer");
   expect(data.sameAs).toContain("https://linkedin.com/in/abel-ghebrezadik");
 });
+
+test("both CV files are served with the right types", async ({ request }) => {
+  const pdf = await request.get("/assets/abel_ghebrezadik_cv.pdf");
+  expect(pdf.status()).toBe(200);
+  expect(pdf.headers()["content-type"]).toContain("application/pdf");
+  const docx = await request.get("/assets/abel_ghebrezadik_cv.docx");
+  expect(docx.status()).toBe(200);
+  expect((await docx.body()).subarray(0, 2).toString()).toBe("PK");
+});

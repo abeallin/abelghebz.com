@@ -56,7 +56,8 @@ test.describe("home with JavaScript off", () => {
     await page.goto("/");
     const exp = page.locator("#experience");
     await expect(exp.getByRole("listitem")).toHaveCount(7);
-    await expect(exp.getByRole("link", { name: /Download CV/ })).toHaveAttribute("href", "/assets/abel_ghebrezadik_cv.pdf");
+    await expect(exp.getByRole("link", { name: /CV as PDF/ })).toHaveAttribute("href", "/assets/abel_ghebrezadik_cv.pdf");
+    await expect(exp.getByRole("link", { name: /CV as Word/ })).toHaveAttribute("href", "/assets/abel_ghebrezadik_cv.docx");
     await expect(exp).toContainText("Dec 2025");
     await expect(page.locator("main")).toContainText("1 million users");
   });

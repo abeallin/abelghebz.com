@@ -16,9 +16,13 @@ export default function ExperienceList() {
             Ten years, <br />
             seven teams
           </p>
-          <div className="mt-7">
+          <p className="mt-7 text-[14px] text-muted">Download the CV</p>
+          <div className="mt-2 flex flex-wrap gap-2">
             <Pill href={profile.cvPath} tone="accent">
-              Download CV <span className="font-mono text-[12px]">(PDF)</span>
+              PDF<span className="sr-only"> (CV as PDF)</span>
+            </Pill>
+            <Pill href={profile.cvDocxPath} tone="light">
+              Word<span className="sr-only"> (CV as Word document)</span>
             </Pill>
           </div>
         </div>
