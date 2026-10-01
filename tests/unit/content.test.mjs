@@ -148,3 +148,8 @@ test("the worked-with row names the companies Abel worked for, not their clients
   const { workedWith } = await import("../../src/content/profile.js");
   assert.deepEqual(workedWith, ["Arena Entertainment", "Betmate", "NHS England", "SalaryFinance", "Optal (a Wex company)", "London Metal Exchange"]);
 });
+
+test("William Hill is not named anywhere in the content (Abel, 2 Oct 2026)", () => {
+  assert.doesNotMatch(all, /William Hill/);
+  assert.equal(projects.find((p) => p.slug === "betmate").facts.find((f) => f.label === "Client").value, "Betmate");
+});

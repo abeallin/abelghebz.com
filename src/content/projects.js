@@ -6,10 +6,10 @@ export const projects = [
     name: "Betmate",
     kind: "mobile",
     eyebrow: "Backend lead · 2025",
-    headline: "A £500k-jackpot multiplayer game inside the William Hill app, scaled to 1 million users",
+    headline: "A £500k-jackpot multiplayer game for a leading sports betting company, scaled to 1 million users",
     summary: "I led the backend for Final One Standing: serverless C# on AWS Lambda, event-driven through SNS and SQS, on CockroachDB.",
     facts: [
-      { label: "Client", value: "Betmate, for William Hill" },
+      { label: "Client", value: "Betmate" },
       { label: "Role", value: "Lead / Senior Software Engineer" },
       { label: "When", value: "Apr — Jul 2025" },
     ],
@@ -31,14 +31,14 @@ export const projects = [
       { src: "/screenshots/FOS2.jpeg", caption: "Rounds and results", ratio: "phone" },
     ],
     problem:
-      "William Hill wanted Final One Standing inside its app: each round, players pick one team to win, and a wrong pick knocks them out. Outlast everyone to win the pot, with a £500k jackpot. The backend had to run every round, league and pick.",
+      "A leading sports betting company wanted Final One Standing inside its app, built through Betmate: each round, players pick one team to win, and a wrong pick knocks them out. Outlast everyone to win the pot, with a £500k jackpot. The backend had to run every round, league and pick.",
     built: [
       { lead: "Serverless backend.", text: "High-performance C# on AWS Lambda." },
       { lead: "Event-driven.", text: "Messaging between services over SNS and SQS." },
       { lead: "Data.", text: "CockroachDB through the Dapper ORM." },
       { lead: "Delivery.", text: "CI/CD with API Gateway, Lambda and CloudFormation." },
     ],
-    result: "The game scaled to 1 million users inside the William Hill app, with a £500k jackpot.",
+    result: "The game scaled to 1 million users, with a £500k jackpot.",
   },
   {
     // From the cabeazy repo (README, AGENTS.md, docs/engineering.md, TODO.md) and the live cabeazy.com, 1 Oct 2026.

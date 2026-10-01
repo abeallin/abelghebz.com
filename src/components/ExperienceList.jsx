@@ -3,6 +3,7 @@
 import Container from "./Container.jsx";
 import SectionLabel from "./SectionLabel.jsx";
 import { Pill } from "./ui/Actions.jsx";
+import { PdfIcon, WordIcon } from "./ui/Icons.jsx";
 import { experience } from "../content/experience.js";
 import { profile } from "../content/profile.js";
 
@@ -19,9 +20,11 @@ export default function ExperienceList() {
           <p className="mt-7 text-[14px] text-muted">Download the CV</p>
           <div className="mt-2 flex flex-wrap gap-2">
             <Pill href={profile.cvPath} tone="accent">
+              <PdfIcon className="size-5" />
               PDF<span className="sr-only"> (CV as PDF)</span>
             </Pill>
             <Pill href={profile.cvDocxPath} tone="light">
+              <WordIcon className="size-5" />
               Word<span className="sr-only"> (CV as Word document)</span>
             </Pill>
           </div>
