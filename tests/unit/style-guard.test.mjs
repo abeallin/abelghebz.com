@@ -6,7 +6,7 @@ const clean = '<main><h1 id="hero-name"><span>Abel</span> <span>Ghebrezadik</spa
 
 test("a clean page reports nothing", () => {
   assert.deepEqual(scanHtml(clean), []);
-  assert.deepEqual(scanCss(".a{color:red;font-family:var(--font-author),system-ui,sans-serif}"), []);
+  assert.deepEqual(scanCss(".a{color:red;font-family:var(--font-general-sans),system-ui,sans-serif}"), []);
 });
 
 const html = [

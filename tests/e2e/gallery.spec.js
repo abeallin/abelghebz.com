@@ -39,7 +39,7 @@ test.describe("gallery with JavaScript off", () => {
     for (const hex of ["#F6F4EF", "#151515", "#3C3C3C", "#6A6A6A", "#E8E4DB", "#D9D5CC", "#D9461B", "#B83A12"]) {
       await expect(page.getByText(hex, { exact: true })).toBeVisible();
     }
-    for (const face of ["Erode", "Author", "JetBrains Mono"]) {
+    for (const face of ["Erode", "General Sans", "JetBrains Mono"]) {
       await expect(page.getByRole("heading", { level: 3, name: face })).toBeVisible();
     }
   });
