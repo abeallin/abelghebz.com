@@ -11,7 +11,7 @@ export const seo = {
     "/": {
       title: `${name} | Lead / Senior Software Engineer, London`,
       description:
-        "Lead / Senior Software Engineer with ten years across finance, property, health and gambling. Case studies, experience and CV, or book a 15-minute call.",
+        "Lead / Senior Software Engineer with ten years across finance, property, health and gambling. Case studies, experience and CV, or book a 30-minute call.",
     },
     ...Object.fromEntries(
       projects.map((p) => [

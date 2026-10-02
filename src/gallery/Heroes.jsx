@@ -63,7 +63,7 @@ function HeroB() {
         <p className="text-[15px] text-body">Abel Ghebrezadik · {profile.location}</p>
         <div className="flex flex-wrap gap-6 text-[16px]">
           <Arrow href="#">Experience and CV</Arrow>
-          <Arrow href="#">Work and a 15-minute call</Arrow>
+          <Arrow href="#">Work and a 30-minute call</Arrow>
         </div>
       </div>
     </div>
@@ -88,7 +88,7 @@ function HeroC() {
         <div className="border-t border-rule">
           {[
             ["Experience and CV", "For hiring managers"],
-            ["Work and a 15-minute call", "For clients"],
+            ["Work and a 30-minute call", "For clients"],
           ].map(([label, who]) => (
             <a key={label} href="#" className="group flex items-baseline justify-between gap-4 border-b border-rule py-4 text-ink">
               <span className="text-[18px] font-medium group-hover:text-accent-ink">{label}</span>
@@ -138,7 +138,7 @@ function HeroD() {
       </p>
       <p className="mt-5 text-[18px] leading-[1.6] text-body">{profile.summary}</p>
       <div className="mt-7 flex flex-wrap items-center gap-5">
-        <Pill href="#">Book a 15-minute call</Pill>
+        <Pill href="#">Book a 30-minute call</Pill>
         <Arrow href="#">Download CV</Arrow>
       </div>
       <p className="mt-12 font-mono text-[12.5px] text-muted">Worked with</p>

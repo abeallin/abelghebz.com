@@ -7,7 +7,7 @@ test.describe("home with JavaScript off", () => {
     await page.goto("/");
     await expect(page.getByRole("heading", { level: 1 })).toHaveText("Abel Ghebrezadik");
     const hero = page.locator("main section").first();
-    await expect(hero.getByRole("link", { name: "Book a 15-minute call" })).toHaveAttribute("href", "https://cal.com/abel-ghebrezadik/15min");
+    await expect(hero.getByRole("link", { name: "Book a 30-minute call" })).toHaveAttribute("href", "https://cal.com/abel-ghebrezadik/30min");
     await expect(hero.getByRole("link", { name: "Experience and CV" })).toHaveAttribute("href", "/#experience");
     await expect(hero.getByText("Worked with")).toBeVisible();
     await expect(hero.getByText("NHS England")).toBeVisible();
@@ -41,7 +41,7 @@ test.describe("home with JavaScript off", () => {
       const link = page.locator("footer").getByRole("link", { name, exact: true });
       await expect(link.locator('svg[aria-hidden="true"]')).toHaveCount(1);
     }
-    await expect(page.locator("#contact").getByRole("link", { name: "Book a 15-minute call" }).locator('svg[aria-hidden="true"]')).toHaveCount(1);
+    await expect(page.locator("#contact").getByRole("link", { name: "Book a 30-minute call" }).locator('svg[aria-hidden="true"]')).toHaveCount(1);
   });
 
   test("selected work links each project to its case study", async ({ page }) => {

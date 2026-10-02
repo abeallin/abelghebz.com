@@ -66,7 +66,7 @@ test("the hero name has no trailing full stop", () => {
 test("routing sends hiring and project enquiries to the agreed addresses", () => {
   assert.equal(HIRING_EMAIL, "abelghebz@gmail.com");
   assert.equal(PROJECT_EMAIL, "2percentcargoltd@gmail.com");
-  assert.equal(CAL_URL, "https://cal.com/abel-ghebrezadik/15min");
+  assert.equal(CAL_URL, "https://cal.com/abel-ghebrezadik/30min");
 });
 
 test("the site shows abelghebz@gmail.com and not the Outlook address", () => {
