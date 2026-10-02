@@ -15,7 +15,7 @@ export default function Contact() {
           Need a backend built, or a lead for your team?
         </p>
         <p className="mt-4 max-w-[560px] text-[17px] leading-[1.55] text-[#cfcbc2]">
-          Pick a 15-minute slot that suits you, or send a few lines below and I&apos;ll reply by email.
+          Pick a 30-minute slot that suits you, or send a few lines below and I&apos;ll reply by email.
         </p>
         <div className="mt-8 flex flex-wrap gap-3">
           <BookCall tone="paper" icon />

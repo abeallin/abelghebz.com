@@ -20,7 +20,7 @@ function SetA() {
         </span>
       </div>
       <div className="flex flex-wrap gap-3">
-        <Pill href="#">Book a 15-minute call</Pill>
+        <Pill href="#">Book a 30-minute call</Pill>
         <Pill href="#" tone="light">
           Download CV
         </Pill>
@@ -80,7 +80,7 @@ function SetB() {
       <a href="#" className="group block bg-accent-ink px-6 py-10 text-white sm:px-10">
         <p className="text-[14px] text-white/85">Lead roles and private work · {profile.location}</p>
         <p className="mt-3 flex items-end justify-between gap-6 text-[clamp(32px,5.5vw,64px)] font-semibold leading-[0.95] tracking-[-0.03em]">
-          Book a 15-minute call
+          Book a 30-minute call
           <span aria-hidden="true" className="transition-transform group-hover:translate-x-2">
             →
           </span>
@@ -116,7 +116,7 @@ function SetC() {
         </span>
       </div>
       <div className="flex flex-wrap gap-8 text-[18px]">
-        <Arrow href="#">Book a 15-minute call</Arrow>
+        <Arrow href="#">Book a 30-minute call</Arrow>
         <Arrow href="#">Download CV</Arrow>
         <Arrow href="#">Read the Betmate case study</Arrow>
       </div>

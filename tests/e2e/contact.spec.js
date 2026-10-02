@@ -10,9 +10,9 @@ test.beforeEach(async ({ page }) => {
 test.describe("contact with JavaScript off", () => {
   test.use({ javaScriptEnabled: false });
 
-  test("the booking link goes to the 15-minute Cal.com event", async ({ page }) => {
+  test("the booking link goes to the 30-minute Cal.com event", async ({ page }) => {
     await page.goto("/");
-    await expect(page.locator("#contact").getByRole("link", { name: "Book a 15-minute call" })).toHaveAttribute("href", CAL_URL);
+    await expect(page.locator("#contact").getByRole("link", { name: "Book a 30-minute call" })).toHaveAttribute("href", CAL_URL);
     await expect(page.locator("#cal-inline")).toHaveCount(0);
   });
 
@@ -148,7 +148,7 @@ test.describe("Cal.com pop-up", () => {
       await expect(page).toHaveURL(/abelghebz|localhost/);
       const queued = await page.evaluate(() => JSON.stringify(window.Cal?.ns?.intro?.q ?? []));
       expect(queued).toContain('"modal"');
-      expect(queued).toContain("abel-ghebrezadik/15min");
+      expect(queued).toContain("abel-ghebrezadik/30min");
     });
   }
 });
