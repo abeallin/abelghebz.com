@@ -10,7 +10,7 @@ import Link from "next/link";
 const isRoute = (href) => typeof href === "string" && href.startsWith("/") && !href.startsWith("/assets/");
 
 const pillBase =
-  "inline-flex items-center gap-2 rounded-full px-5 py-3 text-[16px] font-medium transition-colors duration-200";
+  "inline-flex items-center gap-2 rounded-full px-5 py-2.5 text-[14.5px] font-medium transition-colors duration-200";
 
 export function Pill({ href, children, tone = "dark", ...rest }) {
   const Tag = isRoute(href) ? Link : "a";
@@ -34,7 +34,7 @@ export function Block({ href, children, tone = "accent", ...rest }) {
     outline: "border-2 border-ink text-ink hover:bg-ink hover:text-paper",
   };
   return (
-    <a href={href} className={`inline-flex items-center gap-3 px-5 py-3.5 text-[16px] font-semibold transition-colors duration-200 ${tones[tone]}`} {...rest}>
+    <a href={href} className={`inline-flex items-center gap-3 px-5 py-2.5 text-[14.5px] font-semibold transition-colors duration-200 ${tones[tone]}`} {...rest}>
       {children}
     </a>
   );

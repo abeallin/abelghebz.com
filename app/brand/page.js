@@ -22,7 +22,7 @@ const COLOURS = [
 
 const TYPE = [
   { face: "Erode", cls: "font-display", sample: "Abel Ghebrezadik", spec: "Fontshare · 400, 500 · the name, headlines, big numbers", size: "text-[56px] leading-none" },
-  { face: "General Sans", cls: "font-sans", sample: "Ten years building backends and products across finance, property, health and gambling.", spec: "Fontshare · 400, 500, 600 · all other text; body 17px", size: "text-[22px] leading-[1.45]" },
+  { face: "General Sans", cls: "font-sans", sample: "Ten years building backends and products across finance, property, health and gambling.", spec: "Fontshare · 400, 500, 600 · all other text; body 16px", size: "text-[22px] leading-[1.45]" },
   { face: "JetBrains Mono", cls: "font-mono", sample: "Dec 2025 — Present · C# / AWS Lambda / Kafka", spec: "Google · 400 · dates, labels, stacks", size: "text-[18px]" },
 ];
 
