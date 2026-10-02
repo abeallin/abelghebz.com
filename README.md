@@ -27,7 +27,7 @@ To run e2e on another port, set `E2E_PORT`.
 | Path | What |
 |---|---|
 | `src/content/` | All copy: profile, experience, projects (case-study text, captions, stats, flows), skills, SEO, routing, cover colours |
-| `src/components/` | Page sections, all server components except `ScreenGallery`, `EnquiryRouter`, `CalEmbed` and `CaseNav` |
+| `src/components/` | Page sections, all server components except `ScreenGallery`, `EnquiryRouter`, `CalPopup` and `CaseNav` |
 | `src/components/ui/` | Pills and nav links (`Actions`), brand and file icons (`Icons`), technology marks (`TechIcons`, generated from simple-icons) |
 | `src/gallery/`, `/gallery`, `/brand` | Hidden review pages (noindex): the design options and the brand system |
 | `src/lib/mailto.js` | Builds the routed enquiry email |
@@ -68,7 +68,8 @@ must match `src/content/`; the name sits in the body, not the header, so ATS par
 
 ## Open items for Abel
 
-- Cloudflare: turn off Email Address Obfuscation (it rewrites the footer email link and injects a blocking script).
+- Cloudflare: set Caching → Browser Cache TTL to "Respect Existing Headers" (its 4-hour default keeps old CVs on phones), and
+  turn off Email Address Obfuscation (it rewrites the footer email link and injects a blocking script).
 - Railway: turn on "Wait for CI" so a red check blocks a deploy.
 - Cal.com: rename the "15 min meeting" event (for example "Intro call: your project") and add a description.
 - GitHub: remove the old Vercel integration (its check fails on every commit with "Account is blocked").

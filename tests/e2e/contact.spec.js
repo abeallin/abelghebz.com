@@ -12,7 +12,8 @@ test.describe("contact with JavaScript off", () => {
 
   test("the booking link goes to the 15-minute Cal.com event", async ({ page }) => {
     await page.goto("/");
-    await expect(page.locator("#contact").getByRole("link", { name: "Book a 15-minute call on Cal.com" })).toHaveAttribute("href", CAL_URL);
+    await expect(page.locator("#contact").getByRole("link", { name: "Book a 15-minute call" })).toHaveAttribute("href", CAL_URL);
+    await expect(page.locator("#cal-inline")).toHaveCount(0);
   });
 
   test("the form still sends by email to the work address", async ({ page }) => {
@@ -124,4 +125,30 @@ test.describe("enquiry polish", () => {
     const outline = await chip.evaluate((el) => getComputedStyle(el).outlineStyle);
     expect(outline).not.toBe("none");
   });
+});
+
+test.describe("Cal.com pop-up", () => {
+  test.beforeEach(async ({ page }) => {
+    await page.route("https://app.cal.com/**", (route) => route.fulfill({ status: 200, contentType: "text/javascript", body: "" }));
+  });
+
+  test("no Cal.com script loads until someone asks to book", async ({ page }) => {
+    const calls = [];
+    page.on("request", (r) => r.url().includes("app.cal.com") && calls.push(r.url()));
+    await page.goto("/");
+    await page.locator("#contact").scrollIntoViewIfNeeded();
+    await page.waitForTimeout(300);
+    expect(calls).toEqual([]);
+  });
+
+  for (const where of ["header", "#contact"]) {
+    test(`the ${where} booking pill opens the pop-up instead of leaving the site`, async ({ page }) => {
+      await page.goto("/");
+      await page.locator(where).getByRole("link", { name: /^Book a/ }).first().click();
+      await expect(page).toHaveURL(/abelghebz|localhost/);
+      const queued = await page.evaluate(() => JSON.stringify(window.Cal?.ns?.intro?.q ?? []));
+      expect(queued).toContain('"modal"');
+      expect(queued).toContain("abel-ghebrezadik/15min");
+    });
+  }
 });

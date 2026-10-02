@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Container from "./Container.jsx";
 import { Pill } from "./ui/Actions.jsx";
+import BookCall from "./BookCall.jsx";
 import { profile, workedWith } from "../content/profile.js";
 
 export default function Hero() {
@@ -27,7 +28,7 @@ export default function Hero() {
         </p>
         <p className="mt-6 max-w-[640px] text-[19px] leading-[1.6] text-body">{profile.summary}</p>
         <div className="mt-9 flex flex-wrap gap-3">
-          <Pill href="/#contact">Book a 15-minute call</Pill>
+          <BookCall />
           <Pill href="/#experience" tone="light">
             Experience and CV
           </Pill>

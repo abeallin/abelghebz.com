@@ -1,10 +1,9 @@
-// Opens with gallery Buttons A's dark call-to-action card (Dribbble 27429954, Alevtinka; 27050710, Wachid),
-// then the Cal.com booking full width and the enquiry router below it.
+// Opens with gallery Buttons A's dark call-to-action card (Dribbble 27429954, Alevtinka; 27050710, Wachid). Booking is a
+// Cal.com pop-up from the card's pill (decision 0012), so no calendar sits on the page; the enquiry router follows.
 import Container from "./Container.jsx";
 import SectionLabel from "./SectionLabel.jsx";
-import CalEmbed from "./CalEmbed.jsx";
+import BookCall from "./BookCall.jsx";
 import EnquiryRouter from "./EnquiryRouter.jsx";
-import { Pill } from "./ui/Actions.jsx";
 
 export default function Contact() {
   return (
@@ -15,10 +14,11 @@ export default function Contact() {
         <p className="mt-3 max-w-[640px] font-display text-[clamp(32px,4.4vw,52px)] leading-[1.06] tracking-[-0.01em]">
           Need a backend built, or a lead for your team?
         </p>
+        <p className="mt-4 max-w-[560px] text-[17px] leading-[1.55] text-[#cfcbc2]">
+          Pick a 15-minute slot that suits you, or send a few lines below and I&apos;ll reply by email.
+        </p>
         <div className="mt-8 flex flex-wrap gap-3">
-          <Pill href="#book" tone="paper">
-            Book a 15-minute call
-          </Pill>
+          <BookCall tone="paper" icon />
           <a
             href="#enquiry"
             className="inline-flex items-center rounded-full border border-paper/40 px-5 py-3 text-[16px] font-medium text-paper transition-colors hover:bg-paper/10"
@@ -26,11 +26,6 @@ export default function Contact() {
             Send an enquiry
           </a>
         </div>
-      </div>
-
-      <div id="book" className="mt-12 scroll-mt-6">
-        <h3 className="mb-5 font-display text-[28px] leading-[1.15] text-ink">Book a call</h3>
-        <CalEmbed />
       </div>
 
       <div id="enquiry" className="mt-14 grid scroll-mt-6 gap-6 border-t border-rule pt-10 lg:grid-cols-[minmax(0,2fr)_minmax(0,5fr)] lg:gap-10">

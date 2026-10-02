@@ -6,6 +6,7 @@ import Container from "../../../src/components/Container.jsx";
 import FactsRow from "../../../src/components/FactsRow.jsx";
 import StackChips from "../../../src/components/StackChips.jsx";
 import StatStrip from "../../../src/components/StatStrip.jsx";
+import BookCall from "../../../src/components/BookCall.jsx";
 import FlowStrip from "../../../src/components/FlowStrip.jsx";
 import CaseNav from "../../../src/components/CaseNav.jsx";
 import { Pill } from "../../../src/components/ui/Actions.jsx";
@@ -108,7 +109,7 @@ export default async function CaseStudy({ params }) {
           <div className="mt-6 flex flex-wrap items-baseline justify-between gap-4 border-t border-rule pt-6">
             <div className="flex flex-wrap items-center gap-4">
               <p className="text-[17px] text-body">Have something similar to build?</p>
-              <Pill href="/#contact">Book a 15-minute call</Pill>
+              <BookCall />
             </div>
             <Link href={`/work/${next.slug}`} className="group max-w-full rounded-2xl border border-rule px-6 py-4 transition-colors hover:border-ink sm:text-right">
               <span className="block font-mono text-[13px] text-muted">Next project</span>

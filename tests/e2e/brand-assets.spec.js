@@ -21,7 +21,7 @@ test.describe("header", () => {
     const header = page.locator("header").first();
     await page.mouse.wheel(0, 2500);
     await expect.poll(async () => (await header.boundingBox()).y).toBe(0);
-    await expect(header.getByRole("link", { name: "Book a call" })).toHaveAttribute("href", "/#contact");
+    await expect(header.getByRole("link", { name: "Book a call" })).toHaveAttribute("href", "https://cal.com/abel-ghebrezadik/15min");
   });
 
   test("never hides a focused link underneath it", async ({ page }) => {

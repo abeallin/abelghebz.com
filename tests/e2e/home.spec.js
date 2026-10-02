@@ -7,7 +7,7 @@ test.describe("home with JavaScript off", () => {
     await page.goto("/");
     await expect(page.getByRole("heading", { level: 1 })).toHaveText("Abel Ghebrezadik");
     const hero = page.locator("main section").first();
-    await expect(hero.getByRole("link", { name: "Book a 15-minute call" })).toHaveAttribute("href", "/#contact");
+    await expect(hero.getByRole("link", { name: "Book a 15-minute call" })).toHaveAttribute("href", "https://cal.com/abel-ghebrezadik/15min");
     await expect(hero.getByRole("link", { name: "Experience and CV" })).toHaveAttribute("href", "/#experience");
     await expect(hero.getByText("Worked with")).toBeVisible();
     await expect(hero.getByText("NHS England")).toBeVisible();
@@ -41,7 +41,7 @@ test.describe("home with JavaScript off", () => {
       const link = page.locator("footer").getByRole("link", { name, exact: true });
       await expect(link.locator('svg[aria-hidden="true"]')).toHaveCount(1);
     }
-    await expect(page.locator("#contact").getByRole("link", { name: "Book a 15-minute call on Cal.com" }).locator('svg[aria-hidden="true"]')).toHaveCount(1);
+    await expect(page.locator("#contact").getByRole("link", { name: "Book a 15-minute call" }).locator('svg[aria-hidden="true"]')).toHaveCount(1);
   });
 
   test("selected work links each project to its case study", async ({ page }) => {
@@ -56,8 +56,10 @@ test.describe("home with JavaScript off", () => {
     await page.goto("/");
     const exp = page.locator("#experience");
     await expect(exp.getByRole("listitem")).toHaveCount(7);
-    await expect(exp.getByRole("link", { name: /CV as PDF/ })).toHaveAttribute("href", "/assets/abel_ghebrezadik_cv.pdf");
-    await expect(exp.getByRole("link", { name: /CV as Word/ })).toHaveAttribute("href", "/assets/abel_ghebrezadik_cv.docx");
+    // A version tag from the file's contents, so a phone or browser can never reuse an old copy from a site link.
+    await expect(exp.getByRole("link", { name: /CV as PDF/ })).toHaveAttribute("href", /^\/assets\/abel_ghebrezadik_cv\.pdf\?v=[0-9a-f]{10}$/);
+    await expect(exp.getByRole("link", { name: /CV as Word/ })).toHaveAttribute("href", /^\/assets\/abel_ghebrezadik_cv\.docx\?v=[0-9a-f]{10}$/);
+    await expect(page.getByRole("navigation", { name: "Main" }).getByRole("link", { name: "CV", exact: true })).toHaveAttribute("href", /\.pdf\?v=[0-9a-f]{10}$/);
     for (const name of [/CV as PDF/, /CV as Word/]) await expect(exp.getByRole("link", { name }).locator('svg[aria-hidden="true"]')).toHaveCount(1);
     await expect(exp).toContainText("Dec 2025");
     await expect(page.locator("main")).toContainText("1 million users");

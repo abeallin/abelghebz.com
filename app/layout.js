@@ -1,6 +1,7 @@
 import "./globals.css";
 import { fontVariables } from "../src/lib/fonts.js";
 import { seo } from "../src/content/seo.js";
+import CalPopup from "../src/components/CalPopup.jsx";
 
 export const metadata = {
   metadataBase: new URL(seo.site),
@@ -21,6 +22,7 @@ export default function RootLayout({ children }) {
           Skip to content
         </a>
         {children}
+        <CalPopup />
       </body>
     </html>
   );
