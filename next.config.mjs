@@ -1,6 +1,6 @@
 /** @type {import('next').NextConfig} */
+// No `output: "standalone"`: Railway starts the app with `next start`, which warns under standalone.
 const nextConfig = {
-  output: "standalone",
   images: {
     // AVIF first: about 20-30% smaller than WebP for the app screenshots; browsers without it get WebP.
     formats: ["image/avif", "image/webp"],

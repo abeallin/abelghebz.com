@@ -26,10 +26,13 @@ To run e2e on another port, set `E2E_PORT`.
 
 | Path | What |
 |---|---|
-| `src/content/` | All copy: profile, experience, projects (with case-study text and captions), skills, SEO, routing |
-| `src/components/` | Page sections, all server components except `ScreenGallery`, `EnquiryRouter` and `CalEmbed` |
+| `src/content/` | All copy: profile, experience, projects (case-study text, captions, stats, flows), skills, SEO, routing, cover colours |
+| `src/components/` | Page sections, all server components except `ScreenGallery`, `EnquiryRouter`, `CalEmbed` and `CaseNav` |
+| `src/components/ui/` | Pills and nav links (`Actions`), brand and file icons (`Icons`), technology marks (`TechIcons`, generated from simple-icons) |
+| `src/gallery/`, `/gallery`, `/brand` | Hidden review pages (noindex): the design options and the brand system |
 | `src/lib/mailto.js` | Builds the routed enquiry email |
-| `app/` | Routes: `/`, `/work/[slug]`, preview cards, sitemap, robots |
+| `app/` | Routes: `/`, `/work/[slug]`, `/gallery`, `/brand`, preview cards, favicon and Apple icon (AG monogram), sitemap, robots |
+| `public/assets/` | The CV as PDF and Word (built from Abel's Word file; see below) |
 | `scripts/fetch-fontshare.mjs` | Downloads Erode and Author into the git-ignored `src/fonts/` |
 | `scripts/style-guard.mjs` | Fails on the generic-AI styling tells, input markers and stale figures |
 | `docs/decisions/` | Why things are the way they are |
@@ -46,18 +49,29 @@ Every component is our own code, based on a named source ([decision 0008](docs/d
 
 | Component | Based on |
 |---|---|
-| `Hero` | Dribbble 24892401 (Elizaveta Breneva) and 27050710 (Wachid) |
-| `ProjectTile` | Mobbin "Explore screens" cards |
+| `Hero` (gallery Hero D) | Dribbble 27050710 and 27063944 (Wachid) |
+| `WorkSection` (gallery Work D) | Mobbin app pages and screen cards; Dribbble 27536327 (Satz) |
 | `FactsRow` | Linear customer story, linear.app/customers/ramp |
 | `ExperienceList` | Linear changelog; 21st.dev olewandowski1/timeline-1 |
 | `ScreenGallery` | Mobbin flows; App Store captioned screenshots; Radix Dialog |
 | `EnquiryRouter` | ESA decision 0031; 21st.dev ziegfiroyt/faq92 |
+| `StatStrip` | App Store stat strip |
+| `FlowStrip` | Mobbin flows |
+| `CaseNav` | Linear docs' "On this page" |
+| `Nav`, `Footer`, contact card (gallery Buttons A) | Dribbble 27429954 (Alevtinka) and 27050710 (Wachid) |
+
+## The CV
+
+`public/assets/abel_ghebrezadik_cv.{pdf,docx}` are built from Abel's own Word file with a python-docx script that keeps
+its styles (copies in `OneDrive/abel_ghebrezadik_cv_2026-10*`), then exported to PDF with Microsoft Word. Facts on the CV
+must match `src/content/`; the name sits in the body, not the header, so ATS parsers read it.
 
 ## Open items for Abel
 
-- Confirm the screenshot captions in `src/content/projects.js`, and the case-study problem and result text.
-- GPFlow: the project page says Electron and JavaScript; the NHS England role says Python, Selenium and Tkinter. Keep
-  whichever is right.
-- whenwillyoumarry.com: add your role and dates if you want them in its facts row.
+- Cloudflare: turn off Email Address Obfuscation (it rewrites the footer email link and injects a blocking script).
+- Railway: turn on "Wait for CI" so a red check blocks a deploy.
 - Cal.com: rename the "15 min meeting" event (for example "Intro call: your project") and add a description.
-- Railway: turn on "Wait for CI" once the Check workflow is green on `main`.
+- GitHub: remove the old Vercel integration (its check fails on every commit with "Account is blocked").
+- Confirm the screenshot captions and the case-study problem and result text in `src/content/projects.js`.
+- whenwillyoumarry.com: add your role and dates if you want them in its facts row.
+- Later: ESA and the Mesfney Love Foundation site, once their owners agree; a sharper portrait; a recommendation quote.

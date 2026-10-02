@@ -8,7 +8,7 @@ import { profile, workedWith } from "../content/profile.js";
 export default function Hero() {
   return (
     <Container as="section" aria-labelledby="hero-name" className="pb-16 pt-14 sm:pb-20 sm:pt-20">
-      <div className="max-w-[780px]">
+      <div className="max-w-[1080px]">
         <div className="flex items-center gap-4">
           <div className="relative size-16 shrink-0 overflow-hidden rounded-full bg-tile">
             <Image src={profile.photo} alt="" fill sizes="64px" className="object-cover" priority />
@@ -22,7 +22,7 @@ export default function Hero() {
             </p>
           </div>
         </div>
-        <p className="mt-10 font-display text-[clamp(40px,6.4vw,72px)] leading-[1.02] tracking-[-0.02em] text-ink">
+        <p className="mt-10 font-display max-w-[1000px] text-[clamp(40px,6.4vw,88px)] leading-[1.0] tracking-[-0.02em] text-ink">
           Lead engineer for backends and products, ten years in.
         </p>
         <p className="mt-6 max-w-[640px] text-[19px] leading-[1.6] text-body">{profile.summary}</p>

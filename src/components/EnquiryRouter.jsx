@@ -15,7 +15,7 @@ const useHydrated = () => useSyncExternalStore(subscribe, () => true, () => fals
 const input =
   "mt-1.5 block w-full rounded-lg border border-[#cfcac0] bg-white px-3 py-2.5 text-[16px] text-ink placeholder:text-muted focus:border-ink";
 const chip =
-  "cursor-pointer rounded-lg border border-[#cfcac0] bg-white px-3.5 py-2 text-[15px] text-ink has-[:checked]:border-ink has-[:checked]:bg-ink has-[:checked]:text-paper has-[:focus-visible]:outline has-[:focus-visible]:outline-2 has-[:focus-visible]:outline-offset-2 has-[:focus-visible]:outline-accent";
+  "cursor-pointer rounded-lg border border-[#cfcac0] bg-white px-3.5 py-2 text-[15px] text-ink has-[:checked]:border-ink has-[:checked]:bg-ink has-[:checked]:text-paper has-[:focus-visible]:outline has-[:focus-visible]:outline-2 has-[:focus-visible]:outline-offset-2 has-[:focus-visible]:outline-accent forced-colors:has-[:checked]:outline forced-colors:has-[:checked]:outline-[3px] forced-colors:has-[:checked]:outline-offset-1";
 
 function validate(v) {
   const errors = {};
@@ -114,10 +114,10 @@ export default function EnquiryRouter() {
       </fieldset>
 
       <div className="grid gap-4 sm:grid-cols-2">
-        <Field id="enq-company" label="Company" hint={hydrated ? "" : "(if hiring)"} error={errors.company} show={shown("company")}>
+        <Field id="enq-company" label="Company" hint={hydrated ? "(required)" : "(if hiring)"} error={errors.company} show={shown("company")}>
           <input id="enq-company" name="company" className={input} value={v.company} onChange={set("company")} autoComplete="organization" {...err("company")} />
         </Field>
-        <Field id="enq-role" label="Role" hint={hydrated ? "" : "(if hiring)"} error={errors.role} show={shown("role")}>
+        <Field id="enq-role" label="Role" hint={hydrated ? "(required)" : "(if hiring)"} error={errors.role} show={shown("role")}>
           <input id="enq-role" name="role" className={input} value={v.role} onChange={set("role")} {...err("role")} />
         </Field>
         <Field id="enq-timeline" label="Timeline" hint={hydrated ? "" : "(for a project)"} show={shown("timeline")}>
@@ -126,15 +126,15 @@ export default function EnquiryRouter() {
         <Field id="enq-budget" label="Budget" hint="(optional)" show={shown("budget")}>
           <input id="enq-budget" name="budget" className={input} value={v.budget} onChange={set("budget")} />
         </Field>
-        <Field id="enq-name" label="Name" error={errors.name}>
+        <Field id="enq-name" label="Name" hint="(required)" error={errors.name}>
           <input id="enq-name" name="name" required className={input} value={v.name} onChange={set("name")} autoComplete="name" {...err("name")} />
         </Field>
-        <Field id="enq-email" label="Email" error={errors.email}>
+        <Field id="enq-email" label="Email" hint="(required)" error={errors.email}>
           <input id="enq-email" name="email" type="email" required className={input} value={v.email} onChange={set("email")} autoComplete="email" {...err("email")} />
         </Field>
       </div>
 
-      <Field id="enq-message" label="Message" error={errors.message}>
+      <Field id="enq-message" label="Message" hint="(required)" error={errors.message}>
         <textarea id="enq-message" name="message" required rows={5} className={input} value={v.message} onChange={set("message")} {...err("message")} />
       </Field>
 

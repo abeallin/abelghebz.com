@@ -22,7 +22,7 @@
 @layer base {
   html {
     scroll-behavior: smooth;
-    scroll-padding-top: 1.5rem;
+    scroll-padding-top: 6rem; /* clears the sticky header */
   }
   body {
     background: var(--color-paper);

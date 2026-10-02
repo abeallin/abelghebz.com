@@ -4,10 +4,16 @@
 //   Block — Dribbble 27385292 (Hatypo "Noirbyte", "Contact" / "Start a project") and 26766827 (Rama Dharma)
 //   Arrow — Dribbble 27448287 (Alex Laurent) and 27488285 (Swiss portfolio): text plus a moving arrow
 
+import Link from "next/link";
+
+// Site routes go through next/link (no full page reload); files and other sites stay plain links.
+const isRoute = (href) => typeof href === "string" && href.startsWith("/") && !href.startsWith("/assets/");
+
 const pillBase =
   "inline-flex items-center gap-2 rounded-full px-5 py-3 text-[16px] font-medium transition-colors duration-200";
 
 export function Pill({ href, children, tone = "dark", ...rest }) {
+  const Tag = isRoute(href) ? Link : "a";
   const tones = {
     dark: "bg-ink text-paper hover:bg-accent-ink",
     light: "border border-ink/25 bg-transparent text-ink hover:border-ink hover:bg-ink hover:text-paper",
@@ -15,9 +21,9 @@ export function Pill({ href, children, tone = "dark", ...rest }) {
     accent: "bg-accent-ink text-white hover:bg-ink",
   };
   return (
-    <a href={href} className={`${pillBase} ${tones[tone]}`} {...rest}>
+    <Tag href={href} className={`${pillBase} ${tones[tone]}`} {...rest}>
       {children}
-    </a>
+    </Tag>
   );
 }
 
@@ -47,13 +53,14 @@ export function Arrow({ href, children, className = "", ...rest }) {
 
 // Plain nav link: no underline at rest; a short accent bar slides in under it on hover and focus.
 export function NavLink({ href, children, ...rest }) {
+  const Tag = isRoute(href) ? Link : "a";
   return (
-    <a
+    <Tag
       href={href}
       className="relative text-body transition-colors hover:text-ink focus-visible:text-ink after:absolute after:-bottom-1 after:left-0 after:h-[2px] after:w-0 after:bg-accent after:transition-all hover:after:w-full focus-visible:after:w-full motion-reduce:after:transition-none"
       {...rest}
     >
       {children}
-    </a>
+    </Tag>
   );
 }

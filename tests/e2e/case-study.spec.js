@@ -138,3 +138,20 @@ test("wide screens get a sticky 'On this page' menu that tracks the section in v
   await page.setViewportSize({ width: 1024, height: 900 });
   await expect(nav).toBeHidden();
 });
+
+test("clicking the dimmed backdrop closes the screen viewer", async ({ page }) => {
+  await page.goto("/work/betmate");
+  await page.getByRole("list", { name: "Screens" }).getByRole("link").first().click();
+  const dialog = page.getByRole("dialog");
+  await expect(dialog).toBeVisible();
+  await page.mouse.click(8, 8);
+  await expect(dialog).toBeHidden();
+});
+
+test("moving from home to a case study doesn't reload the page", async ({ page }) => {
+  await page.goto("/");
+  await page.evaluate(() => (window.__stayed = true));
+  await page.locator("#work").getByRole("link", { name: /Read the Betmate case study/ }).click();
+  await expect(page).toHaveURL(/\/work\/betmate$/);
+  expect(await page.evaluate(() => window.__stayed)).toBe(true);
+});
