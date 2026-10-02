@@ -1,13 +1,14 @@
 // Gallery Work D, picked by Abel on 1 October 2026: one featured project, two beside each other beneath.
 // Based on Mobbin's app pages and Dribbble 27536327 (Satz). Each cover sits on its app's own colour.
 import Image from "next/image";
+import Link from "next/link";
 import Container from "./Container.jsx";
 import SectionLabel from "./SectionLabel.jsx";
 import { Pill } from "./ui/Actions.jsx";
 import StackChips from "./StackChips.jsx";
 import { projects } from "../content/projects.js";
+import { COVER } from "../content/covers.js";
 
-const COVER = { betmate: "#0C1A4B", cabeazy: "#1B1A16", gpflow: "#0F1A17", whenwillyoumarry: "#211E19" };
 
 function Shots({ project, compact = false }) {
   const [a, b] = project.screens;
@@ -44,9 +45,9 @@ export default function WorkSection() {
         <SectionLabel id="work-label">Selected work</SectionLabel>
       </div>
       <article data-featured={first.slug} className="grid overflow-hidden rounded-3xl bg-tile lg:grid-cols-2">
-        <a href={`/work/${first.slug}`} tabIndex={-1} aria-hidden="true" className="relative block min-h-[400px] overflow-hidden" style={{ background: COVER[first.slug] }}>
+        <Link href={`/work/${first.slug}`} tabIndex={-1} aria-hidden="true" className="relative block min-h-[400px] overflow-hidden" style={{ background: COVER[first.slug] }}>
           <Shots project={first} />
-        </a>
+        </Link>
         <div className="flex flex-col justify-between gap-8 p-7 sm:p-10">
           <div>
             <p className="font-mono text-[13px] text-body">(Featured) · {first.eyebrow}</p>
@@ -62,11 +63,11 @@ export default function WorkSection() {
       <div className={`mt-6 grid gap-6 md:grid-cols-2 ${rest.length === 3 ? "lg:grid-cols-3" : ""}`}>
         {rest.map((p) => (
           <article key={p.slug} className="group flex flex-col overflow-hidden rounded-3xl bg-tile">
-            <a href={`/work/${p.slug}`} tabIndex={-1} aria-hidden="true" className="relative block h-[260px] overflow-hidden" style={{ background: COVER[p.slug] }}>
+            <Link href={`/work/${p.slug}`} tabIndex={-1} aria-hidden="true" className="relative block h-[260px] overflow-hidden" style={{ background: COVER[p.slug] }}>
               <div className="absolute inset-0 transition-transform duration-500 group-hover:scale-[1.02] motion-reduce:transition-none">
                 <Shots project={p} compact />
               </div>
-            </a>
+            </Link>
             <div className="flex flex-1 flex-col justify-between gap-6 p-7">
               <div>
                 <p className="text-[14px] font-medium text-accent-ink">{p.eyebrow}</p>

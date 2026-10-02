@@ -33,7 +33,7 @@ export default function CaseNav({ items }) {
   }, [items]);
 
   return (
-    <nav aria-label="On this page" className="sticky top-8 hidden xl:block">
+    <nav aria-label="On this page" className="sticky top-28 hidden xl:block">
       <p className="font-mono text-[13px] text-muted">On this page</p>
       <ul className="mt-3 border-l border-rule">
         {items.map((it) => {

@@ -47,6 +47,10 @@ export default function ScreenGallery({ screens, name }) {
           <Dialog.Overlay className="fixed inset-0 z-40 bg-ink/85" />
           <Dialog.Content
             className="fixed inset-0 z-50 flex flex-col items-center justify-center gap-4 p-4 focus:outline-none sm:p-8"
+            // Content covers the whole screen, so a press on its empty area is a press on the dimmed backdrop.
+            onPointerDown={(e) => {
+              if (e.target === e.currentTarget) setIndex(null);
+            }}
             onKeyDown={(e) => {
               if (e.key === "ArrowRight") move(1);
               if (e.key === "ArrowLeft") move(-1);

@@ -42,7 +42,7 @@ test.describe("enquiry router", () => {
     const form = page.locator("#contact form");
     await form.locator("label", { hasText: "Hiring for a role" }).click();
     await expect(form.getByLabel("Company")).toBeVisible();
-    await expect(form.getByLabel("Role", { exact: true })).toBeVisible();
+    await expect(form.getByLabel(/^Role/)).toBeVisible();
     await expect(form.getByLabel("Timeline")).toBeHidden();
     await expect(form.getByRole("group", { name: "I need…" })).toBeHidden();
   });
@@ -51,7 +51,7 @@ test.describe("enquiry router", () => {
     const form = page.locator("#contact form");
     await form.locator("label", { hasText: "Hiring for a role" }).click();
     await form.getByLabel("Company").fill("Acme");
-    await form.getByLabel("Role", { exact: true }).fill("Lead Engineer");
+    await form.getByLabel(/^Role/).fill("Lead Engineer");
     await form.getByLabel("Name").fill("Sam Taylor");
     await form.getByLabel("Email").fill("sam@example.com");
     await form.getByLabel(/Message/).fill("We'd like to talk.");
@@ -104,5 +104,24 @@ test.describe("enquiry router", () => {
     const status = form.getByRole("status");
     await expect(status).toContainText("didn't open");
     await expect(status.getByRole("link", { name: "2percentcargoltd@gmail.com" })).toHaveAttribute("href", "mailto:2percentcargoltd@gmail.com");
+  });
+});
+
+test.describe("enquiry polish", () => {
+  test("required fields say so in words, and hiring's company and role do too", async ({ page }) => {
+    await page.goto("/");
+    const form = page.locator("#contact form");
+    for (const label of ["Name", "Email", "Message"]) await expect(form.locator("label", { hasText: new RegExp(`^${label}`) })).toContainText("(required)");
+    await form.locator("label", { hasText: "Hiring for a role" }).click();
+    for (const label of ["Company", "Role"]) await expect(form.locator("label", { hasText: new RegExp(`^${label}`) })).toContainText("(required)");
+  });
+
+  test("the chosen option stays distinct in Windows high-contrast mode", async ({ page }) => {
+    await page.emulateMedia({ forcedColors: "active" });
+    await page.goto("/");
+    const chip = page.locator("#contact form label", { hasText: "Hiring for a role" });
+    await chip.click();
+    const outline = await chip.evaluate((el) => getComputedStyle(el).outlineStyle);
+    expect(outline).not.toBe("none");
   });
 });

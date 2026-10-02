@@ -1,5 +1,10 @@
 # abelghebz.com redesign: Quiet CV — design spec
 
+> **Later changes:** the build since moved past parts of this spec. Decisions [0010](../../decisions/0010-gallery-picks.md)
+> (gallery picks: Hero D, Work D, Experience B, pills instead of underlines) and
+> [0011](../../decisions/0011-case-study-extras-header-and-performance.md) (case-study extras, sticky header, icons,
+> performance) take precedence where they differ. Content facts live in `src/content/`, which tests pin.
+
 - **Author:** Abel Ghebrezadik, with Claude
 - **Date:** 1 October 2026
 - **Status:** Design approved section by section in chat on 1 October 2026; this written spec awaits Abel's review.

@@ -1,5 +1,6 @@
 import { notFound } from "next/navigation";
-import { ogCard, ogSize, ogContentType } from "../../../src/lib/og.js";
+import { ogCase, ogSize, ogContentType } from "../../../src/lib/og.js";
+import { COVER } from "../../../src/content/covers.js";
 import { projects, projectBySlug } from "../../../src/content/projects.js";
 
 export const dynamicParams = false;
@@ -15,5 +16,5 @@ export default async function Image({ params }) {
   const { slug } = await params;
   const p = projectBySlug(slug);
   if (!p) notFound();
-  return ogCard({ eyebrow: `Case study · ${p.name}`, headline: p.headline });
+  return ogCase({ name: p.name, headline: p.headline, cover: COVER[slug], screens: p.screens });
 }

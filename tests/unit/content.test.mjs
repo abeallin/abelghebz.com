@@ -181,3 +181,9 @@ test("Arena's regression-test app: Playwright, Bitbucket PRs to test cases, and 
   assert.match(d, /traces Bitbucket PRs to create test cases/);
   assert.match(d, /MCP server/);
 });
+
+test("package.json pins Node to the version CI uses", async () => {
+  const { readFileSync } = await import("node:fs");
+  const pkg = JSON.parse(readFileSync("package.json", "utf8"));
+  assert.equal(pkg.engines?.node, "24.x");
+});
