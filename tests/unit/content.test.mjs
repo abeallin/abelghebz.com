@@ -170,3 +170,14 @@ test("every flow strip uses 3 to 5 of the project's own screens, in order", () =
     for (const step of p.flow.steps) assert.ok(srcs.has(step.src), `${p.slug}: ${step.src}`);
   }
 });
+
+test("Arena's keyset pagination says what it made possible", () => {
+  assert.match(experience.find((e) => e.company === "Arena Entertainment").detail, /keyset pagination, making tables with billions of records retrievable/);
+});
+
+test("Arena's regression-test app: Playwright, Bitbucket PRs to test cases, and an MCP server for Claude", () => {
+  const d = experience.find((e) => e.company === "Arena Entertainment").detail;
+  assert.match(d, /regression-test automation app/);
+  assert.match(d, /traces Bitbucket PRs to create test cases/);
+  assert.match(d, /MCP server/);
+});
