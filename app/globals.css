@@ -13,7 +13,7 @@
   --color-accent-ink: #b83a12; /* 5.2:1 text on paper; 5.75:1 white on it */
 
   --font-display: var(--font-erode), Georgia, serif;
-  --font-sans: var(--font-author), system-ui, sans-serif;
+  --font-sans: var(--font-general-sans), system-ui, sans-serif;
   --font-mono: var(--font-jetbrains), ui-monospace, monospace;
 
   --shadow-float: 0 6px 18px rgb(21 21 21 / 0.16);

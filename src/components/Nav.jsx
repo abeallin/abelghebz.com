@@ -10,11 +10,14 @@ export default function Nav() {
   return (
     <header className="sticky top-0 z-30 border-b border-rule/70 bg-paper/90 backdrop-blur supports-[backdrop-filter]:bg-paper/80">
       <Container className="flex flex-wrap items-center justify-between gap-x-6 gap-y-2 py-3 sm:py-4">
-        <Link href="/" className="flex items-center gap-3 text-[16px] font-semibold text-ink">
+        <Link
+          href="/"
+          aria-label={`${profile.name} (home)`}
+          className="flex items-center text-ink transition-opacity hover:opacity-80"
+        >
           <span aria-hidden="true" className="grid size-9 place-items-center rounded-lg bg-ink pt-0.5 font-display text-[17px] font-normal text-paper">
             AG
           </span>
-          {profile.name}
         </Link>
         <div className="flex flex-wrap items-center gap-x-6 gap-y-2">
           <nav aria-label="Main">

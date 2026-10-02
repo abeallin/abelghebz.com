@@ -13,7 +13,7 @@ const HTML_RULES = [
   ["centred text", /class="[^"]*\btext-center\b/],
 ];
 
-// Fonts that read as template defaults or belonged to the old site; the system is Erode, Author and JetBrains Mono.
+// Fonts that read as template defaults or belonged to the old site; the system is Erode, General Sans and JetBrains Mono.
 const BANNED_FONTS = /\b(Inter|Roboto|Arial|Helvetica|Poppins|Montserrat|Open Sans|Space Grotesk|Space Mono|Instrument Serif|Syne|Geist|Satoshi)\b/;
 
 const CSS_RULES = [

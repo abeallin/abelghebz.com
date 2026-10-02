@@ -22,7 +22,7 @@ const COLOURS = [
 
 const TYPE = [
   { face: "Erode", cls: "font-display", sample: "Abel Ghebrezadik", spec: "Fontshare · 400, 500 · the name, headlines, big numbers", size: "text-[56px] leading-none" },
-  { face: "Author", cls: "font-sans", sample: "Ten years building backends and products across finance, property, health and gambling.", spec: "Fontshare · 400, 500, 600 · all other text; body 17px", size: "text-[22px] leading-[1.45]" },
+  { face: "General Sans", cls: "font-sans", sample: "Ten years building backends and products across finance, property, health and gambling.", spec: "Fontshare · 400, 500, 600 · all other text; body 17px", size: "text-[22px] leading-[1.45]" },
   { face: "JetBrains Mono", cls: "font-mono", sample: "Dec 2025 — Present · C# / AWS Lambda / Kafka", spec: "Google · 400 · dates, labels, stacks", size: "text-[18px]" },
 ];
 
@@ -53,15 +53,15 @@ export default function Brand() {
 
       <Heading>Name</Heading>
       <div className="grid gap-6 md:grid-cols-[1fr_1fr_auto]">
-        <div className="rounded-2xl border border-rule p-8">
+        <div className="rounded-2xl border border-rule p-6 sm:p-8">
           <p className="font-display text-[44px] leading-none tracking-[-0.02em] text-ink">{profile.name}</p>
           <p className="mt-4 text-[14px] text-muted">Wordmark · Erode 400</p>
         </div>
-        <div className="rounded-2xl bg-ink p-8">
+        <div className="rounded-2xl bg-ink p-6 sm:p-8">
           <p className="text-[36px] font-semibold leading-none tracking-[-0.03em] text-paper">{profile.name}</p>
-          <p className="mt-4 text-[14px] text-[#b9b5ac]">Wordmark on ink · Author 600</p>
+          <p className="mt-4 text-[14px] text-[#b9b5ac]">Wordmark on ink · General Sans 600</p>
         </div>
-        <div className="flex items-center gap-5 rounded-2xl border border-rule p-8">
+        <div className="flex items-center gap-5 rounded-2xl border border-rule p-6 sm:p-8">
           <span className="grid size-16 place-items-center rounded-xl bg-ink font-display text-[30px] text-paper">AG</span>
           <span className="grid size-16 place-items-center rounded-full border-2 border-ink font-display text-[28px] text-ink">AG</span>
           <span className="text-[14px] text-muted">Monogram</span>
@@ -98,15 +98,15 @@ export default function Brand() {
 
       <Heading>Actions</Heading>
       <div className="grid gap-6 lg:grid-cols-2">
-        <div className="space-y-4 rounded-2xl border border-rule p-8">
+        <div className="space-y-4 rounded-2xl border border-rule p-6 sm:p-8">
           <p className="text-[14px] text-muted">Pills</p>
           <div className="flex flex-wrap gap-3">
-            <Pill href="#">Book a 15-minute call</Pill>
+            <Pill href="#">Book a 30-minute call</Pill>
             <Pill href="#" tone="light">Download CV</Pill>
             <Pill href="#" tone="accent">Send enquiry</Pill>
           </div>
         </div>
-        <div className="space-y-4 rounded-2xl border border-rule p-8">
+        <div className="space-y-4 rounded-2xl border border-rule p-6 sm:p-8">
           <p className="text-[14px] text-muted">Blocks</p>
           <div className="flex flex-wrap gap-3">
             <Block href="#">Contact</Block>
@@ -114,14 +114,14 @@ export default function Brand() {
             <Block href="#" tone="outline">Download CV</Block>
           </div>
         </div>
-        <div className="space-y-4 rounded-2xl border border-rule p-8">
+        <div className="space-y-4 rounded-2xl border border-rule p-6 sm:p-8">
           <p className="text-[14px] text-muted">Arrows</p>
           <div className="flex flex-wrap gap-6 text-[18px]">
             <Arrow href="#">Read the case study</Arrow>
             <Arrow href="#">Experience and CV</Arrow>
           </div>
         </div>
-        <div className="space-y-4 rounded-2xl border border-rule p-8">
+        <div className="space-y-4 rounded-2xl border border-rule p-6 sm:p-8">
           <p className="text-[14px] text-muted">Nav links (hover or tab to see the bar)</p>
           <div className="flex flex-wrap gap-6 text-[16px]">
             {["Work", "Experience", "CV", "Contact"].map((n) => (

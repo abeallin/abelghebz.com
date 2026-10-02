@@ -21,11 +21,15 @@ async function dataUri(publicPath) {
 }
 
 async function fonts() {
-  const [erode, author, author600] = await Promise.all([font("erode-400.woff"), font("author-500.woff"), font("author-600.woff")]);
+  const [erode, generalSans, generalSans600] = await Promise.all([
+    font("erode-400.woff"),
+    font("general-sans-500.woff"),
+    font("general-sans-600.woff"),
+  ]);
   return [
     { name: "Erode", data: erode, weight: 400, style: "normal" },
-    { name: "Author", data: author, weight: 500, style: "normal" },
-    { name: "Author", data: author600, weight: 600, style: "normal" },
+    { name: "General Sans", data: generalSans, weight: 500, style: "normal" },
+    { name: "General Sans", data: generalSans600, weight: 600, style: "normal" },
   ];
 }
 
@@ -59,7 +63,7 @@ export async function monogram(size, radius) {
 
 function Frame({ eyebrow, title, titleSize, subtitle, right }) {
   return (
-    <div style={{ width: "100%", height: "100%", display: "flex", background: PAPER, color: INK, fontFamily: "Author" }}>
+    <div style={{ width: "100%", height: "100%", display: "flex", background: PAPER, color: INK, fontFamily: "General Sans" }}>
       <div style={{ flex: 1, display: "flex", flexDirection: "column", justifyContent: "space-between", padding: "64px 56px 56px 72px" }}>
         <div style={{ display: "flex", alignItems: "center", gap: 16 }}>
           <div style={{ width: 52, height: 52, borderRadius: 12, background: INK, color: PAPER, display: "flex", alignItems: "center", justifyContent: "center", fontFamily: "Erode", fontSize: 26 }}>
