@@ -152,9 +152,11 @@ export default function EnquiryRouter() {
           {sentTo && (
             <>
               If your email app didn&apos;t open, email me directly:{" "}
+              <span className="contents" dangerouslySetInnerHTML={{ __html: "<!--email_off-->" }} />
               <a href={`mailto:${sentTo}`} className="ml-1 inline-flex rounded-full bg-tile px-3.5 py-1.5 font-medium text-ink hover:bg-ink hover:text-paper">
                 {sentTo}
               </a>
+              <span className="contents" dangerouslySetInnerHTML={{ __html: "<!--/email_off-->" }} />
             </>
           )}
         </p>

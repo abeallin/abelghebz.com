@@ -19,6 +19,16 @@ const nextConfig = {
     formats: ["image/webp"],
     minimumCacheTTL: 60 * 60 * 24 * 7,
   },
+  async redirects() {
+    return [
+      {
+        source: "/:path*",
+        has: [{ type: "host", value: "www.abelghebz.com" }],
+        destination: "https://abelghebz.com/:path*",
+        permanent: true,
+      },
+    ];
+  },
   async headers() {
     // Public images keep their names when replaced, so a week (not immutable), revalidated in the background.
     const week = "public, max-age=604800, stale-while-revalidate=86400";

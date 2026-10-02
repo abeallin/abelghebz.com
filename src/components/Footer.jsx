@@ -22,8 +22,8 @@ export default function Footer() {
           </p>
         </div>
         <ul className="flex flex-wrap gap-2" aria-label="Contact links">
-          {links.map(({ label, url, Icon = ICONS[label] }) => (
-            <li key={label}>
+          {links.map(({ label, url, Icon = ICONS[label] }) => {
+            const anchor = (
               <a
                 href={url}
                 className="inline-flex items-center gap-2 rounded-full border border-ink/20 px-4 py-2 text-[14px] text-ink transition-colors hover:border-ink hover:bg-ink hover:text-paper"
@@ -32,8 +32,21 @@ export default function Footer() {
                 {Icon && <Icon />}
                 {label}
               </a>
-            </li>
-          ))}
+            );
+            return (
+              <li key={label}>
+                {label === "Email" ? (
+                  <>
+                    <span className="contents" dangerouslySetInnerHTML={{ __html: "<!--email_off-->" }} />
+                    {anchor}
+                    <span className="contents" dangerouslySetInnerHTML={{ __html: "<!--/email_off-->" }} />
+                  </>
+                ) : (
+                  anchor
+                )}
+              </li>
+            );
+          })}
         </ul>
       </Container>
     </footer>
