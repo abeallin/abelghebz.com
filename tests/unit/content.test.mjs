@@ -48,10 +48,11 @@ test("every screenshot exists under public/ and has a caption", () => {
   }
 });
 
-test("every page has an seo entry with a title and description", () => {
+test("every page has an seo entry with a title, description, and keywords", () => {
   for (const path of ["/", ...projects.map((p) => `/work/${p.slug}`)]) {
     assert.ok(seo.pages[path]?.title, path);
     assert.ok(seo.pages[path]?.description, path);
+    assert.ok(Array.isArray(seo.pages[path]?.keywords) && seo.pages[path].keywords.length > 0, path);
   }
 });
 
