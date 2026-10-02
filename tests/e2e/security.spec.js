@@ -23,4 +23,21 @@ test.describe("security headers and info disclosure", () => {
     expect(headers["x-frame-options"]).toBe("SAMEORIGIN");
     expect(headers["x-content-type-options"]).toBe("nosniff");
   });
+
+  test("requests to www.abelghebz.com redirect permanently to apex", async ({ request }) => {
+    const res = await request.get("/", {
+      headers: { host: "www.abelghebz.com" },
+      maxRedirects: 0,
+    });
+    expect([301, 308]).toContain(res.status());
+    expect(["https://abelghebz.com", "https://abelghebz.com/"]).toContain(res.headers()["location"]);
+  });
+
+  test("email links are wrapped with email_off comments to protect against Cloudflare 404 rewrite", async ({ request }) => {
+    const res = await request.get("/");
+    const body = await res.text();
+    expect(body).toContain("<!--email_off-->");
+    expect(body).toContain("<!--/email_off-->");
+    expect(body).not.toContain("/cdn-cgi/l/email-protection");
+  });
 });
