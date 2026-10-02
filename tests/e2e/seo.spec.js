@@ -44,3 +44,12 @@ test("both CV files are served with the right types", async ({ request }) => {
   expect(docx.status()).toBe(200);
   expect((await docx.body()).subarray(0, 2).toString()).toBe("PK");
 });
+
+test("the CV files are always revalidated and download with a readable name", async ({ request }) => {
+  const pdf = await request.get("/assets/abel_ghebrezadik_cv.pdf");
+  expect(pdf.headers()["cache-control"]).toBe("public, max-age=0, must-revalidate");
+  expect(pdf.headers()["content-disposition"]).toBe('inline; filename="Abel-Ghebrezadik-CV.pdf"');
+  const docx = await request.get("/assets/abel_ghebrezadik_cv.docx");
+  expect(docx.headers()["cache-control"]).toBe("public, max-age=0, must-revalidate");
+  expect(docx.headers()["content-disposition"]).toBe('attachment; filename="Abel-Ghebrezadik-CV.docx"');
+});
