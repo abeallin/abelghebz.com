@@ -8,6 +8,7 @@ const version = (file) => createHash("sha1").update(readFileSync(new URL(`./publ
 
 // No `output: "standalone"`: Railway starts the app with `next start`, which warns under standalone.
 const nextConfig = {
+  poweredByHeader: false,
   env: {
     CV_PDF_VERSION: version("abel_ghebrezadik_cv.pdf"),
     CV_DOCX_VERSION: version("abel_ghebrezadik_cv.docx"),
@@ -25,6 +26,16 @@ const nextConfig = {
     // Cloudflare revalidate every time (cheap, via the ETag). The PDF opens in the browser; the Word file downloads.
     const fresh = "public, max-age=0, must-revalidate";
     return [
+      {
+        source: "/:path*",
+        headers: [
+          { key: "Strict-Transport-Security", value: "max-age=63072000; includeSubDomains; preload" },
+          { key: "X-Frame-Options", value: "SAMEORIGIN" },
+          { key: "X-Content-Type-Options", value: "nosniff" },
+          { key: "Referrer-Policy", value: "strict-origin-when-cross-origin" },
+          { key: "Permissions-Policy", value: "camera=(), microphone=(), geolocation=()" },
+        ],
+      },
       {
         source: "/assets/abel_ghebrezadik_cv.pdf",
         headers: [
