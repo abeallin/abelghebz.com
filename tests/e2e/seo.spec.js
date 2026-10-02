@@ -8,6 +8,9 @@ for (const path of pages) {
     await expect(page).toHaveTitle(seo.pages[path].title);
     await expect(page.locator('meta[name="description"]')).toHaveAttribute("content", seo.pages[path].description);
     await expect(page.locator('link[rel="canonical"]')).toHaveAttribute("href", `${seo.site}${path === "/" ? "" : path}`);
+    if (seo.pages[path].keywords) {
+      await expect(page.locator('meta[name="keywords"]')).toHaveAttribute("content", seo.pages[path].keywords.join(","));
+    }
     const og = await page.locator('meta[property="og:image"]').getAttribute("content");
     expect(og).toMatch(/opengraph-image/);
     const img = await page.request.get(new URL(og).pathname + new URL(og).search);
@@ -34,6 +37,22 @@ test("home describes Abel as a Person in JSON-LD", async ({ page }) => {
   expect(data.name).toBe("Abel Ghebrezadik");
   expect(data.jobTitle).toBe("Lead / Senior Software Engineer");
   expect(data.sameAs).toContain("https://linkedin.com/in/abel-ghebrezadik");
+  expect(Array.isArray(data.knowsAbout)).toBe(true);
+  expect(data.knowsAbout).toContain("C#");
+  expect(data.knowsAbout).toContain("AWS Bedrock");
+});
+
+test("case studies have SoftwareApplication and TechArticle structured data in JSON-LD", async ({ page }) => {
+  await page.goto("/work/betmate");
+  const data = JSON.parse(await page.locator('script[type="application/ld+json"]').textContent());
+  expect(Array.isArray(data["@graph"])).toBe(true);
+  const app = data["@graph"].find((item) => item["@type"] === "SoftwareApplication");
+  expect(app).toBeDefined();
+  expect(app.name).toBe("Betmate");
+  expect(app.author.name).toBe("Abel Ghebrezadik");
+  const article = data["@graph"].find((item) => item["@type"] === "TechArticle");
+  expect(article).toBeDefined();
+  expect(article.author.name).toBe("Abel Ghebrezadik");
 });
 
 test("both CV files are served with the right types", async ({ request }) => {

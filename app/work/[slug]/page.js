@@ -12,6 +12,7 @@ import CaseNav from "../../../src/components/CaseNav.jsx";
 import { Pill } from "../../../src/components/ui/Actions.jsx";
 import ScreenGallery from "../../../src/components/ScreenGallery.jsx";
 import { projects, projectBySlug, nextProject } from "../../../src/content/projects.js";
+import { profile } from "../../../src/content/profile.js";
 import { seo } from "../../../src/content/seo.js";
 
 export const dynamicParams = false;
@@ -24,7 +25,19 @@ export async function generateMetadata({ params }) {
   const { slug } = await params;
   const page = seo.pages[`/work/${slug}`];
   if (!page) return {};
-  return { title: page.title, description: page.description, alternates: { canonical: `/work/${slug}` } };
+  return {
+    title: page.title,
+    description: page.description,
+    keywords: page.keywords,
+    alternates: { canonical: `/work/${slug}` },
+    openGraph: {
+      title: page.title,
+      description: page.description,
+      siteName: seo.name,
+      locale: "en_GB",
+      type: "article",
+    },
+  };
 }
 
 function Section({ id, title, children }) {
@@ -41,9 +54,43 @@ export default async function CaseStudy({ params }) {
   const p = projectBySlug(slug);
   if (!p) notFound();
   const next = nextProject(slug);
+  const page = seo.pages[`/work/${slug}`];
+
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "SoftwareApplication",
+        name: p.name,
+        description: page?.description || p.summary,
+        applicationCategory: page?.category || "WebApplication",
+        operatingSystem: page?.operatingSystem || "Web",
+        author: {
+          "@type": "Person",
+          name: profile.name,
+          url: seo.site,
+        },
+        keywords: page?.keywords?.join(", "),
+      },
+      {
+        "@type": "TechArticle",
+        headline: p.headline,
+        description: page?.description || p.summary,
+        url: `${seo.site}/work/${slug}`,
+        author: {
+          "@type": "Person",
+          name: profile.name,
+          url: seo.site,
+        },
+        about: p.stack.map((item) => ({ "@type": "Thing", name: item })),
+        keywords: page?.keywords?.join(", "),
+      },
+    ],
+  };
 
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <Nav />
       <main id="main" className="pb-16">
         <Container className="pt-12 sm:pt-16">

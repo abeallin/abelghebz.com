@@ -7,6 +7,7 @@ export const metadata = {
   metadataBase: new URL(seo.site),
   title: seo.pages["/"].title,
   description: seo.pages["/"].description,
+  keywords: seo.pages["/"].keywords,
   openGraph: { siteName: seo.name, locale: "en_GB", type: "website" },
   twitter: { card: "summary_large_image" },
 };
