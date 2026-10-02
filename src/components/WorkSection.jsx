@@ -52,7 +52,7 @@ export default function WorkSection() {
           <div>
             <p className="font-mono text-[13px] text-body">(Featured) · {first.eyebrow}</p>
             <h3 className="mt-3 font-display text-[clamp(30px,3.6vw,42px)] font-normal leading-[1.06] tracking-[-0.01em] text-ink">{first.headline}</h3>
-            <p className="mt-4 text-[17px] leading-[1.6] text-body">{first.summary}</p>
+            <p className="mt-4 text-[16px] leading-[1.6] text-body">{first.summary}</p>
             <StackChips items={first.stack.slice(0, 4)} />
           </div>
           <div>

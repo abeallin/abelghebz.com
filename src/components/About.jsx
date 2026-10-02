@@ -18,7 +18,7 @@ export default function About() {
             className="h-auto w-[180px] rounded-2xl object-cover lg:w-[240px]"
           />
           <div>
-            <p className="max-w-[620px] text-[19px] leading-[1.55] text-ink">
+            <p className="max-w-[620px] text-[17.5px] leading-[1.65] text-ink">
               {profile.role} based in {profile.location}. {profile.background}{" "}
               I&apos;ve worked across finance, property,
               health and gambling, from the London Metal Exchange to a game with 1 million users.

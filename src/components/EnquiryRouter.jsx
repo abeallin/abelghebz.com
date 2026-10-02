@@ -139,7 +139,7 @@ export default function EnquiryRouter() {
       </Field>
 
       <div>
-        <button type="submit" className="rounded-full bg-ink px-6 py-3 text-[16px] font-medium text-paper transition-colors hover:bg-accent-ink">
+        <button type="submit" className="rounded-full bg-ink px-5 py-2.5 text-[14.5px] font-medium text-paper transition-colors hover:bg-accent-ink">
           Send enquiry
         </button>
         <p className="mt-2 text-[14px] text-muted">This opens your email app with the enquiry filled in, ready to send.</p>

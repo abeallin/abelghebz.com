@@ -14,14 +14,14 @@ export default function Contact() {
         <p className="mt-3 max-w-[640px] font-display text-[clamp(32px,4.4vw,52px)] leading-[1.06] tracking-[-0.01em]">
           Need a backend built, or a lead for your team?
         </p>
-        <p className="mt-4 max-w-[560px] text-[17px] leading-[1.55] text-[#cfcbc2]">
+        <p className="mt-4 max-w-[560px] text-[16px] leading-[1.6] text-[#cfcbc2]">
           Pick a 30-minute slot that suits you, or send a few lines below and I&apos;ll reply by email.
         </p>
         <div className="mt-8 flex flex-wrap gap-3">
           <BookCall tone="paper" icon />
           <a
             href="#enquiry"
-            className="inline-flex items-center rounded-full border border-paper/40 px-5 py-3 text-[16px] font-medium text-paper transition-colors hover:bg-paper/10"
+            className="inline-flex items-center rounded-full border border-paper/40 px-5 py-2.5 text-[14.5px] font-medium text-paper transition-colors hover:bg-paper/10"
           >
             Send an enquiry
           </a>

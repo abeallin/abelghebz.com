@@ -125,7 +125,7 @@ test("stacks match the repos: whenwillyoumarry runs on Railway and R2, not AWS; 
 
 test("Arena's latency result is the average Abel measured: 14s down to 2s", () => {
   const arena = experience.find((e) => e.company === "Arena Entertainment");
-  assert.match(arena.outcome, /from 14s to 2s/);
+  assert.match(arena.detail, /from 14s to 2s/);
   assert.doesNotMatch(JSON.stringify(experience), /up to 8s/);
 });
 
@@ -140,8 +140,9 @@ test("Arena includes the Angular rebuild, the Bedrock AI chat and the 250 pages 
 
 test("Arena's AI chat says who uses it and what it saves", () => {
   const arena = experience.find((e) => e.company === "Arena Entertainment");
-  assert.match(arena.detail, /AI conversational assistant on AWS Bedrock, used by 200 people/);
-  assert.match(arena.detail, /Slack and Jira/);
+  assert.match(arena.outcome, /AI conversational assistant on AWS Bedrock/);
+  assert.match(arena.outcome, /Slack and Jira/);
+  assert.match(arena.outcome, /200\+ team members/);
 });
 
 test("the worked-with row names the companies Abel worked for, not their clients or parents", async () => {

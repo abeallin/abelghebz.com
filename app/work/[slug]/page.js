@@ -31,7 +31,7 @@ function Section({ id, title, children }) {
   return (
     <section id={id} className="grid scroll-mt-6 gap-3 border-t border-rule py-8 md:grid-cols-[220px_1fr] md:gap-8">
       <h2 className="font-display text-[26px] leading-[1.15] text-ink">{title}</h2>
-      <div className="max-w-[700px] text-[17px] leading-[1.65] text-body">{children}</div>
+      <div className="max-w-[700px] text-[16px] leading-[1.65] text-body">{children}</div>
     </section>
   );
 }
@@ -57,7 +57,7 @@ export default async function CaseStudy({ params }) {
           <h1 className="max-w-[920px] font-display text-[clamp(36px,5.6vw,60px)] font-normal leading-[1.04] tracking-[-0.015em] text-ink">
             {p.headline}
           </h1>
-          <p className="mt-5 max-w-[720px] text-[19px] leading-[1.55] text-body">{p.summary}</p>
+          <p className="mt-5 max-w-[720px] text-[17.5px] leading-[1.6] text-body">{p.summary}</p>
           <StatStrip stats={p.stats} />
           <div className="mt-8">
             <FactsRow facts={p.facts} live={p.live} size="lg" />
@@ -108,7 +108,7 @@ export default async function CaseStudy({ params }) {
         <Container>
           <div className="mt-6 flex flex-wrap items-baseline justify-between gap-4 border-t border-rule pt-6">
             <div className="flex flex-wrap items-center gap-4">
-              <p className="text-[17px] text-body">Have something similar to build?</p>
+              <p className="text-[16px] text-body">Have something similar to build?</p>
               <BookCall />
             </div>
             <Link href={`/work/${next.slug}`} className="group max-w-full rounded-2xl border border-rule px-6 py-4 transition-colors hover:border-ink sm:text-right">

@@ -26,7 +26,7 @@ export default function Hero() {
         <p className="mt-10 font-display max-w-[1000px] text-[clamp(40px,6.4vw,88px)] leading-[1.0] tracking-[-0.02em] text-ink">
           Lead engineer for backends and products, ten years in.
         </p>
-        <p className="mt-6 max-w-[640px] text-[19px] leading-[1.6] text-body">{profile.summary}</p>
+        <p className="mt-6 max-w-[640px] text-[17.5px] leading-[1.65] text-body">{profile.summary}</p>
         <div className="mt-9 flex flex-wrap gap-3">
           <BookCall />
           <Pill href="/#experience" tone="light">
@@ -34,7 +34,7 @@ export default function Hero() {
           </Pill>
         </div>
         <p className="mt-14 font-mono text-[13px] text-muted">Worked with</p>
-        <ul className="mt-3 flex flex-wrap gap-x-8 gap-y-2 text-[18px] font-semibold text-ink/80">
+        <ul className="mt-3 flex flex-wrap gap-x-8 gap-y-2 text-[15.5px] font-medium text-ink/75">
           {workedWith.map((name) => (
             <li key={name}>{name}</li>
           ))}
