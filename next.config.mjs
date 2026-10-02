@@ -1,6 +1,17 @@
 /** @type {import('next').NextConfig} */
+import { createHash } from "node:crypto";
+import { readFileSync } from "node:fs";
+
+// The CV's links carry a tag from the file's contents, so any change to the CV changes the link and no browser,
+// phone or proxy can hand back an old copy to someone clicking through from the site.
+const version = (file) => createHash("sha1").update(readFileSync(new URL(`./public/assets/${file}`, import.meta.url))).digest("hex").slice(0, 10);
+
 // No `output: "standalone"`: Railway starts the app with `next start`, which warns under standalone.
 const nextConfig = {
+  env: {
+    CV_PDF_VERSION: version("abel_ghebrezadik_cv.pdf"),
+    CV_DOCX_VERSION: version("abel_ghebrezadik_cv.docx"),
+  },
   images: {
     // AVIF first: about 20-30% smaller than WebP for the app screenshots; browsers without it get WebP.
     formats: ["image/avif", "image/webp"],

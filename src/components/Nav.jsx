@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Container from "./Container.jsx";
-import { NavLink, Pill } from "./ui/Actions.jsx";
+import { NavLink } from "./ui/Actions.jsx";
+import BookCall from "./BookCall.jsx";
 import { profile, nav } from "../content/profile.js";
 
 // Sticky on a paper background so the main action is always one tap away; html scroll-padding-top keeps anchors
@@ -26,7 +27,7 @@ export default function Nav() {
             </ul>
           </nav>
           <span className="hidden sm:inline-flex">
-            <Pill href="/#contact">Book a call</Pill>
+            <BookCall>Book a call</BookCall>
           </span>
         </div>
       </Container>
