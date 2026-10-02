@@ -26,3 +26,9 @@ Cloudflare's default Browser Cache TTL (4 hours) overrides that, so phones kept 
 carries `?v=` plus the first 10 characters of the file's SHA-1, computed in `next.config.mjs` at build: a changed CV is
 a new link. Links outside the site still use the plain address, which updates once Cloudflare's Browser Cache TTL is
 set to "Respect Existing Headers".
+
+## Images: WebP, not AVIF
+
+AVIF (added in 0011) encoded 2-3x slower than WebP on first request and saved only 7-20% (measured locally: 0.81s vs
+0.30s for one phone screenshot). On CI's small runner that queued page loads past the 30s test timeout, and the first
+visitor to each image after a deploy waits for the same encode. Images are served as WebP only.

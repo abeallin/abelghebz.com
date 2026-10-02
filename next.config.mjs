@@ -13,8 +13,9 @@ const nextConfig = {
     CV_DOCX_VERSION: version("abel_ghebrezadik_cv.docx"),
   },
   images: {
-    // AVIF first: about 20-30% smaller than WebP for the app screenshots; browsers without it get WebP.
-    formats: ["image/avif", "image/webp"],
+    // WebP only. AVIF saved just 7-20% here but took 2-3x longer to encode on first request (0.8s for one phone
+    // screenshot locally); on CI's small runner that queued page loads past 30s, and first visitors after a deploy wait.
+    formats: ["image/webp"],
     minimumCacheTTL: 60 * 60 * 24 * 7,
   },
   async headers() {

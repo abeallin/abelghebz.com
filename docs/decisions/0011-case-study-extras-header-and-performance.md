@@ -23,7 +23,8 @@
    (MIT); a technology without an exact mark shows as text, never a stand-in (C# once wore the "sharp" library's mark).
 6. **Preview images:** home shows the photo, name, role and headline; each case study shows its headline beside two
    real screens on the project's cover colour (`src/content/covers.js`).
-7. **Performance:** Erode ships one weight (400); images are served as AVIF first; public images cache for a week.
+7. **Performance:** Erode ships one weight (400); public images cache for a week. AVIF was tried and dropped on
+   2 October 2026 (decision 0012): 2-3x slower to encode than WebP for 7-20% smaller files, which stalled CI page loads.
    JetBrains Mono stays preloaded: removing it made the first screen's mono labels re-render late (live speed index
    1.8s to 3.0s). Local Lighthouse (mobile) on Betmate went from 89 to 98. Live scores vary by up to 10 points between
    runs, so live single runs are not used to judge small changes.
