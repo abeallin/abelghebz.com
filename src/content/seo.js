@@ -41,7 +41,7 @@ const projectSeo = {
   gpflow: {
     title: `GPFlow: NHS GP Clinical Template Automation App | ${name}`,
     description:
-      "Case study on building GPFlow, a dual Electron desktop and Next.js web application that automates bulk clinical templates for NHS primary care practices using Playwright.",
+      "Case study on building GPFlow, a dual Electron desktop and Next.js web application that automates bulk clinical templates for GP practices in North Central London using Playwright.",
     keywords: [
       "NHS GP automation",
       "clinical template automation",

@@ -6,7 +6,7 @@ export const experience = [
     period: "Dec 2025 — Present",
     outcome: "Built an AI conversational assistant on AWS Bedrock for 200+ team members, cutting onboarding time and internal support requests across Slack and Jira.",
     detail:
-      "Crypto gambling platform. Cut average API latency from 14s to 2s with Lambda warm-up pings and provisioned concurrency (94% hit rate); 50% faster Snowflake and MySQL queries. Rebuilt a five-year-old Angular frontend into a modern UI based on Cloudflare's designs, with standardised patterns and strict frontend principles. Wrote 250 pages of in-app documentation covering customer-ops triage, how-to guides and permissions and access. Refactored TypeScript for algorithmic efficiency, added Redis batch pipelines and rebuilt data tables with keyset pagination, making tables with billions of records retrievable. Built a regression-test automation app that runs UI tests with Playwright, traces Bitbucket PRs to create test cases, and integrates with Claude through an MCP server I built. Now building a new React and .NET app with DDD, CQRS over Kafka and gRPC between services.",
+      "Crypto gambling platform. Cut average API latency from 14s to 2s with Lambda warm-up pings and provisioned concurrency (94% hit rate); 50% faster Snowflake and MySQL queries. Rebuilt a five-year-old Angular frontend into a modern UI based on Cloudflare's designs, with standardised patterns and strict frontend principles. Wrote 250 pages of in-app documentation covering customer-ops triage, how-to guides and permissions and access. Refactored TypeScript for algorithmic efficiency, added Redis batch pipelines and rebuilt data tables with keyset pagination, making tables with billions of records retrievable. Built a regression-test automation app that runs UI tests with Playwright, traces Bitbucket PRs to create test cases, and integrates with Claude through an MCP server I built. Rebuilt the internal admin platform in React and .NET with DDD, CQRS over Kafka, gRPC between services and a GraphQL API, migrating it function by function with AI agents.",
     stack: ["C# / .NET", "TypeScript", "Angular", "React", "AWS Bedrock", "AWS Lambda", "Snowflake", "Redis", "Kafka", "gRPC"],
     link: { label: "arenaentertainment.com", url: "https://arenaentertainment.com/" },
   },
@@ -24,9 +24,9 @@ export const experience = [
     company: "NHS England",
     role: "Software Engineer (Contract)",
     period: "Dec 2024 — Feb 2025",
-    outcome: "Automated bulk creation and deletion of templates in a healthcare application used by GPs nationwide.",
+    outcome: "Automated bulk creation and deletion of templates in Accurx for GP practices in North Central London (NCL).",
     detail:
-      "Delivered a desktop application that drives a third-party healthcare application with Selenium, removing a significant amount of manual work.",
+      "Delivered a desktop application that drives a third-party healthcare application with Selenium, cutting a template sweep from 4 hours of manual work to 4 minutes.",
     stack: ["Python", "Selenium", "Tkinter", "CSV"],
     link: { label: "england.nhs.uk", url: "https://www.england.nhs.uk/" },
   },
@@ -45,8 +45,8 @@ export const experience = [
     period: "Aug 2021 — Apr 2024",
     outcome: "Technical lead on Project Tahiti, which saved the company millions in fines. Resolved 500+ production issues in 6 months, 80% faster than other engineers.",
     detail:
-      "Credit facility platform. Built frontend and backend features, mentored juniors and stepped into Lead Developer duties. Worked on the debt sale implementation and presented to external clients.",
-    stack: ["C# / .NET 6", "React", "MSSQL", "Microservices"],
+      "Credit facility platform. Built frontend and backend features, mentored juniors and stepped into Lead Developer duties. Created the backend logic for the debt sale implementation and presented it to an external client.",
+    stack: ["C# / .NET 6", "TypeScript", "Vue", "Python", "MySQL", "MSSQL", "Microservices"],
     link: { label: "salaryfinance.com", url: "https://www.salaryfinance.com/uk/" },
   },
   {
