@@ -143,7 +143,7 @@ export const projects = [
       { lead: "Bulk operations.", text: "Create or delete a template across every selected practice." },
       { lead: "Automation.", text: "Playwright drives Accurx, with a run dashboard showing live progress." },
     ],
-    result: "Template changes that took manual work at each practice became one bulk run, removing a significant amount of time and labour.",
+    result: "Template changes that took manual work at each practice became one bulk run: a template sweep that took 4 hours by hand now takes 4 minutes.",
   },
   {
     slug: "whenwillyoumarry",

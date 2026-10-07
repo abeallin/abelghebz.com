@@ -26,7 +26,7 @@ export const experience = [
     period: "Dec 2024 — Feb 2025",
     outcome: "Automated bulk creation and deletion of templates in a healthcare application used by GPs nationwide.",
     detail:
-      "Delivered a desktop application that drives a third-party healthcare application with Selenium, removing one day of repetitive manual work.",
+      "Delivered a desktop application that drives a third-party healthcare application with Selenium, cutting a template sweep from 4 hours of manual work to 4 minutes.",
     stack: ["Python", "Selenium", "Tkinter", "CSV"],
     link: { label: "england.nhs.uk", url: "https://www.england.nhs.uk/" },
   },
