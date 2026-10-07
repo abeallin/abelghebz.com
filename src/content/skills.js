@@ -1,5 +1,5 @@
 export const skillGroups = [
-  { label: "Languages", items: ["C#", "TypeScript", "JavaScript", "Python", "Java", "C++", "Go", "Perl"] },
+  { label: "Languages", items: ["C#", "TypeScript", "JavaScript", "Python", "Java", "C++", "Go", "Kotlin", "Swift", "Perl"] },
   { label: "Frameworks", items: [".NET", "React", "Next.js", "Vue.js", "Node.js", "Blazor", "React Native", "Expo", "WinForms"] },
   { label: "Databases", items: ["MSSQL", "PostgreSQL", "MySQL", "CockroachDB", "Snowflake", "MongoDB"] },
   { label: "Cloud and DevOps", items: ["AWS (Lambda, Bedrock)", "Azure", "Railway", "Vercel", "Cloudflare", "Docker", "Terraform", "GitHub Actions", "ArgoCD"] },
