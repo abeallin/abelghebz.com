@@ -112,7 +112,7 @@ export const projects = [
     name: "GPFlow",
     kind: "web",
     eyebrow: "Contract · NHS England · 2025",
-    headline: "Bulk template management for GP practices, built for NHS England",
+    headline: "Bulk template management for GP practices in North Central London, built for NHS England",
     summary: "A Next.js and Tailwind app, shipped as an Electron desktop app and as a web app, that automates Accurx template management: load practices from a CSV, then create or delete templates across all of them at once.",
     facts: [
       { label: "Client", value: "NHS England" },
@@ -136,7 +136,7 @@ export const projects = [
       { src: "/screenshots/GPFlow3.png", caption: "Run dashboard", ratio: "web" },
     ],
     problem:
-      "GPs nationwide use Accurx, a third-party healthcare application, to send templated messages. Creating or deleting a template across many practices was manual work, practice by practice.",
+      "GP practices use Accurx, a third-party healthcare application, to send templated messages. In North Central London (NCL), creating or deleting a template across many practices was manual work, practice by practice.",
     built: [
       { lead: "Desktop and web.", text: "One Next.js and Tailwind front end, packaged with Electron for the desktop and served as a web app." },
       { lead: "CSV import.", text: "Select the practices to work on from one file." },

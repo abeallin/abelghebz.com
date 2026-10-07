@@ -24,7 +24,7 @@ export const experience = [
     company: "NHS England",
     role: "Software Engineer (Contract)",
     period: "Dec 2024 — Feb 2025",
-    outcome: "Automated bulk creation and deletion of templates in a healthcare application used by GPs nationwide.",
+    outcome: "Automated bulk creation and deletion of templates in Accurx for GP practices in North Central London (NCL).",
     detail:
       "Delivered a desktop application that drives a third-party healthcare application with Selenium, cutting a template sweep from 4 hours of manual work to 4 minutes.",
     stack: ["Python", "Selenium", "Tkinter", "CSV"],
