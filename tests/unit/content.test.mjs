@@ -102,6 +102,16 @@ test("cabeazy is a pre-launch own product with its live site, pricing and no inv
   assert.doesNotMatch(JSON.stringify(c), /\b\d[\d,]* (users|rides|drivers signed)/);
 });
 
+test("perfectrole is a live own product with its ATS index stats, OAuth 2.0 Talent Vault and GBP billing", () => {
+  const p = projects.find((x) => x.slug === "perfectrole");
+  assert.ok(p, "perfectrole project exists");
+  assert.ok(p.live.some((l) => l.url === "https://perfectrole.app"));
+  for (const t of ["TypeScript", "Next.js", "Tailwind CSS", "SQLite", "Stripe", "Railway"]) assert.ok(p.stack.includes(t), t);
+  assert.match(JSON.stringify(p.built), /OAuth 2\.0/);
+  assert.match(JSON.stringify(p.built), /in GBP/);
+  assert.ok(p.screens.some((s) => s.ratio === "web") && p.screens.some((s) => s.ratio === "phone"), "mixes web and phone screens");
+});
+
 test("GPFlow's stack is what its repo uses: Next.js, Tailwind, Electron and Playwright, not Selenium", () => {
   const g = projects.find((p) => p.slug === "gpflow");
   for (const t of ["Next.js", "Tailwind CSS", "Electron", "Playwright"]) assert.ok(g.stack.includes(t), t);

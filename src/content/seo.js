@@ -71,9 +71,9 @@ const projectSeo = {
     operatingSystem: "Web",
   },
   perfectrole: {
-    title: `PerfectRole: 135k+ Direct-to-Employer Job Index & Salary Intelligence | ${name}`,
+    title: `perfectrole.app: 135k+ Direct-to-Employer Job Index & Salary Intelligence | ${name}`,
     description:
-      "Case study on building PerfectRole (perfectrole.app), a direct-to-employer ATS job aggregation engine, regional compensation benchmark platform, and double-opt-in Talent Vault indexing 135,000+ roles across 1,644 companies.",
+      "Case study on building perfectrole.app, a direct-to-employer ATS job aggregation engine, regional compensation benchmark platform, and double-opt-in Talent Vault indexing 135,000+ roles across 1,644 companies.",
     keywords: [
       "direct to employer job board",
       "ATS job aggregator architecture",
