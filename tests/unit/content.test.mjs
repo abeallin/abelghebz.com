@@ -160,6 +160,7 @@ test("stat strips use only facts already in the content, and only where numbers 
   const byslug = Object.fromEntries(projects.map((p) => [p.slug, p]));
   assert.deepEqual(byslug.betmate.stats.map((s) => s.value), ["1M", "£500k", "iOS + Android"]);
   assert.deepEqual(byslug.cabeazy.stats.map((s) => s.value), ["0%", "£50", "3"]);
+  assert.deepEqual(byslug.perfectrole.stats.map((s) => s.value), ["135k+", "1,644", "18"]);
   assert.equal(byslug.gpflow.stats, undefined);
   assert.equal(byslug.whenwillyoumarry.stats, undefined);
 });

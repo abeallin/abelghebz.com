@@ -24,9 +24,9 @@ test.describe("case studies with JavaScript off", () => {
     await expect(page.getByRole("heading", { level: 1 })).toHaveText("Page not found");
   });
 
-  test("next project cycles through all three and back", async ({ page }) => {
-    const order = ["betmate", "cabeazy", "gpflow", "whenwillyoumarry", "betmate"];
-    for (let i = 0; i < 4; i++) {
+  test("next project cycles through all projects and back", async ({ page }) => {
+    const order = ["betmate", "cabeazy", "gpflow", "whenwillyoumarry", "perfectrole", "betmate"];
+    for (let i = 0; i < 5; i++) {
       await page.goto(`/work/${order[i]}`);
       await expect(page.getByRole("link", { name: /^Next project/ })).toHaveAttribute("href", `/work/${order[i + 1]}`);
     }
