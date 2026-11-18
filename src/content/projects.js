@@ -64,7 +64,7 @@ const raw = [
     role: "Founder & sole engineer",
     headline: "A ride-hailing platform for London where drivers keep 100% of every fare",
     summary:
-      "Native Android (Kotlin) and iOS (SwiftUI) apps for passengers and drivers, a portal for cab offices and the Go API behind them. The marketing site is live at cabeazy.com; a closed Android beta is next.",
+      "Native Android (Kotlin) and iOS (SwiftUI) apps for passengers and drivers, a portal for cab offices and the Go API behind them. The marketing site is live at cabeazy.com; the apps are in testing on Google Play and TestFlight, with a closed beta for the first drivers and passengers next.",
     facts: [
       { label: "Client", value: "Own product" },
       { label: "Since", value: "Mar 2026" },
@@ -105,7 +105,7 @@ const raw = [
       { lead: "Real time.", text: "Ride updates over WebSockets, fanned out through Redis across instances; unanswered offers are re-dispatched every 4 seconds." },
       { lead: "Apps and web.", text: "Native passenger and driver apps in Kotlin and Jetpack Compose on Android and SwiftUI on iOS, with in-app calls over LiveKit; a Next.js marketing site, cab-office portal and admin." },
     ],
-    result: "The marketing site is live at cabeazy.com. The platform is pre-launch, with a closed Android beta next.",
+    result: "The marketing site is live at cabeazy.com. The platform is pre-launch: the Android and iOS apps are in testing on Google Play and TestFlight, with a closed beta for the first drivers and passengers next.",
   },
   {
     slug: "gpflow",
