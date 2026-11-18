@@ -1,16 +1,16 @@
 // Case-study text is drawn only from Abel's existing site content, his CV and what the screenshots show.
 // Captions were written by Claude from looking at each screenshot; Abel confirms them in the PR.
-export const projects = [
+const raw = [
   {
     slug: "betmate",
     name: "Betmate",
     kind: "mobile",
     eyebrow: "Backend lead · 2025",
+    role: "Lead / Senior Software Engineer",
     headline: "A £500k-jackpot multiplayer game for a leading sports betting company, scaled to 1 million users",
     summary: "I led the backend for Final One Standing: serverless C# on AWS Lambda, event-driven through SNS and SQS, on CockroachDB.",
     facts: [
       { label: "Client", value: "Betmate" },
-      { label: "Role", value: "Lead / Senior Software Engineer" },
       { label: "When", value: "Apr — Jul 2025" },
     ],
     live: [
@@ -56,41 +56,41 @@ export const projects = [
   },
   {
     // From the cabeazy repo (README, AGENTS.md, docs/engineering.md, TODO.md) and the live cabeazy.com, 1 Oct 2026.
-    // Status, pricing and screenshots confirmed by Abel the same day. Screens show test data, not real customers.
+    // Status, pricing and screenshots confirmed by Abel the same day. Driver pricing moved to £5 a day (cabeazy decision 0044), confirmed 18 Nov 2026. Screens show test data, not real customers.
     slug: "cabeazy",
     name: "cabeazy",
     kind: "mobile",
     eyebrow: "Own product · pre-launch",
+    role: "Founder & sole engineer",
     headline: "A ride-hailing platform for London where drivers keep 100% of every fare",
     summary:
-      "Passenger and driver apps, a portal for cab offices and the Go API behind them. The marketing site is live at cabeazy.com; a closed Android beta is next.",
+      "Native Android (Kotlin) and iOS (SwiftUI) apps for passengers and drivers, a portal for cab offices and the Go API behind them. The marketing site is live at cabeazy.com; the apps are in testing on Google Play and TestFlight, with a closed beta for the first drivers and passengers next.",
     facts: [
       { label: "Client", value: "Own product" },
-      { label: "Role", value: "Sole developer" },
       { label: "Since", value: "Mar 2026" },
     ],
     live: [{ label: "cabeazy.com", url: "https://cabeazy.com" }],
-    stack: ["Go", "PostgreSQL", "Redis", "NATS", "Stripe", "WebSockets", "React Native", "Expo", "Kotlin", "Jetpack Compose", "Next.js", "Mapbox", "Sentry", "Docker", "Railway", "Maestro"],
+    stack: ["Go", "PostgreSQL", "Redis", "Stripe", "WebSockets", "Kotlin", "Jetpack Compose", "Swift", "SwiftUI", "Next.js", "Mapbox", "LiveKit", "Sentry", "Docker", "Railway", "Maestro"],
     stats: [
       { value: "0%", label: "commission on fares" },
-      { value: "£50", label: "a month, flat, for drivers" },
+      { value: "£5", label: "a day driven, flat, for drivers" },
       { value: "3", label: "kinds of user: passengers, drivers, cab offices" },
     ],
     flow: {
       title: "A cab office's way in",
       steps: [
-        { src: "/screenshots/cabeazy-london.jpg", caption: "Find cabeazy" },
-        { src: "/screenshots/cabeazy-cab-offices.jpg", caption: "See the office offer" },
-        { src: "/screenshots/cabeazy-portal-demo.jpg", caption: "Try the portal demo" },
+        { src: "/screenshots/cabeazy-london-2026-11.jpg", caption: "Find cabeazy" },
+        { src: "/screenshots/cabeazy-cab-offices-2026-11.jpg", caption: "See the office offer" },
+        { src: "/screenshots/cabeazy-portal-demo-2026-11.jpg", caption: "See the live board" },
         { src: "/screenshots/cabeazy-operator-dashboard.jpg", caption: "Run live operations" },
       ],
     },
     screens: [
-      { src: "/screenshots/cabeazy-london.jpg", caption: "cabeazy.com, launching in London", ratio: "web" },
-      { src: "/screenshots/cabeazy-cab-offices.jpg", caption: "Modern dispatch for cab offices", ratio: "web" },
+      { src: "/screenshots/cabeazy-london-2026-11.jpg", caption: "cabeazy in London: offices and drivers can apply now", ratio: "web" },
+      { src: "/screenshots/cabeazy-cab-offices-2026-11.jpg", caption: "Everything a cab office runs on, in one system", ratio: "web" },
       { src: "/screenshots/cabeazy-operator-dashboard.jpg", caption: "Operator portal: live operations", ratio: "web" },
-      { src: "/screenshots/cabeazy-portal-demo.jpg", caption: "Clickable demo of the booking queue", ratio: "web" },
-      { src: "/screenshots/cabeazy-cities.jpg", caption: "Planned UK cities", ratio: "web" },
+      { src: "/screenshots/cabeazy-portal-demo-2026-11.jpg", caption: "Live board of every booking, from a demo office", ratio: "web" },
+      { src: "/screenshots/cabeazy-cities-2026-11.jpg", caption: "Choose your city", ratio: "web" },
       { src: "/screenshots/cabeazy-driver-earnings.jpg", caption: "Driver earnings", ratio: "phone" },
       { src: "/screenshots/cabeazy-driver-licence.jpg", caption: "Driver's PHV licence", ratio: "phone" },
       { src: "/screenshots/cabeazy-driver-vehicle.jpg", caption: "Vehicle and documents", ratio: "phone" },
@@ -98,25 +98,25 @@ export const projects = [
       { src: "/screenshots/cabeazy-passenger-account.jpg", caption: "Passenger account", ratio: "phone" },
     ],
     problem:
-      "Ride-hailing apps take a commission on every fare. cabeazy charges drivers a flat £50 a month and cab offices £10 per driver per month instead, with no commission. That means running bookings, dispatch and payments for three kinds of user at once: passengers, drivers and cab offices.",
+      "Ride-hailing apps take a commission on every fare. cabeazy charges drivers a flat £5 for each day they drive, taken from their weekly payouts, and cab offices a one-off £1,000 onboarding fee plus £2.50 per driver for each day they work for them, with no commission. That means running bookings, dispatch and payments for three kinds of user at once: passengers, drivers and cab offices.",
     built: [
       { lead: "Contract-first API.", text: "A Go API on PostgreSQL and Redis whose /v2 is generated from an OpenAPI spec; CI fails if the code drifts from it." },
       { lead: "Money that adds up.", text: "Signed fare quotes valid for 10 minutes, idempotency keys on booking and payouts, and settlement through a job queue where every step is safe to retry." },
       { lead: "Real time.", text: "Ride updates over WebSockets, fanned out through Redis across instances; unanswered offers are re-dispatched every 4 seconds." },
-      { lead: "Apps and web.", text: "React Native apps for passengers and drivers today, with a native Kotlin Android app under way and a Swift iOS app planned; a Next.js marketing site, operator portal and admin." },
+      { lead: "Apps and web.", text: "Native passenger and driver apps in Kotlin and Jetpack Compose on Android and SwiftUI on iOS, with in-app calls over LiveKit; a Next.js marketing site, cab-office portal and admin." },
     ],
-    result: "The marketing site is live at cabeazy.com. The platform is pre-launch, with a closed Android beta next.",
+    result: "The marketing site is live at cabeazy.com. The platform is pre-launch: the Android and iOS apps are in testing on Google Play and TestFlight, with a closed beta for the first drivers and passengers next.",
   },
   {
     slug: "gpflow",
     name: "GPFlow",
     kind: "web",
     eyebrow: "Contract · NHS England · 2025",
+    role: "Software Engineer (Contract)",
     headline: "Bulk template management for GP practices in North Central London, built for NHS England",
     summary: "A Next.js and Tailwind app, shipped as an Electron desktop app and as a web app, that automates Accurx template management: load practices from a CSV, then create or delete templates across all of them at once.",
     facts: [
       { label: "Client", value: "NHS England" },
-      { label: "Role", value: "Software Engineer (Contract)" },
       { label: "When", value: "Dec 2024 — Feb 2025" },
     ],
     live: [{ label: "Web app", url: "https://gpflow-prod.up.railway.app/data/" }],
@@ -150,6 +150,7 @@ export const projects = [
     name: "whenwillyoumarry.com",
     kind: "web",
     eyebrow: "Own product",
+    role: "Founder & full-stack engineer",
     headline: "A wedding website builder with RSVPs, seating and guest messaging in one place",
     summary: "Couples pick a template, add their details and share one link. Behind it: RSVP and guest management, a seating chart, email and SMS broadcasts and a gift registry.",
     facts: [
@@ -157,7 +158,7 @@ export const projects = [
       { label: "Stack", value: "Next.js, PostgreSQL, Railway" },
     ],
     live: [{ label: "whenwillyoumarry.com", url: "https://whenwillyoumarry.com" }],
-    stack: ["TypeScript", "Next.js", "Tailwind CSS", "PostgreSQL", "Drizzle", "Redis", "Stripe", "Cloudflare R2", "Railway", "Playwright", "Vitest", "Sentry"],
+    stack: ["TypeScript", "Next.js", "Tailwind CSS", "PostgreSQL", "Drizzle", "Redis", "Stripe", "Cloudflare R2", "AhaSend", "Claude API", "Railway", "Playwright", "Vitest", "Sentry"],
     flow: {
       title: "Building a wedding site",
       steps: [
@@ -168,14 +169,14 @@ export const projects = [
       ],
     },
     screens: [
-      { src: "/screenshots/WWYM1.png", caption: "Home page", ratio: "web" },
-      { src: "/screenshots/WWYM2.png", caption: "Live in three steps", ratio: "web" },
+      { src: "/screenshots/WWYM1-2026-11.png", caption: "Home page", ratio: "web" },
+      { src: "/screenshots/WWYM2-2026-11.png", caption: "Live demo site in the Classic template", ratio: "web" },
       { src: "/screenshots/WWYM4.png", caption: "Visual editor with live preview", ratio: "web" },
       { src: "/screenshots/WWYM5.png", caption: "Editing the wedding details", ratio: "web" },
       { src: "/screenshots/WWYM6.png", caption: "RSVP and guest management", ratio: "web" },
       { src: "/screenshots/WWYM7.png", caption: "Drag-and-drop seating chart", ratio: "web" },
       { src: "/screenshots/WWYM8.png", caption: "Email and SMS broadcasts", ratio: "web" },
-      { src: "/screenshots/WWYM3.png", caption: "Features", ratio: "web" },
+      { src: "/screenshots/WWYM3-2026-11.png", caption: "Features: editor, RSVPs and seating", ratio: "web" },
     ],
     problem:
       "A wedding needs a website, an RSVP list, a seating plan and a way to reach every guest. whenwillyoumarry puts all four in one place.",
@@ -183,59 +184,66 @@ export const projects = [
       { lead: "Templates and editor.", text: "Customisable templates with a visual editor and live preview." },
       { lead: "Guests.", text: "RSVP tracking and a guest list." },
       { lead: "Seating.", text: "A drag-and-drop seating chart." },
-      { lead: "Messaging.", text: "Email and SMS broadcasts to all guests or a filtered group through Sweego, plus a gift registry." },
+      { lead: "Messaging.", text: "Email and SMS broadcasts to all guests or a filtered group, with email through AhaSend and SMS through Sweego, plus a gift registry." },
     ],
-    result: "Live at whenwillyoumarry.com, with a free tier to start building.",
+    result: "Live at whenwillyoumarry.com: free to build, and £59 once to publish.",
   },
   {
     slug: "perfectrole",
     name: "perfectrole.app",
     kind: "web",
     eyebrow: "Own product · 2026",
+    role: "Founder & sole engineer",
     headline: "A direct-to-employer job index and salary intelligence platform across 135,000+ live roles",
     summary:
-      "Aggregates live roles straight from 1,644 employer ATS feeds across North America, the UK and Europe, with regional salary percentiles and a double-opt-in Talent Vault.",
+      "Aggregates live roles straight from 2,500+ companies' own careers pages across North America, the UK and Europe, with pay, equity and visa details, median pay in 18 markets and role alerts.",
     facts: [
       { label: "Client", value: "Own product" },
-      { label: "Role", value: "Sole developer" },
       { label: "Stack", value: "Next.js, SQLite, Stripe, Railway" },
     ],
     live: [{ label: "perfectrole.app", url: "https://perfectrole.app" }],
-    stack: ["TypeScript", "Next.js", "Tailwind CSS", "SQLite", "Stripe", "Cloudflare R2", "Railway", "Playwright"],
+    stack: ["TypeScript", "Next.js", "Tailwind CSS", "shadcn/ui", "SQLite", "Stripe", "AhaSend", "Docker", "Railway", "Playwright"],
+    // Figures read from perfectrole.app and its /api/health on 18 Nov 2026 (139,394 roles, 2,509 companies).
+    // The Talent Vault is parked (src/lib/vault-parked.ts redirects /talent-vault), so it is not described as live.
     stats: [
       { value: "135k+", label: "verified direct-to-employer roles" },
-      { value: "1,644", label: "company ATS feeds indexed" },
-      { value: "18", label: "country and regional hubs" },
+      { value: "2,500+", label: "company careers pages indexed" },
+      { value: "18", label: "markets with median pay" },
     ],
     flow: {
-      title: "From search to warm intro",
+      title: "From search to the employer's own site",
       steps: [
-        { src: "/screenshots/perfectrole-home.png", caption: "Filter live ATS roles" },
-        { src: "/screenshots/perfectrole-command.png", caption: "Search by stack in ⌘K" },
-        { src: "/screenshots/perfectrole-insights.png", caption: "Compare regional pay" },
-        { src: "/screenshots/perfectrole-vault.png", caption: "Join the Talent Vault" },
+        { src: "/screenshots/perfectrole-home-2026-11.png", caption: "Filter live ATS roles" },
+        { src: "/screenshots/perfectrole-command-2026-11.png", caption: "Search in the command palette" },
+        { src: "/screenshots/perfectrole-insights-2026-11.png", caption: "Compare pay by market" },
+        { src: "/screenshots/perfectrole-employers-2026-11.png", caption: "Employers claim their company" },
       ],
     },
     screens: [
-      { src: "/screenshots/perfectrole-home.png", caption: "perfectrole.app: 135,000+ verified direct-to-employer jobs", ratio: "web" },
-      { src: "/screenshots/perfectrole-command.png", caption: "Instant command palette search across roles, stacks and companies", ratio: "web" },
-      { src: "/screenshots/perfectrole-insights.png", caption: "Live compensation percentiles by seniority, tech stack and country", ratio: "web" },
-      { src: "/screenshots/perfectrole-vault.png", caption: "Double-opt-in Talent Vault with live role match scores and salary floor", ratio: "web" },
-      { src: "/screenshots/perfectrole-employers.png", caption: "Self-serve employer job slots and Brand Hub checkout in GBP", ratio: "web" },
-      { src: "/screenshots/perfectrole-mobile-home.png", caption: "Mobile UK & regional job feed", ratio: "phone" },
-      { src: "/screenshots/perfectrole-mobile-vault.png", caption: "Mobile Talent Vault salary floor", ratio: "phone" },
+      { src: "/screenshots/perfectrole-home-2026-11.png", caption: "perfectrole.app: 139,000+ roles from 2,500+ company careers pages", ratio: "web" },
+      { src: "/screenshots/perfectrole-command-2026-11.png", caption: "Command palette search across skills, companies and roles", ratio: "web" },
+      { src: "/screenshots/perfectrole-insights-2026-11.png", caption: "Weekly insights: median pay, visa sponsors and hiring velocity", ratio: "web" },
+      { src: "/screenshots/perfectrole-employers-2026-11.png", caption: "Employers claim their company and pin a role free for 30 days", ratio: "web" },
+      { src: "/screenshots/perfectrole-mobile-home-2026-11.png", caption: "Mobile job feed", ratio: "phone" },
+      { src: "/screenshots/perfectrole-mobile-insights-2026-11.png", caption: "Mobile weekly insights", ratio: "phone" },
     ],
     problem:
-      "Most job boards recycle stale listings, hide compensation and route candidates through third-party agency forms. Engineers and operators need verified links straight to the employer's own ATS, transparent regional salary benchmarks and a private way to receive warm introductions without exposing their profile to their current employer.",
+      "Most job boards recycle stale listings, hide compensation and route candidates through third-party agency forms. Engineers and operators need verified links straight to the employer's own ATS, with pay, equity and visa details up front and honest benchmarks for what a role pays in their market.",
     built: [
-      { lead: "Direct ATS ingestion.", text: "Concurrent ingestion pipelines indexing 135,000+ active roles across 1,644 companies on Greenhouse, Lever, Ashby, Workable, SmartRecruiters and Recruitee into a WAL-tuned SQLite index with in-memory SWR prewarming." },
-      { lead: "Regional compensation engine.", text: "Live P25, P50, P75 and P90 salary benchmarks across 18 North American, UK and European hubs in native GBP, EUR, USD and CAD." },
-      { lead: "Double-opt-in Talent Vault.", text: "Google and GitHub OAuth 2.0 verification, GitHub proof-of-work repo analysis, automatic employer domain blocking, live candidate match scores and an in-app pitch inbox with 1-click approve or pass links." },
-      { lead: "Employer billing and alerts.", text: "Self-serve Featured Slot and Brand Hub checkout in GBP via Stripe, an employer sent-pitches tracker with ATS role picker, and transactional warm-intro and instant salary-floor alert emails via AhaSend." },
+      { lead: "Direct ATS ingestion.", text: "Concurrent ingestion pipelines indexing 135,000+ active roles across 2,500+ companies on Workday, Greenhouse, Lever, Ashby, SmartRecruiters, Workable, Personio and more into a WAL-tuned SQLite index with in-memory SWR prewarming." },
+      { lead: "Pay intelligence.", text: "Median pay across 18 North American, UK and European markets in native GBP, EUR, USD and CAD, with how each job, company and tech stack pays against its market." },
+      { lead: "Search and alerts.", text: "A command palette with live suggestions across skills, companies and roles, saved roles, Google and GitHub OAuth 2.0 sign-in, and role alert emails via AhaSend." },
+      { lead: "Employers.", text: "Companies claim their page with a verified work email and pin a role free for 30 days; paid featured slots and Brand Hubs check out in GBP via Stripe." },
     ],
-    result: "Live at perfectrole.app with 135,000+ active roles indexed across 1,644 verified employers.",
+    result: "Live at perfectrole.app with 139,000+ active roles from 2,500+ company careers pages.",
   },
 ];
+
+// Role lives once on each project and is slotted into the facts row right after Client.
+export const projects = raw.map((p) => {
+  const [client, ...rest] = p.facts;
+  return { ...p, facts: [client, { label: "Role", value: p.role }, ...rest] };
+});
 
 export const projectBySlug = (slug) => projects.find((p) => p.slug === slug);
 

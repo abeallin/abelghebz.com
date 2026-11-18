@@ -21,8 +21,8 @@ test("Betmate says it scaled to 1 million users", () => {
   assert.match(JSON.stringify(experience.find((e) => e.company === "Betmate")), /1 million users/);
 });
 
-test("Arena started in Dec 2025", () => {
-  assert.match(experience.find((e) => e.company === "Arena Entertainment").period, /^Dec 2025/);
+test("Arena ran from Dec 2025 to Nov 2026", () => {
+  assert.equal(experience.find((e) => e.company === "Arena Entertainment").period, "Dec 2025 — Nov 2026");
 });
 
 test("experience lists seven roles, newest first", () => {
@@ -97,12 +97,13 @@ test("cabeazy is a pre-launch own product with its live site, pricing and no inv
   assert.ok(c, "cabeazy project exists");
   assert.match(c.eyebrow, /pre-launch/i);
   assert.ok(c.live.some((l) => l.url === "https://cabeazy.com"));
-  assert.match(JSON.stringify(c), /£50 a month/);
+  assert.match(JSON.stringify(c), /£5 for each day they drive/);
+  assert.doesNotMatch(JSON.stringify(c), /£50 a month/);
   assert.ok(c.screens.some((s) => s.ratio === "web") && c.screens.some((s) => s.ratio === "phone"), "mixes web and phone screens");
   assert.doesNotMatch(JSON.stringify(c), /\b\d[\d,]* (users|rides|drivers signed)/);
 });
 
-test("perfectrole is a live own product with its ATS index stats, OAuth 2.0 Talent Vault and GBP billing", () => {
+test("perfectrole is a live own product with its ATS index stats, OAuth 2.0 sign-in and GBP billing, and no parked Talent Vault", () => {
   const p = projects.find((x) => x.slug === "perfectrole");
   assert.ok(p, "perfectrole project exists");
   assert.ok(p.live.some((l) => l.url === "https://perfectrole.app"));
@@ -110,6 +111,7 @@ test("perfectrole is a live own product with its ATS index stats, OAuth 2.0 Tale
   assert.match(JSON.stringify(p.built), /OAuth 2\.0/);
   assert.match(JSON.stringify(p.built), /in GBP/);
   assert.ok(p.screens.some((s) => s.ratio === "web") && p.screens.some((s) => s.ratio === "phone"), "mixes web and phone screens");
+  assert.doesNotMatch(JSON.stringify(p), /Talent Vault|1,644/);
 });
 
 test("GPFlow's stack is what its repo uses: Next.js, Tailwind, Electron and Playwright, not Selenium", () => {
@@ -118,19 +120,22 @@ test("GPFlow's stack is what its repo uses: Next.js, Tailwind, Electron and Play
   assert.doesNotMatch(JSON.stringify(g), /Selenium/);
 });
 
-test("cabeazy lists Kotlin and says Swift is planned, not built", () => {
+test("cabeazy's apps are native Kotlin and SwiftUI; the React Native apps are gone", () => {
   const c = projects.find((p) => p.slug === "cabeazy");
-  assert.ok(c.stack.includes("Kotlin"));
-  assert.match(JSON.stringify(c.built), /Swift iOS app planned/);
+  for (const t of ["Kotlin", "Swift", "SwiftUI"]) assert.ok(c.stack.includes(t), t);
+  assert.match(JSON.stringify(c.built), /SwiftUI on iOS/);
+  assert.doesNotMatch(JSON.stringify(c), /React Native|Expo/);
 });
 
-test("stacks match the repos: whenwillyoumarry runs on Railway and R2, not AWS; GPFlow uses MongoDB; cabeazy uses NATS", () => {
+test("stacks match the repos: whenwillyoumarry runs on Railway and R2, not AWS; GPFlow uses MongoDB; cabeazy no longer lists NATS", () => {
   const w = projects.find((p) => p.slug === "whenwillyoumarry");
   assert.ok(!w.stack.includes("AWS"), "whenwillyoumarry is not on AWS");
   for (const t of ["Drizzle", "Redis", "Stripe", "Cloudflare R2", "Railway"]) assert.ok(w.stack.includes(t), t);
   assert.doesNotMatch(JSON.stringify(w.facts), /AWS/);
   assert.ok(projects.find((p) => p.slug === "gpflow").stack.includes("MongoDB"));
-  for (const t of ["NATS", "Expo", "Jetpack Compose", "Mapbox"]) assert.ok(projects.find((p) => p.slug === "cabeazy").stack.includes(t), t);
+  for (const t of ["Jetpack Compose", "Mapbox", "LiveKit"]) assert.ok(projects.find((p) => p.slug === "cabeazy").stack.includes(t), t);
+  assert.ok(!projects.find((p) => p.slug === "cabeazy").stack.includes("NATS"), "NATS only lives in the undeployed worker");
+  assert.match(JSON.stringify(projects.find((p) => p.slug === "whenwillyoumarry").built), /email through AhaSend and SMS through Sweego/);
   assert.deepEqual(projects.find((p) => p.slug === "betmate").stack, ["C#", "AWS", "CockroachDB", "Dapper"]);
 });
 
@@ -169,8 +174,8 @@ test("William Hill is not named anywhere in the content (Abel, 2 Oct 2026)", () 
 test("stat strips use only facts already in the content, and only where numbers exist", () => {
   const byslug = Object.fromEntries(projects.map((p) => [p.slug, p]));
   assert.deepEqual(byslug.betmate.stats.map((s) => s.value), ["1M", "£500k", "iOS + Android"]);
-  assert.deepEqual(byslug.cabeazy.stats.map((s) => s.value), ["0%", "£50", "3"]);
-  assert.deepEqual(byslug.perfectrole.stats.map((s) => s.value), ["135k+", "1,644", "18"]);
+  assert.deepEqual(byslug.cabeazy.stats.map((s) => s.value), ["0%", "£5", "3"]);
+  assert.deepEqual(byslug.perfectrole.stats.map((s) => s.value), ["135k+", "2,500+", "18"]);
   assert.equal(byslug.gpflow.stats, undefined);
   assert.equal(byslug.whenwillyoumarry.stats, undefined);
 });
@@ -199,4 +204,17 @@ test("package.json pins Node to the version CI uses", async () => {
   const { readFileSync } = await import("node:fs");
   const pkg = JSON.parse(readFileSync("package.json", "utf8"));
   assert.equal(pkg.engines?.node, "24.x");
+});
+
+test("every project names Abel's role once, and the facts row shows it right after Client", () => {
+  for (const p of projects) {
+    assert.ok(p.role, `${p.slug} has a role`);
+    assert.deepEqual(p.facts.slice(0, 2).map((f) => f.label), ["Client", "Role"], p.slug);
+    assert.equal(p.facts[1].value, p.role);
+    assert.equal(p.facts.filter((f) => f.label === "Role").length, 1, p.slug);
+  }
+  for (const slug of ["betmate", "gpflow"]) {
+    const p = projects.find((x) => x.slug === slug);
+    assert.ok(experience.some((e) => e.role === p.role), `${slug} role matches the CV`);
+  }
 });

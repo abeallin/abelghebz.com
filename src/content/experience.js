@@ -3,7 +3,7 @@ export const experience = [
   {
     company: "Arena Entertainment",
     role: "Full Stack Developer",
-    period: "Dec 2025 — Present",
+    period: "Dec 2025 — Nov 2026",
     outcome: "Built an AI conversational assistant on AWS Bedrock for 200+ team members, cutting onboarding time and internal support requests across Slack and Jira.",
     detail:
       "Crypto gambling platform. Cut average API latency from 14s to 2s with Lambda warm-up pings and provisioned concurrency (94% hit rate); 50% faster Snowflake and MySQL queries. Rebuilt a five-year-old Angular frontend into a modern UI based on Cloudflare's designs, with standardised patterns and strict frontend principles. Wrote 250 pages of in-app documentation covering customer-ops triage, how-to guides and permissions and access. Refactored TypeScript for algorithmic efficiency, added Redis batch pipelines and rebuilt data tables with keyset pagination, making tables with billions of records retrievable. Built a regression-test automation app that runs UI tests with Playwright, traces Bitbucket PRs to create test cases, and integrates with Claude through an MCP server I built. Rebuilt the internal admin platform in React and .NET with DDD, CQRS over Kafka, gRPC between services and a GraphQL API, migrating it function by function with AI agents.",
