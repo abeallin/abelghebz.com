@@ -56,7 +56,7 @@ const raw = [
   },
   {
     // From the cabeazy repo (README, AGENTS.md, docs/engineering.md, TODO.md) and the live cabeazy.com, 1 Oct 2026.
-    // Status, pricing and screenshots confirmed by Abel the same day. Screens show test data, not real customers.
+    // Status, pricing and screenshots confirmed by Abel the same day. Driver pricing moved to £5 a day (cabeazy decision 0044), confirmed 18 Nov 2026. Screens show test data, not real customers.
     slug: "cabeazy",
     name: "cabeazy",
     kind: "mobile",
@@ -73,7 +73,7 @@ const raw = [
     stack: ["Go", "PostgreSQL", "Redis", "NATS", "Stripe", "WebSockets", "React Native", "Expo", "Kotlin", "Jetpack Compose", "Next.js", "Mapbox", "Sentry", "Docker", "Railway", "Maestro"],
     stats: [
       { value: "0%", label: "commission on fares" },
-      { value: "£50", label: "a month, flat, for drivers" },
+      { value: "£5", label: "a day driven, flat, for drivers" },
       { value: "3", label: "kinds of user: passengers, drivers, cab offices" },
     ],
     flow: {
@@ -98,7 +98,7 @@ const raw = [
       { src: "/screenshots/cabeazy-passenger-account.jpg", caption: "Passenger account", ratio: "phone" },
     ],
     problem:
-      "Ride-hailing apps take a commission on every fare. cabeazy charges drivers a flat £50 a month and cab offices £10 per driver per month instead, with no commission. That means running bookings, dispatch and payments for three kinds of user at once: passengers, drivers and cab offices.",
+      "Ride-hailing apps take a commission on every fare. cabeazy charges drivers a flat £5 for each day they drive, taken from their weekly payouts, and cab offices £10 per driver per month instead, with no commission. That means running bookings, dispatch and payments for three kinds of user at once: passengers, drivers and cab offices.",
     built: [
       { lead: "Contract-first API.", text: "A Go API on PostgreSQL and Redis whose /v2 is generated from an OpenAPI spec; CI fails if the code drifts from it." },
       { lead: "Money that adds up.", text: "Signed fare quotes valid for 10 minutes, idempotency keys on booking and payouts, and settlement through a job queue where every step is safe to retry." },

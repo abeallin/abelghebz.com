@@ -97,7 +97,8 @@ test("cabeazy is a pre-launch own product with its live site, pricing and no inv
   assert.ok(c, "cabeazy project exists");
   assert.match(c.eyebrow, /pre-launch/i);
   assert.ok(c.live.some((l) => l.url === "https://cabeazy.com"));
-  assert.match(JSON.stringify(c), /£50 a month/);
+  assert.match(JSON.stringify(c), /£5 for each day they drive/);
+  assert.doesNotMatch(JSON.stringify(c), /£50 a month/);
   assert.ok(c.screens.some((s) => s.ratio === "web") && c.screens.some((s) => s.ratio === "phone"), "mixes web and phone screens");
   assert.doesNotMatch(JSON.stringify(c), /\b\d[\d,]* (users|rides|drivers signed)/);
 });
@@ -169,7 +170,7 @@ test("William Hill is not named anywhere in the content (Abel, 2 Oct 2026)", () 
 test("stat strips use only facts already in the content, and only where numbers exist", () => {
   const byslug = Object.fromEntries(projects.map((p) => [p.slug, p]));
   assert.deepEqual(byslug.betmate.stats.map((s) => s.value), ["1M", "£500k", "iOS + Android"]);
-  assert.deepEqual(byslug.cabeazy.stats.map((s) => s.value), ["0%", "£50", "3"]);
+  assert.deepEqual(byslug.cabeazy.stats.map((s) => s.value), ["0%", "£5", "3"]);
   assert.deepEqual(byslug.perfectrole.stats.map((s) => s.value), ["135k+", "1,644", "18"]);
   assert.equal(byslug.gpflow.stats, undefined);
   assert.equal(byslug.whenwillyoumarry.stats, undefined);
