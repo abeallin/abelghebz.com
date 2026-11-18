@@ -188,6 +188,54 @@ const raw = [
     ],
     result: "Live at whenwillyoumarry.com, with a free tier to start building.",
   },
+  {
+    slug: "perfectrole",
+    name: "perfectrole.app",
+    kind: "web",
+    eyebrow: "Own product · 2026",
+    role: "Founder & sole engineer",
+    headline: "A direct-to-employer job index and salary intelligence platform across 135,000+ live roles",
+    summary:
+      "Aggregates live roles straight from 1,644 employer ATS feeds across North America, the UK and Europe, with regional salary percentiles and a double-opt-in Talent Vault.",
+    facts: [
+      { label: "Client", value: "Own product" },
+      { label: "Stack", value: "Next.js, SQLite, Stripe, Railway" },
+    ],
+    live: [{ label: "perfectrole.app", url: "https://perfectrole.app" }],
+    stack: ["TypeScript", "Next.js", "Tailwind CSS", "SQLite", "Stripe", "Cloudflare R2", "Railway", "Playwright"],
+    stats: [
+      { value: "135k+", label: "verified direct-to-employer roles" },
+      { value: "1,644", label: "company ATS feeds indexed" },
+      { value: "18", label: "country and regional hubs" },
+    ],
+    flow: {
+      title: "From search to warm intro",
+      steps: [
+        { src: "/screenshots/perfectrole-home.png", caption: "Filter live ATS roles" },
+        { src: "/screenshots/perfectrole-command.png", caption: "Search by stack in ⌘K" },
+        { src: "/screenshots/perfectrole-insights.png", caption: "Compare regional pay" },
+        { src: "/screenshots/perfectrole-vault.png", caption: "Join the Talent Vault" },
+      ],
+    },
+    screens: [
+      { src: "/screenshots/perfectrole-home.png", caption: "perfectrole.app: 135,000+ verified direct-to-employer jobs", ratio: "web" },
+      { src: "/screenshots/perfectrole-command.png", caption: "Instant command palette search across roles, stacks and companies", ratio: "web" },
+      { src: "/screenshots/perfectrole-insights.png", caption: "Live compensation percentiles by seniority, tech stack and country", ratio: "web" },
+      { src: "/screenshots/perfectrole-vault.png", caption: "Double-opt-in Talent Vault with live role match scores and salary floor", ratio: "web" },
+      { src: "/screenshots/perfectrole-employers.png", caption: "Self-serve employer job slots and Brand Hub checkout in GBP", ratio: "web" },
+      { src: "/screenshots/perfectrole-mobile-home.png", caption: "Mobile UK & regional job feed", ratio: "phone" },
+      { src: "/screenshots/perfectrole-mobile-vault.png", caption: "Mobile Talent Vault salary floor", ratio: "phone" },
+    ],
+    problem:
+      "Most job boards recycle stale listings, hide compensation and route candidates through third-party agency forms. Engineers and operators need verified links straight to the employer's own ATS, transparent regional salary benchmarks and a private way to receive warm introductions without exposing their profile to their current employer.",
+    built: [
+      { lead: "Direct ATS ingestion.", text: "Concurrent ingestion pipelines indexing 135,000+ active roles across 1,644 companies on Greenhouse, Lever, Ashby, Workable, SmartRecruiters and Recruitee into a WAL-tuned SQLite index with in-memory SWR prewarming." },
+      { lead: "Regional compensation engine.", text: "Live P25, P50, P75 and P90 salary benchmarks across 18 North American, UK and European hubs in native GBP, EUR, USD and CAD." },
+      { lead: "Double-opt-in Talent Vault.", text: "Google and GitHub OAuth 2.0 verification, GitHub proof-of-work repo analysis, automatic employer domain blocking, live candidate match scores and an in-app pitch inbox with 1-click approve or pass links." },
+      { lead: "Employer billing and alerts.", text: "Self-serve Featured Slot and Brand Hub checkout in GBP via Stripe, an employer sent-pitches tracker with ATS role picker, and transactional warm-intro and instant salary-floor alert emails via AhaSend." },
+    ],
+    result: "Live at perfectrole.app with 135,000+ active roles indexed across 1,644 verified employers.",
+  },
 ];
 
 // Role lives once on each project and is slotted into the facts row right after Client.
