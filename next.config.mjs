@@ -30,7 +30,8 @@ const nextConfig = {
     ];
   },
   async headers() {
-    // Public images keep their names when replaced, so a week (not immutable), revalidated in the background.
+    // Cached for a week, so a replaced screenshot gets a new filename (e.g. name-2026-11.jpg): browsers keep the old
+    // bytes under the old URL until it expires.
     const week = "public, max-age=604800, stale-while-revalidate=86400";
     // The CV keeps one stable URL for links on LinkedIn and in emails, so it must never be served stale: browsers and
     // Cloudflare revalidate every time (cheap, via the ETag). The PDF opens in the browser; the Word file downloads.
