@@ -25,12 +25,12 @@ const projectSeo = {
   cabeazy: {
     title: `Cabeazy: Real-Time Taxi Dispatch Platform & Mobile Apps | ${name}`,
     description:
-      "Technical case study on building a real-time taxi booking and driver dispatch system using NATS messaging, Expo React Native, Kotlin, and Mapbox routing.",
+      "Technical case study on building a real-time taxi booking and dispatch platform: a Go API with WebSockets, native Kotlin and SwiftUI apps, a Next.js cab-office portal and Mapbox routing.",
     keywords: [
       "taxi dispatch system",
-      "real-time dispatch NATS",
+      "real-time dispatch WebSockets",
       "ride-hailing app architecture",
-      "Expo React Native driver app",
+      "SwiftUI iOS app",
       "Kotlin mobile app",
       "Mapbox taxi routing",
       "Cabeazy",
@@ -55,15 +55,15 @@ const projectSeo = {
     operatingSystem: "Windows, macOS, Web",
   },
   whenwillyoumarry: {
-    title: `When Will You Marry: Viral Dating Prediction App & Micro-Payments | ${name}`,
+    title: `whenwillyoumarry.com: Wedding Website Builder with RSVPs & Seating | ${name}`,
     description:
-      "Case study on building a viral dating quiz platform with Stripe micro-payments, Cloudflare R2 storage, Redis rate limiting, and social sharing on Railway.",
+      "Case study on building a wedding website builder with templates, RSVPs, a seating chart and email and SMS broadcasts, on Next.js, PostgreSQL, Stripe and Cloudflare R2 on Railway.",
     keywords: [
-      "viral quiz application",
-      "Stripe micro-payments Next.js",
+      "wedding website builder",
+      "Stripe payments Next.js",
       "Cloudflare R2 storage",
-      "Next.js Redis rate limiting",
-      "dating prediction web app",
+      "RSVP and seating chart app",
+      "wedding guest messaging",
       "Drizzle ORM",
       "whenwillyoumarry.com",
     ],

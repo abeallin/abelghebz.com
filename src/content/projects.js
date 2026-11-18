@@ -70,7 +70,7 @@ const raw = [
       { label: "Since", value: "Mar 2026" },
     ],
     live: [{ label: "cabeazy.com", url: "https://cabeazy.com" }],
-    stack: ["Go", "PostgreSQL", "Redis", "NATS", "Stripe", "WebSockets", "React Native", "Expo", "Kotlin", "Jetpack Compose", "Next.js", "Mapbox", "Sentry", "Docker", "Railway", "Maestro"],
+    stack: ["Go", "PostgreSQL", "Redis", "Stripe", "WebSockets", "Kotlin", "Jetpack Compose", "Swift", "SwiftUI", "Next.js", "Mapbox", "LiveKit", "Sentry", "Docker", "Railway", "Maestro"],
     stats: [
       { value: "0%", label: "commission on fares" },
       { value: "£5", label: "a day driven, flat, for drivers" },
@@ -81,16 +81,16 @@ const raw = [
       steps: [
         { src: "/screenshots/cabeazy-london.jpg", caption: "Find cabeazy" },
         { src: "/screenshots/cabeazy-cab-offices.jpg", caption: "See the office offer" },
-        { src: "/screenshots/cabeazy-portal-demo.jpg", caption: "Try the portal demo" },
+        { src: "/screenshots/cabeazy-portal-demo.jpg", caption: "See the live board" },
         { src: "/screenshots/cabeazy-operator-dashboard.jpg", caption: "Run live operations" },
       ],
     },
     screens: [
-      { src: "/screenshots/cabeazy-london.jpg", caption: "cabeazy.com, launching in London", ratio: "web" },
-      { src: "/screenshots/cabeazy-cab-offices.jpg", caption: "Modern dispatch for cab offices", ratio: "web" },
+      { src: "/screenshots/cabeazy-london.jpg", caption: "cabeazy in London: offices and drivers can apply now", ratio: "web" },
+      { src: "/screenshots/cabeazy-cab-offices.jpg", caption: "Everything a cab office runs on, in one system", ratio: "web" },
       { src: "/screenshots/cabeazy-operator-dashboard.jpg", caption: "Operator portal: live operations", ratio: "web" },
-      { src: "/screenshots/cabeazy-portal-demo.jpg", caption: "Clickable demo of the booking queue", ratio: "web" },
-      { src: "/screenshots/cabeazy-cities.jpg", caption: "Planned UK cities", ratio: "web" },
+      { src: "/screenshots/cabeazy-portal-demo.jpg", caption: "Live board of every booking, from a demo office", ratio: "web" },
+      { src: "/screenshots/cabeazy-cities.jpg", caption: "Choose your city", ratio: "web" },
       { src: "/screenshots/cabeazy-driver-earnings.jpg", caption: "Driver earnings", ratio: "phone" },
       { src: "/screenshots/cabeazy-driver-licence.jpg", caption: "Driver's PHV licence", ratio: "phone" },
       { src: "/screenshots/cabeazy-driver-vehicle.jpg", caption: "Vehicle and documents", ratio: "phone" },
@@ -98,12 +98,12 @@ const raw = [
       { src: "/screenshots/cabeazy-passenger-account.jpg", caption: "Passenger account", ratio: "phone" },
     ],
     problem:
-      "Ride-hailing apps take a commission on every fare. cabeazy charges drivers a flat £5 for each day they drive, taken from their weekly payouts, and cab offices £10 per driver per month instead, with no commission. That means running bookings, dispatch and payments for three kinds of user at once: passengers, drivers and cab offices.",
+      "Ride-hailing apps take a commission on every fare. cabeazy charges drivers a flat £5 for each day they drive, taken from their weekly payouts, and cab offices a one-off £1,000 onboarding fee plus £2.50 per driver for each day they work for them, with no commission. That means running bookings, dispatch and payments for three kinds of user at once: passengers, drivers and cab offices.",
     built: [
       { lead: "Contract-first API.", text: "A Go API on PostgreSQL and Redis whose /v2 is generated from an OpenAPI spec; CI fails if the code drifts from it." },
       { lead: "Money that adds up.", text: "Signed fare quotes valid for 10 minutes, idempotency keys on booking and payouts, and settlement through a job queue where every step is safe to retry." },
       { lead: "Real time.", text: "Ride updates over WebSockets, fanned out through Redis across instances; unanswered offers are re-dispatched every 4 seconds." },
-      { lead: "Apps and web.", text: "React Native apps for passengers and drivers today, with a native Kotlin Android app under way and a Swift iOS app planned; a Next.js marketing site, operator portal and admin." },
+      { lead: "Apps and web.", text: "Native passenger and driver apps in Kotlin and Jetpack Compose on Android and SwiftUI on iOS, with in-app calls over LiveKit; a Next.js marketing site, cab-office portal and admin." },
     ],
     result: "The marketing site is live at cabeazy.com. The platform is pre-launch, with a closed Android beta next.",
   },
@@ -158,7 +158,7 @@ const raw = [
       { label: "Stack", value: "Next.js, PostgreSQL, Railway" },
     ],
     live: [{ label: "whenwillyoumarry.com", url: "https://whenwillyoumarry.com" }],
-    stack: ["TypeScript", "Next.js", "Tailwind CSS", "PostgreSQL", "Drizzle", "Redis", "Stripe", "Cloudflare R2", "Railway", "Playwright", "Vitest", "Sentry"],
+    stack: ["TypeScript", "Next.js", "Tailwind CSS", "PostgreSQL", "Drizzle", "Redis", "Stripe", "Cloudflare R2", "AhaSend", "Claude API", "Railway", "Playwright", "Vitest", "Sentry"],
     flow: {
       title: "Building a wedding site",
       steps: [
@@ -170,13 +170,13 @@ const raw = [
     },
     screens: [
       { src: "/screenshots/WWYM1.png", caption: "Home page", ratio: "web" },
-      { src: "/screenshots/WWYM2.png", caption: "Live in three steps", ratio: "web" },
+      { src: "/screenshots/WWYM2.png", caption: "Live demo site in the Classic template", ratio: "web" },
       { src: "/screenshots/WWYM4.png", caption: "Visual editor with live preview", ratio: "web" },
       { src: "/screenshots/WWYM5.png", caption: "Editing the wedding details", ratio: "web" },
       { src: "/screenshots/WWYM6.png", caption: "RSVP and guest management", ratio: "web" },
       { src: "/screenshots/WWYM7.png", caption: "Drag-and-drop seating chart", ratio: "web" },
       { src: "/screenshots/WWYM8.png", caption: "Email and SMS broadcasts", ratio: "web" },
-      { src: "/screenshots/WWYM3.png", caption: "Features", ratio: "web" },
+      { src: "/screenshots/WWYM3.png", caption: "Features: editor, RSVPs and seating", ratio: "web" },
     ],
     problem:
       "A wedding needs a website, an RSVP list, a seating plan and a way to reach every guest. whenwillyoumarry puts all four in one place.",
@@ -184,9 +184,9 @@ const raw = [
       { lead: "Templates and editor.", text: "Customisable templates with a visual editor and live preview." },
       { lead: "Guests.", text: "RSVP tracking and a guest list." },
       { lead: "Seating.", text: "A drag-and-drop seating chart." },
-      { lead: "Messaging.", text: "Email and SMS broadcasts to all guests or a filtered group through Sweego, plus a gift registry." },
+      { lead: "Messaging.", text: "Email and SMS broadcasts to all guests or a filtered group, with email through AhaSend and SMS through Sweego, plus a gift registry." },
     ],
-    result: "Live at whenwillyoumarry.com, with a free tier to start building.",
+    result: "Live at whenwillyoumarry.com: free to build, and £59 once to publish.",
   },
   {
     slug: "perfectrole",
@@ -202,7 +202,7 @@ const raw = [
       { label: "Stack", value: "Next.js, SQLite, Stripe, Railway" },
     ],
     live: [{ label: "perfectrole.app", url: "https://perfectrole.app" }],
-    stack: ["TypeScript", "Next.js", "Tailwind CSS", "SQLite", "Stripe", "Cloudflare R2", "Railway", "Playwright"],
+    stack: ["TypeScript", "Next.js", "Tailwind CSS", "shadcn/ui", "SQLite", "Stripe", "AhaSend", "Docker", "Railway", "Playwright"],
     stats: [
       { value: "135k+", label: "verified direct-to-employer roles" },
       { value: "1,644", label: "company ATS feeds indexed" },

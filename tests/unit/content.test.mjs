@@ -119,19 +119,22 @@ test("GPFlow's stack is what its repo uses: Next.js, Tailwind, Electron and Play
   assert.doesNotMatch(JSON.stringify(g), /Selenium/);
 });
 
-test("cabeazy lists Kotlin and says Swift is planned, not built", () => {
+test("cabeazy's apps are native Kotlin and SwiftUI; the React Native apps are gone", () => {
   const c = projects.find((p) => p.slug === "cabeazy");
-  assert.ok(c.stack.includes("Kotlin"));
-  assert.match(JSON.stringify(c.built), /Swift iOS app planned/);
+  for (const t of ["Kotlin", "Swift", "SwiftUI"]) assert.ok(c.stack.includes(t), t);
+  assert.match(JSON.stringify(c.built), /SwiftUI on iOS/);
+  assert.doesNotMatch(JSON.stringify(c), /React Native|Expo/);
 });
 
-test("stacks match the repos: whenwillyoumarry runs on Railway and R2, not AWS; GPFlow uses MongoDB; cabeazy uses NATS", () => {
+test("stacks match the repos: whenwillyoumarry runs on Railway and R2, not AWS; GPFlow uses MongoDB; cabeazy no longer lists NATS", () => {
   const w = projects.find((p) => p.slug === "whenwillyoumarry");
   assert.ok(!w.stack.includes("AWS"), "whenwillyoumarry is not on AWS");
   for (const t of ["Drizzle", "Redis", "Stripe", "Cloudflare R2", "Railway"]) assert.ok(w.stack.includes(t), t);
   assert.doesNotMatch(JSON.stringify(w.facts), /AWS/);
   assert.ok(projects.find((p) => p.slug === "gpflow").stack.includes("MongoDB"));
-  for (const t of ["NATS", "Expo", "Jetpack Compose", "Mapbox"]) assert.ok(projects.find((p) => p.slug === "cabeazy").stack.includes(t), t);
+  for (const t of ["Jetpack Compose", "Mapbox", "LiveKit"]) assert.ok(projects.find((p) => p.slug === "cabeazy").stack.includes(t), t);
+  assert.ok(!projects.find((p) => p.slug === "cabeazy").stack.includes("NATS"), "NATS only lives in the undeployed worker");
+  assert.match(JSON.stringify(projects.find((p) => p.slug === "whenwillyoumarry").built), /email through AhaSend and SMS through Sweego/);
   assert.deepEqual(projects.find((p) => p.slug === "betmate").stack, ["C#", "AWS", "CockroachDB", "Dapper"]);
 });
 
