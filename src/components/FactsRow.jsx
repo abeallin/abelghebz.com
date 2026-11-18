@@ -10,7 +10,8 @@ export default function FactsRow({ facts, live = [], size = "sm" }) {
         </div>
       ))}
       {live.length > 0 && (
-        <div>
+        // Full width on the two-column phone layout, so a long site name never lands in a half-width cell.
+        <div className={`col-span-2 ${big ? "md:col-span-1" : "sm:col-span-1"}`}>
           <dt className="font-mono text-[12.5px] text-muted">Live</dt>
           <dd className={`mt-1 flex flex-wrap gap-2 font-medium text-ink ${big ? "text-[16px]" : "text-[14.5px]"}`}>
             {live.map((l) => (
