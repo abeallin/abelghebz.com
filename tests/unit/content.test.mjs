@@ -21,8 +21,8 @@ test("Betmate says it scaled to 1 million users", () => {
   assert.match(JSON.stringify(experience.find((e) => e.company === "Betmate")), /1 million users/);
 });
 
-test("Arena started in Dec 2025", () => {
-  assert.match(experience.find((e) => e.company === "Arena Entertainment").period, /^Dec 2025/);
+test("Arena ran from Dec 2025 to Nov 2026", () => {
+  assert.equal(experience.find((e) => e.company === "Arena Entertainment").period, "Dec 2025 — Nov 2026");
 });
 
 test("experience lists seven roles, newest first", () => {
@@ -188,4 +188,17 @@ test("package.json pins Node to the version CI uses", async () => {
   const { readFileSync } = await import("node:fs");
   const pkg = JSON.parse(readFileSync("package.json", "utf8"));
   assert.equal(pkg.engines?.node, "24.x");
+});
+
+test("every project names Abel's role once, and the facts row shows it right after Client", () => {
+  for (const p of projects) {
+    assert.ok(p.role, `${p.slug} has a role`);
+    assert.deepEqual(p.facts.slice(0, 2).map((f) => f.label), ["Client", "Role"], p.slug);
+    assert.equal(p.facts[1].value, p.role);
+    assert.equal(p.facts.filter((f) => f.label === "Role").length, 1, p.slug);
+  }
+  for (const slug of ["betmate", "gpflow"]) {
+    const p = projects.find((x) => x.slug === slug);
+    assert.ok(experience.some((e) => e.role === p.role), `${slug} role matches the CV`);
+  }
 });

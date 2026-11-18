@@ -1,16 +1,16 @@
 // Case-study text is drawn only from Abel's existing site content, his CV and what the screenshots show.
 // Captions were written by Claude from looking at each screenshot; Abel confirms them in the PR.
-export const projects = [
+const raw = [
   {
     slug: "betmate",
     name: "Betmate",
     kind: "mobile",
     eyebrow: "Backend lead · 2025",
+    role: "Lead / Senior Software Engineer",
     headline: "A £500k-jackpot multiplayer game for a leading sports betting company, scaled to 1 million users",
     summary: "I led the backend for Final One Standing: serverless C# on AWS Lambda, event-driven through SNS and SQS, on CockroachDB.",
     facts: [
       { label: "Client", value: "Betmate" },
-      { label: "Role", value: "Lead / Senior Software Engineer" },
       { label: "When", value: "Apr — Jul 2025" },
     ],
     live: [
@@ -61,12 +61,12 @@ export const projects = [
     name: "cabeazy",
     kind: "mobile",
     eyebrow: "Own product · pre-launch",
+    role: "Founder & sole engineer",
     headline: "A ride-hailing platform for London where drivers keep 100% of every fare",
     summary:
       "Passenger and driver apps, a portal for cab offices and the Go API behind them. The marketing site is live at cabeazy.com; a closed Android beta is next.",
     facts: [
       { label: "Client", value: "Own product" },
-      { label: "Role", value: "Sole developer" },
       { label: "Since", value: "Mar 2026" },
     ],
     live: [{ label: "cabeazy.com", url: "https://cabeazy.com" }],
@@ -112,11 +112,11 @@ export const projects = [
     name: "GPFlow",
     kind: "web",
     eyebrow: "Contract · NHS England · 2025",
+    role: "Software Engineer (Contract)",
     headline: "Bulk template management for GP practices in North Central London, built for NHS England",
     summary: "A Next.js and Tailwind app, shipped as an Electron desktop app and as a web app, that automates Accurx template management: load practices from a CSV, then create or delete templates across all of them at once.",
     facts: [
       { label: "Client", value: "NHS England" },
-      { label: "Role", value: "Software Engineer (Contract)" },
       { label: "When", value: "Dec 2024 — Feb 2025" },
     ],
     live: [{ label: "Web app", url: "https://gpflow-prod.up.railway.app/data/" }],
@@ -150,6 +150,7 @@ export const projects = [
     name: "whenwillyoumarry.com",
     kind: "web",
     eyebrow: "Own product",
+    role: "Founder & full-stack engineer",
     headline: "A wedding website builder with RSVPs, seating and guest messaging in one place",
     summary: "Couples pick a template, add their details and share one link. Behind it: RSVP and guest management, a seating chart, email and SMS broadcasts and a gift registry.",
     facts: [
@@ -188,6 +189,12 @@ export const projects = [
     result: "Live at whenwillyoumarry.com, with a free tier to start building.",
   },
 ];
+
+// Role lives once on each project and is slotted into the facts row right after Client.
+export const projects = raw.map((p) => {
+  const [client, ...rest] = p.facts;
+  return { ...p, facts: [client, { label: "Role", value: p.role }, ...rest] };
+});
 
 export const projectBySlug = (slug) => projects.find((p) => p.slug === slug);
 
