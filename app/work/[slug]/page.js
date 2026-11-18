@@ -81,6 +81,7 @@ export default async function CaseStudy({ params }) {
           "@type": "Person",
           name: profile.name,
           url: seo.site,
+          jobTitle: p.role,
         },
         about: p.stack.map((item) => ({ "@type": "Thing", name: item })),
         keywords: page?.keywords?.join(", "),

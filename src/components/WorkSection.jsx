@@ -51,6 +51,7 @@ export default function WorkSection() {
         <div className="flex flex-col justify-between gap-8 p-7 sm:p-10">
           <div>
             <p className="font-mono text-[13px] text-body">(Featured) · {first.eyebrow}</p>
+            <p className="mt-1 font-mono text-[13px] text-muted">Role: {first.role}</p>
             <h3 className="mt-3 font-display text-[clamp(30px,3.6vw,42px)] font-normal leading-[1.06] tracking-[-0.01em] text-ink">{first.headline}</h3>
             <p className="mt-4 text-[16px] leading-[1.6] text-body">{first.summary}</p>
             <StackChips items={first.stack.slice(0, 4)} />
@@ -71,6 +72,7 @@ export default function WorkSection() {
             <div className="flex flex-1 flex-col justify-between gap-6 p-7">
               <div>
                 <p className="text-[14px] font-medium text-accent-ink">{p.eyebrow}</p>
+                <p className="mt-0.5 font-mono text-[13px] text-muted">Role: {p.role}</p>
                 <h3 className="mt-1 text-[21px] font-semibold leading-[1.3] tracking-[-0.01em] text-ink">{p.headline}</h3>
                 <StackChips items={p.stack.slice(0, 3)} />
               </div>
