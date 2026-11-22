@@ -7,3 +7,6 @@ export const contentType = "image/png";
 export default function AppleIcon() {
   return monogram(size, 0);
 }
+
+// Built once at build time: the site is a static export (decision 0019).
+export const dynamic = "force-static";

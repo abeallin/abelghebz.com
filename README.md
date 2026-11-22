@@ -1,7 +1,9 @@
 # abelghebz.com
 
 Abel Ghebrezadik's CV and portfolio: a home page for hiring managers and clients, and a case study per project.
-Next.js 16 (App Router), React 19, Tailwind CSS 4. Deployed by Railway from `main`.
+Next.js 16 (App Router), React 19, Tailwind CSS 4. Built as a static export and served by `server.mjs`, a small
+file server with no dependencies ([decision 0019](docs/decisions/0019-static-export-and-own-file-server.md)).
+Deployed by Railway from `main`.
 
 ## Run it
 
