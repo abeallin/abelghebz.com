@@ -34,10 +34,11 @@ test.describe("case studies with JavaScript off", () => {
 });
 
 test("a strip that mixes desktop and phone screens keeps each one's own shape", async ({ page }) => {
+  const c = projects.find((x) => x.slug === "cabeazy");
   await page.goto("/work/cabeazy");
   const links = page.getByRole("list", { name: "Screens" }).getByRole("link");
-  const web = await links.first().boundingBox();
-  const phone = await links.last().boundingBox();
+  const web = await links.nth(c.screens.findIndex((s) => s.ratio === "web")).boundingBox();
+  const phone = await links.nth(c.screens.findIndex((s) => s.ratio === "phone")).boundingBox();
   expect(web.width).toBeGreaterThan(web.height);
   expect(phone.height).toBeGreaterThan(phone.width);
 });
