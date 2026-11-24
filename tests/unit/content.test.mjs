@@ -175,9 +175,9 @@ test("stat strips use only facts already in the content, and only where numbers 
   const byslug = Object.fromEntries(projects.map((p) => [p.slug, p]));
   assert.deepEqual(byslug.betmate.stats.map((s) => s.value), ["1M", "£500k", "iOS + Android"]);
   assert.deepEqual(byslug.cabeazy.stats.map((s) => s.value), ["0%", "£5", "3"]);
+  assert.deepEqual(byslug.whenwillyoumarry.stats.map((s) => s.value), ["7", "0%", "£59"]);
   assert.deepEqual(byslug.perfectrole.stats.map((s) => s.value), ["135k+", "2,500+", "18"]);
   assert.equal(byslug.gpflow.stats, undefined);
-  assert.equal(byslug.whenwillyoumarry.stats, undefined);
 });
 
 test("every flow strip uses 3 to 5 of the project's own screens, in order", () => {

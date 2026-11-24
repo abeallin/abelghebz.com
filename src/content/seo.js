@@ -23,17 +23,19 @@ const projectSeo = {
     operatingSystem: "iOS, Android, Web",
   },
   cabeazy: {
-    title: `Cabeazy: Real-Time Taxi Dispatch Platform & Mobile Apps | ${name}`,
+    title: `cabeazy: UK Private Hire Dispatch Platform & Native Mobile Apps | ${name}`,
     description:
-      "Technical case study on building a real-time taxi booking and dispatch platform: a Go API with WebSockets, native Kotlin and SwiftUI apps, a Next.js cab-office portal and Mapbox routing.",
+      "Technical case study on building a real-time private hire dispatch platform, corporate account billing portal, contract-first Go API (chi, sqlc, WebSockets), and native Kotlin Android and SwiftUI iOS apps with Mapbox and LiveKit.",
     keywords: [
-      "taxi dispatch system",
+      "private hire dispatch system",
+      "UK taxi dispatch software",
       "real-time dispatch WebSockets",
-      "ride-hailing app architecture",
+      "Go chi sqlc OpenAPI",
       "SwiftUI iOS app",
-      "Kotlin mobile app",
+      "Kotlin Jetpack Compose app",
       "Mapbox taxi routing",
-      "Cabeazy",
+      "LiveKit VoIP CallKit",
+      "cabeazy",
     ],
     category: "BusinessApplication",
     operatingSystem: "Android, iOS, Web",
@@ -55,12 +57,13 @@ const projectSeo = {
     operatingSystem: "Windows, macOS, Web",
   },
   whenwillyoumarry: {
-    title: `whenwillyoumarry.com: Wedding Website Builder with RSVPs & Seating | ${name}`,
+    title: `whenwillyoumarry.com: Wedding Website Builder with 7 Layouts, RSVPs & Seating | ${name}`,
     description:
-      "Case study on building a wedding website builder with templates, RSVPs, a seating chart and email and SMS broadcasts, on Next.js, PostgreSQL, Stripe and Cloudflare R2 on Railway.",
+      "Case study on building whenwillyoumarry.com, a multi-tenant Next.js wedding website builder with 7 switchable layouts, live split-screen editor, RSVP and seating chart, 0%-fee gifts, digital flyers, and AhaSend/Sweego guest broadcasts.",
     keywords: [
       "wedding website builder",
-      "Stripe payments Next.js",
+      "Next.js multi-tenant custom domains",
+      "Stripe one-time checkout Next.js",
       "Cloudflare R2 storage",
       "RSVP and seating chart app",
       "wedding guest messaging",
